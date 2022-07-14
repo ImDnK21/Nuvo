@@ -35,13 +35,13 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="<?= APP_URL . 'uploads/slides/ejemplo.jpeg' ?> " class="w-5">
-				</div>
-				<!-- <div class="carousel-item">
-					<img src="<?= APP_URL . 'uploads/slides/Agua-Desmineralizada.png' ?>" class="w-5">
+					<img src="<?= APP_URL . 'uploads/slides/ej4.jpeg' ?> " class="w-5">
 				</div>
 				<div class="carousel-item">
-					<img src="<?= APP_URL . 'uploads/slides/huaipe-seda.png' ?>" class="w-5" >
+					<img src="<?= APP_URL . 'uploads/slides/ej2.jpeg' ?>" class="w-5">
+				</div> 
+				<div class="carousel-item">
+					<img src="<?= APP_URL . 'uploads/slides/e5.jpeg' ?>" class="w-5" >
 
 				</div> -->
 			</div>
