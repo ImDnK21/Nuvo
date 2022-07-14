@@ -495,6 +495,50 @@ class AdminController {
         require_once('views/admin/order/viewListOrder.php');
     }
 
+    
+
+
+    public function AddWorkOrder()
+    {
+        Utils::isAdmin();
+        $client  = new Account();
+        $clients = $client->getAllClients();
+        require_once('views/layout/sidebar.php');
+        require_once('views/admin/order/AddOrder.php');
+    }
+
+
+      public function save(){
+        Utils::isAdmin();
+        if (isset($_POST)) {
+            $id = isset($_POST['id']) ? trim($_POST['id']) : false;
+            $patent_vehicule= isset($_POST['patent_vehicule']) ? trim($_POST['patent_vehicule']) : false;
+            $rut_client = isset($_POST['rut_client']) ? trim($_POST['rut_client']) : false;
+            $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
+            $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
+
+
+            if ($id && $patent_vehicule && $rut_client && $rut_mechanic && $observations) {
+                $workorder = new WorkOrder();
+                $workorder->setId('id');
+                $workorder->setPatentVehicle($_POST['patent_vehicule']);
+                $workorder->setRutClient($_POST['rut_client']);
+                $workorder->setRutMechanic($_POST['rut_mechanic']);
+                $workorder->setObservations($_POST['observations']);
+                if ($workorder->save()) {
+                    $_SESSION['saveOrder'] = 'Se agregó correctamente la orden de trabajo';
+                } else {
+                    $_SESSION['saveOrder'] = 'Error al agregar la orden de trabajo';
+                }
+            } else {
+                $_SESSION['saveOrder'] = 'Debes rellenar todos los campos';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListOrder');
+      }
+
+
+
     public function ViewListCategories(){
         Utils::isAdmin();
         $category = new Category();

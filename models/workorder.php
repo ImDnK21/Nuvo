@@ -52,9 +52,10 @@ class WorkOrder {
   }
 
   public function validarOT() {
-    $query = "SELECT * FROM workorder WHERE ID = '$this->id' AND RUT_CLIENT = '$this->rut_client'";
+    $query = "SELECT * FROM workorder WHERE ID = $this->id AND RUT_CLIENT = $this->rut_client";
     // die($query);
     $result = $this->db->query($query);
+    
     return $result->fetch_object();
   }
 
@@ -62,6 +63,16 @@ class WorkOrder {
     $query = "SELECT * FROM WORKORDER";
     $workorders = $this->db->query($query);
     return $workorders;
+}
+
+public function save() {
+  $query = "INSERT INTO WORKORDER (ID, PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS) VALUES ('{$this->id}', '{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}')";
+  $save = $this->db->query($query);
+  $result = false;
+  if ($save) {
+    $result = true;
+  }
+  return $result;
 }
 
 }

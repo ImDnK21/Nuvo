@@ -21,36 +21,40 @@
 
  -->
 
-<div class="container py-3 animate__animated animate__fadeInUp d-none d-md-block">
+ <div class="container py-3 animate_animated animate_fadeInUp d-none d-md-block">
 	<div class="text-center">
-		<h3 class="section-header">Productos destacados</h3>
-		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+		<h1 class="section-header">Productos destacados</h1>
+		<div id="destacados" class="carousel carousel-dark slide" data-bs-ride="true">
 			<div class="carousel-indicators">
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-					aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-					aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-					aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#destacados" data-bs-slide-to="0" class="active" aria-current="true"></button>
+				<button type="button" data-bs-target="#destacados" data-bs-slide-to="1"></button>
+				<button type="button" data-bs-target="#destacados" data-bs-slide-to="2"></button>
+				<button type="button" data-bs-target="#destacados" data-bs-slide-to="3"></button>
+				<button type="button" data-bs-target="#destacados" data-bs-slide-to="4"></button>
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="<?= APP_URL . 'uploads/slides/ej4.jpeg' ?> " class="w-5">
+					<img src="<?= APP_URL . 'uploads/slides/e1.jpeg' ?>" class="w-5">
 				</div>
 				<div class="carousel-item">
-					<img src="<?= APP_URL . 'uploads/slides/ej2.jpeg' ?>" class="w-5">
+					<img src="<?= APP_URL . 'uploads/slides/e2.jpeg' ?>" class="w-5">
 				</div> 
 				<div class="carousel-item">
-					<img src="<?= APP_URL . 'uploads/slides/e5.jpeg' ?>" class="w-5" >
-
-				</div> -->
+					<img src="<?= APP_URL . 'uploads/slides/e3.jpeg' ?>" class="w-5">
+				</div>
+				<div class="carousel-item">
+					<img src="<?= APP_URL . 'uploads/slides/e4.jpeg' ?>" class="w-5">
+				</div>
+				<div class="carousel-item">
+					<img src="<?= APP_URL . 'uploads/slides/e5.jpeg' ?>" class="w-5">
+				</div>
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+			<button class="carousel-control-prev" type="button" data-bs-target="#destacados"
 				data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+			<button class="carousel-control-next" type="button" data-bs-target="#destacados"
 				data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
@@ -60,13 +64,12 @@
 </div>
 <section class="section-products">
 	<div class="container">
-		<div class="row justify-content-center text-center">
-			<div class="col-md-8 col-lg-6">
+			<div class="text-center">
 				<div class="header">
-					<h2>Herramientas e Insumos</h2>
+					<h1 class="section-header">Herramientas e Insumos</h1>
 				</div>
 			</div>
-		</div>
+		
 		<div class="row">
 			<!-- Single Product -->
 			<div class="col-md-6 col-lg-4 col-xl-3">

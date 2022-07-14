@@ -111,7 +111,7 @@ class Account {
 
 
   public function getAllMechanics() {
-    $query = "SELECT * FROM user WHERE role = 'mechanic'";
+    $query = "SELECT * FROM `user` WHERE ROLE = 'mechanic'";
     $mechanics = $this->db->query($query);
     return $mechanics;
   }

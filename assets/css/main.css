@@ -7407,6 +7407,11 @@ fieldset:disabled .btn {
     }
 }
 
+.section-header {
+    background-color: darkgray;
+    width: 100%;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
     position: absolute;
@@ -7430,7 +7435,8 @@ fieldset:disabled .btn {
     border: 0;
     opacity: .5;
     -webkit-transition: opacity 0.15s ease;
-    transition: opacity 0.15s ease
+    transition: opacity 0.15s ease;
+    /* filter: invert(100%); */
 }
 
 @media (prefers-reduced-motion: reduce) {
