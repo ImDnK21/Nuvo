@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 14-07-2022 a las 04:54:07
+-- Tiempo de generación: 14-07-2022 a las 06:46:07
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 8.1.6
 
@@ -115,7 +115,7 @@ INSERT INTO `user` (`ROLE`, `RUT`, `FIRSTNAME`, `LASTNAME`, `PHONE`, `ADDRESS`, 
 ('mechanic', '16944090-5', 'Carlos Emanuel', 'Montt Sanhueza', '+56982371231', 'Av Vitacura #521', 'Vitacura', 'cmontt@gmail.com', '$2y$10$ItlMxlAUiHTuih9Pc8X.XexHz7RRdDHv8HD4bp9ys87p4GQIamT5m', '2022-07-03 03:38:54', '2022-07-09 17:56:15'),
 ('client', '17701628-4', 'Miguel Angel', 'Sanchez Carrasco', '+56927348237', 'Gounod #1027', 'Las Condes', 'msanchez@gmail.com', '$2y$10$bjmaNPZHRNJfOQbMYS5e.O8Nj7XfyACCtsDdsfnuV4wRjUFEw.Zqu', '2022-07-09 17:31:10', '2022-07-09 17:31:10'),
 ('client', '20049428-8', 'Gary Sebastian', 'Sanche Arancibia', '+5698731422', 'Las Nieves #123', 'La Cisterna', 'gsanchez@gmail.cl', '$2y$10$DTHjIKzuUPMM.zCWjDQCuehi9OYi1S0iTNqgDI02MEVAEnuv0/G4K', '2022-07-09 06:06:11', '2022-07-09 17:31:27'),
-('admin', '20049429-6', 'Danko Sanchez', 'Sanchez Arancibia', '', '', '', 'admin@admin.cl', '$2y$10$9G6V5hNUqcMyw1UloN7YheqT6elFcEQYuxyJSXPhE9xDSwK3k6NIW', '2022-07-14 01:56:32', '2022-07-14 04:42:13'),
+('admin', '20049429-6', 'Admin', 'Admin', '', '', '', 'admin@admin.cl', '$2y$10$yL6aeqScgE.CM6cmQ8Yu2.XynS0Gk0NkkbVNIiihJxeSfS5Ikw5LO', '2022-07-14 05:04:44', '2022-07-14 05:05:04'),
 ('mechanic', '4355107-8', 'Ricarrdo Hernan', 'Soto Hernandez', '+56928234823', 'Santa Raquel #734', 'La Florida', 'rsoto@gmail.com', '$2y$10$4RSAInbqwgGq9HDsJXeMV.cVHEUrPU0kbuEH0G/JLPw.PXi7UbLTG', '2022-07-09 17:51:25', '2022-07-13 15:10:09');
 
 -- --------------------------------------------------------
@@ -174,7 +174,7 @@ INSERT INTO `workorder` (`ID`, `PATENT_VEHICLE`, `RUT_CLIENT`, `RUT_MECHANIC`, `
 ('123456', 'YDRP-52', '20042382-5', '43551072-8', 'Foco quemado\r\nTrapabarros Roto', '2022-07-13 14:37:30', '2022-07-13 14:37:30'),
 ('4', 'JKKD-14', '16924772-2', NULL, 'Cambiar Liquido de frenos\r\nRealizar alineamiento', '2022-07-07 02:18:13', '2022-07-07 02:18:13'),
 ('99', NULL, '123', NULL, NULL, '2022-07-07 02:10:46', '2022-07-07 02:10:46'),
-('999', NULL, '20049429-6', NULL, NULL, '2022-07-14 01:56:08', '2022-07-14 01:56:08');
+('999', NULL, '20049429-6', NULL, NULL, '2022-07-14 05:04:28', '2022-07-14 05:04:28');
 
 -- --------------------------------------------------------
 
