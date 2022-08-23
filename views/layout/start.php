@@ -12,5 +12,6 @@
   <script src="https://kit.fontawesome.com/384a6fe07a.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<?= APP_URL . 'assets/css/main.css' ?>">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="sb-nav-fixed">

@@ -4,6 +4,7 @@ require_once('models/vehicle.php');
 require_once('models/workorder.php');
 require_once('models/category.php');
 require_once('models/supply.php');
+require_once('models/service.php');
 
 class AdminController {
     /**
@@ -642,14 +643,14 @@ class AdminController {
               $mimetype = $file['type'];
     
               if ($mimetype == 'image/jpg' || $mimetype == 'image/jpeg' || $mimetype == 'image/png') {
-                if (!is_dir('uploads/imges')) {
-                  mkdir('uploads/images', 0777, true);
+                if (!is_dir('uploads/')) {
+                  mkdir('uploads', 0777, true);
                 }
     
                 $idCategory = Utils::query('CATEGORY', 'NAME_CATEGORY', 'ID', $id_category);
                 $filename = Utils::clearString(strtolower(str_replace(' ', '-', $idCategory)) . '_' . strtolower(str_replace(' ', '-', $name)) . '.' . str_replace('image/', '', $mimetype));
     
-                $image = 'uploads/images/' . $filename;
+                $image = 'uploads/' . $filename;
                 move_uploaded_file($file['tmp_name'], $image);
                 $supply->setImg($filename);
               }
@@ -667,6 +668,53 @@ class AdminController {
         header('Location:' . APP_URL . 'admin/ViewListSupplies');
       }
 
+      public function saveService(){
+        Utils::isAdmin();
+        if(isset($_POST)){
+            $id = isset($_POST['id']) ? trim($_POST['id']) : false;
+            $name = isset($_POST['name']) ? trim(ucwords($_POST['name'])) : false;
+            $description = isset($_POST['description']) ? trim($_POST['description']) : false;
+            $price = isset($_POST['price']) ? trim($_POST['price']) : false;
+
+            if($id && $name && $description && $price){
+                $service = new Service();
+                $service->setId($_POST['id']);
+                $service->setName($_POST['name']);
+                $service->setDescription($_POST['description']);
+                $service->setPrice($_POST['price']);
+                if($service->save()){
+                    $_SESSION['saveService'] = 'Se Agrego correctamente el servicio';
+                }else{
+                    $_SESSION['saveService'] = 'Error al agregar el servicio';
+                }
+        }
+
+      }
+      header('Location:' . APP_URL . 'admin/ViewListServices');
+    }
+
+    public function ViewListServices(){
+        Utils::isAdmin();
+        $service = new Service();
+        $services = $service->getAll();
+        require_once('views/layout/sidebar.php');
+        require_once('views/admin/service/ViewList.php');
+    }
+
+    public function DeleteService(){
+        if (isset($_GET['id'])){
+            $id = $_GET['id'];
+            $service = new Service();
+            $service->setId($id);
+            if ($service->delete()){
+                $_SESSION['saveService'] = 'Se eliminó correctamente el servicio';
+            } else {
+                $_SESSION['saveService'] = 'Error al eliminar el servicio';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListServices');
+    }
+
 
 
       public function ViewCatalog() {
@@ -676,8 +724,8 @@ class AdminController {
 
         require_once('views/layout/sidebar.php');
 
-        // require_once('views/admin/supplies/catalog.php');
-        require_once('views/admin/supplies/ViewSupply.php');
+        require_once('views/admin/supplies/catalog.php');
+        // require_once('views/admin/supplies/ViewSupply.php');
 
 
         // require_once('views/'); 

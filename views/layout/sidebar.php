@@ -40,7 +40,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Gestión de insumos
                 </a> -->
-                <a class="nav-link" href="<?= APP_URL . '' ?>">
+                <a class="nav-link" href="<?= APP_URL . 'admin/ViewListServices' ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Servicios
                 </a>

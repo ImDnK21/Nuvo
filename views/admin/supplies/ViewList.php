@@ -82,7 +82,9 @@
                                                     class="btn-close"></button>
                                             </div>
                                             <div class="modal-body text-center">
-                                                <b>RUT : <?= $supply->ID ?></b>
+                                                <b>ID insumo : <?= $supply->ID_SUPPLY ?></b>
+                                                <br>
+                                                <b>Nombre : <?= $supply->NAME ?></b>
                                                 <br>
                                                 Una vez eliminado, no podrás recuperarlo. </div>
                                             <div class="modal-footer">
