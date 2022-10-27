@@ -53,7 +53,13 @@ class ClientController{
         Utils::isAuth();
 
         require_once('views/layout/sidebarClient.php');
-        require_once('views/client/viewVehicle.php');
+        require_once('views/client/vehicle/index.php');
+    }
+
+    public function viewRequestedService(){
+        Utils::isAuth();
+        require_once('views/layout/sidebarClient.php');
+        require_once('views/client/vehicle/requestedService.php');
     }
 
     public function ViewVehicleOwner()

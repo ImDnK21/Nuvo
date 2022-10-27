@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Informacion</div>
-                <a class="nav-link" href="<?= APP_URL . 'admin/dashboard' ?>">
+                <a class="nav-link" href="<?= APP_URL . 'client/viewInfo' ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-car"></i></div>
                     Mi Vehiculo
                 </a>
@@ -20,11 +20,11 @@
                         <a class="nav-link" href="<?= APP_URL . 'admin/ViewListVehicle' ?>">Vehículos</a>
                     </nav>
                 </div> -->
-                <a class="nav-link" href="<?= APP_URL . 'admin/' ?>">
+                <a class="nav-link" href="<?= APP_URL . 'client/viewInfo' ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Mi Orden de Trabajo
                 </a>
-                <a class="nav-link" href="<?= APP_URL . '' ?>">
+                <a class="nav-link" href="<?= APP_URL . 'client/viewRequestedService' ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Servicios Solicitados
                 </a>
