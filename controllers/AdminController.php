@@ -499,11 +499,13 @@ class AdminController {
     
 
 
-    public function AddWorkOrder()
-    {
+    public function AddWorkOrder() {
         Utils::isAdmin();
+        
         $client  = new Account();
         $clients = $client->getAllClients();
+        $mechanics = $client->getAllMechanics();
+
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/AddOrder.php');
     }

@@ -6,6 +6,10 @@ require_once('models/vehicle.php');
 class ClientController{
     public function view(){
         utils::isAuth();
+
+        $vehicle = new Vehicle();
+        $vehicle = $vehicle->getByOwner($_SESSION['logged']->RUT);
+
         require_once('views/layout/sidebarClient.php');
         require_once('views/client/vehicle/index.php');
         // $vehicles = $vehicle->getByPatent($_SESSION['logged']->PATENT_VEHICLE);

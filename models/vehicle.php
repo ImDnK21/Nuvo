@@ -138,6 +138,16 @@ class Vehicle {
         return $vehicle->fetch_object();
     }
 
+
+    /* 
+        
+    */
+    public function getByOwner($owner) {
+        $query = "SELECT * FROM VEHICLE WHERE owner = '$owner'";
+        $vehicle = $this->db->query($query);
+        return $vehicle->fetch_object();
+    }
+
     /**
    * It saves the data from the form into the database.
    * 
