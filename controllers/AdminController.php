@@ -670,27 +670,106 @@ class AdminController {
       public function saveService(){
         Utils::isAdmin();
         if(isset($_POST)){
-            $id = isset($_POST['id']) ? trim($_POST['id']) : false;
+            
             $name = isset($_POST['name']) ? trim(ucwords($_POST['name'])) : false;
             $description = isset($_POST['description']) ? trim($_POST['description']) : false;
             $price = isset($_POST['price']) ? trim($_POST['price']) : false;
+            
 
-            if($id && $name && $description && $price){
+            if($name && $description && $price){
                 $service = new Service();
-                $service->setId($_POST['id']);
                 $service->setName($_POST['name']);
                 $service->setDescription($_POST['description']);
                 $service->setPrice($_POST['price']);
                 if($service->save()){
+                    
                     $_SESSION['saveService'] = 'Se Agrego correctamente el servicio';
                 }else{
                     $_SESSION['saveService'] = 'Error al agregar el servicio';
                 }
         }
-
       }
       header('Location:' . APP_URL . 'admin/ViewListServices');
     }
+
+    public function AddService()
+    {
+        Utils::isAdmin();
+        $client  = new Account();
+        // $services = $service->getAllService();
+        require_once('views/layout/sidebar.php');
+        require_once('views/admin/service/addService.php');
+    }
+
+    public function EditService()
+    {
+        Utils::isAdmin();
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $service = new Service();
+            $service = $service->getById($_GET['id']);
+            require_once('views/layout/sidebar.php');
+            require_once('views/admin/service/EditService.php');
+        }
+    }
+    // public function UpdateCategory()
+    // {
+    //     Utils::isAdmin();
+    //     if (isset($_POST)) {
+    //         $id = isset($_POST['id']) ? trim($_POST['id']) : false;
+    //         $name = isset($_POST['name_category']) ? trim($_POST['name_category']) : false;
+
+            
+    //         if ($id && $name) {
+    //             $category = new Category();
+    //             $category->setId($_POST['id']);
+    //             $category->setNameCategory($_POST['name_category']);
+
+
+    //             if ($category->update()) {
+    //                 $_SESSION['saveCategory'] = 'Se actualizó correctamente la categoria';
+    //             } else {
+    //                 $_SESSION['saveCategory'] = 'Error al editar la categoria';
+    //             }
+    //         } else {
+    //             $_SESSION['saveCategory'] = 'Debes rellenar todos los campos';
+    //         }
+    //     }
+    //     header('Location:' . APP_URL . 'admin/ViewListCategories');
+    // }
+
+
+    public function UpdateService()
+    {
+        Utils::isAdmin();
+        if (isset($_POST)) {
+            $id = $_GET['id'];
+            $id = isset($_POST['id']) ? trim($_POST['id']) : false;
+            $name = isset($_POST['name_category']) ? trim($_POST['name_category']) : false;
+            $description = isset($_POST['description']) ? trim($_POST['description']) : false;
+            $price = isset($_POST['price']) ? trim($_POST['price']) : false;
+            // die(var_dump($_POST));
+            die($id);
+
+            
+            if ($id && $name && $description && $price) {
+                $service = new Service();
+                $service->setId($id);
+                $service->setName($_POST['name']);
+                $service->setDescription($_POST['description']);
+                $service->setPrice($_POST['price']);
+
+                if ($service->update()) {
+                    $_SESSION['SaveService'] = 'Se actualizó correctamente la categoria';
+                } else {
+                    $_SESSION['SaveService'] = 'Error al editar la categoria';
+                }
+            } else {
+                $_SESSION['SaveService'] = 'Debes rellenar todos los campos';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListServices');
+    }
+
 
     public function ViewListServices(){
         Utils::isAdmin();

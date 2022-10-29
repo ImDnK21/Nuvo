@@ -45,7 +45,9 @@ class Service {
     }
 
     public function save(){
-        $query = "INSERT INTO SERVICE (ID, NAME, DESCRIPTION, PRICE) VALUES (NULL, '{$this->name}', '{$this->description}', '{$this->price}')";
+        $query = "INSERT INTO SERVICE (NAME, DESCRIPTION, PRICE) VALUES ('{$this->name}', '{$this->description}', '{$this->price}')";
+        // var_dump($query);
+        // die($query);
         $save = $this->db->query($query);
         $result = false;
         if($save){
@@ -54,11 +56,33 @@ class Service {
         return $result;
     }
 
+    public function GetById($id){
+        $query = "SELECT * FROM SERVICE WHERE ID = {$id}";
+        $service = $this->db->query($query);
+        return $service->fetch_object();
+    }
+    
+    public function update(){
+		$sql = "UPDATE SERVICE SET NAME='{$this->name}', DESCRIPTION={$this->description}, PRICE={$this->price} WHERE ID={$this->id};";
+        die($sql);
+		$save = $this->db->query($sql);
+		
+		$result = false;
+		if($save){
+			$result = true;
+		}
+		return $result;
+	}
+
+
+
     public function getAll(){
         $query = "SELECT * FROM SERVICE ORDER BY ID ASC";
         $services = $this->db->query($query);
         return $services;
     }
+
+    
 
     public function delete(){
         $query = "DELETE FROM SERVICE WHERE ID = '{$this->id}'";
