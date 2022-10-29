@@ -7,9 +7,17 @@
   </a> <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
       class="fas fa-bars"></i></button>
   <ul class="navbar-nav me-auto">
+    
+
+    <?php if (isset($_SESSION['admin'])) { ?>
     <li class="nav-item">
       <a href="<?= APP_URL . 'admin/dashboard' ?>" class="nav-link">Inicio</a>
     </li>
+    <?php } else { ?>
+    <li class="nav-item">
+      <a href="<?= APP_URL . 'client/view' ?>" class="nav-link">Inicio</a>
+    </li>
+    <?php } ?>
     <li class="nav-item">
       <a href="#" class="nav-link">Contáctanos</a>
     </li>
@@ -30,14 +38,14 @@
       </ul>
     </li>
 
-<?php } else { ?>
+    <?php } else { ?>
   <li class="nav-item">
       <a class="nav-link " aria-current="page" href="<?= APP_URL . 'account/login'?>">Iniciar Sesion</a>
     </li>
     <li class="nav-item">
       <a class="nav-link " aria-current="page" href="<?= APP_URL . 'account/register'?>">Registrarse</a>
     </li>
-<?php } ?>
+    <?php } ?>
     
   </ul>
 </nav>

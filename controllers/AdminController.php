@@ -496,9 +496,6 @@ class AdminController {
         require_once('views/admin/order/viewListOrder.php');
     }
 
-    
-
-
     public function AddWorkOrder() {
         Utils::isAdmin();
         
