@@ -39,7 +39,7 @@
                   <td><?= $client->EMAIL ?></td>
                   <td><?= $client->ADDRESS ?></td>
                   <td><?= $client->COMMUNE ?></td>
-                  <td><?= $client->CREATED_AT ?></td>
+                  <!-- <td><?= $client->CREATED_AT ?></td> -->
                   <td>
                     <div class="icons">
                       <a href="<?= APP_URL . 'admin/EditClient?rut=' . $client->RUT ?>" type="button" class="btn btn-warning btn-square btn-xs">

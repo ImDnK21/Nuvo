@@ -63,8 +63,8 @@ class Service {
     }
     
     public function update(){
-		$sql = "UPDATE SERVICE SET NAME='{$this->name}', DESCRIPTION={$this->description}, PRICE={$this->price} WHERE ID={$this->id};";
-        die($sql);
+		$sql = "UPDATE SERVICE SET NAME='{$this->GetName()}', DESCRIPTION='{$this->GetDescription()}', PRICE={$this->GetPrice()} WHERE ID={$this->getId()};";
+        // die($sql);
 		$save = $this->db->query($sql);
 		
 		$result = false;

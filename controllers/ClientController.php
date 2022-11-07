@@ -11,10 +11,23 @@ class ClientController{
         $vehicle = $vehicle->getByOwner($_SESSION['logged']->RUT);
 
         // die(var_dump($vehicle));
-
+        // var_dump($vehicle);
         require_once('views/layout/sidebarClient.php');
         require_once('views/client/vehicle/index.php');
         // $vehicles = $vehicle->getByPatent($_SESSION['logged']->PATENT_VEHICLE);
+    }
+
+    public function personalInformation(){
+        utils::isAuth();
+
+        $account = new Account();
+        $account->setRut($_SESSION['logged']->RUT);
+        $account = $account->getProfile();
+        
+        require_once('views/layout/sidebarClient.php');
+        require_once('views/client/vehicle/personalInformation.php');
+
+
     }
 
     public function save() {

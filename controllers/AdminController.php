@@ -79,6 +79,7 @@ class AdminController {
             $address = isset($_POST['address']) ? trim($_POST['address']) : false;
             $commune = isset($_POST['commune']) ? trim($_POST['commune']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
+            // var_dump($_POST);
 
 
             if ($rut && $firstname && $lastname && $phone && $address && $commune && $email) {
@@ -742,16 +743,12 @@ class AdminController {
     {
         Utils::isAdmin();
         if (isset($_POST)) {
-            $id = $_GET['id'];
             $id = isset($_POST['id']) ? trim($_POST['id']) : false;
-            $name = isset($_POST['name_category']) ? trim($_POST['name_category']) : false;
+            $name = isset($_POST['name']) ? trim($_POST['name']) : false;
             $description = isset($_POST['description']) ? trim($_POST['description']) : false;
             $price = isset($_POST['price']) ? trim($_POST['price']) : false;
-            // die(var_dump($_POST));
-            die($id);
 
-            
-            if ($id && $name && $description && $price) {
+            if ($name && $description && $price) {
                 $service = new Service();
                 $service->setId($id);
                 $service->setName($_POST['name']);

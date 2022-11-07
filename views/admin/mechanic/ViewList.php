@@ -39,7 +39,7 @@
                   <td><?= $mechanic->ADDRESS?></td>
                   <td><?= $mechanic->COMMUNE?></td>
                   <td><?= $mechanic->EMAIL ?></td>
-                  <td><?= $mechanic->CREATED_AT ?></td>
+                  <!-- <td><?= $mechanic->CREATED_AT ?></td> -->
                   <td>
                     <div class="icons">
                       <a href="<?= APP_URL . 'admin/EditMechanic?rut=' . $mechanic->RUT ?>" type="button" class="btn btn-warning btn-square btn-xs">

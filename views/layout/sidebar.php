@@ -62,6 +62,15 @@
         <div class="sb-sidenav-footer">
             <div class="small">Conectado como:</div>
             <?= $_SESSION['logged']->EMAIL ?>
+            <br><?= $_SESSION['logged']->LASTNAME?>
+            <h6 class="correo"><b><?= $_SESSION['logged']->EMAIL ?></b></h6>
+            <style>
+                .correo{
+                    color: #fff;
+                    font-size: 18px;
+                    text-decoration: underline;
+                }
+            </style>
         </div>
     </nav>
 </div>

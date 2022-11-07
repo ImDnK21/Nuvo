@@ -4,7 +4,7 @@
             <span class="fw-bold">Editar Servicio</span>
         </div>
         <div class="card-body">
-            <form action="<?= APP_URL . 'admin/UpdateService?id=' . $service->ID ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= APP_URL . 'admin/UpdateService' ?>" method="post" enctype="multipart/form-data">
                 <div class="row">
                 <div class="col-12 col-md-4">
                         <div class="mb-3">

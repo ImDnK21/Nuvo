@@ -3,45 +3,45 @@
 <div class="container py-3">
     <div class="card">
         <div class="card-header">
-            <span class="fw-bold">Agregar Cliente</span>
+            <span class="fw-bold">Mis Datos personales</span>
         </div>
         <div class="card-body">
             <form action="<?= APP_URL . 'admin/SaveClient' ?>" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                        <label class="form-label"><span style="color: red;">*</span><b> Rut: </b><span style="color: red;">*</span></label>
-                        <input type="text" name="rut" class="form-control" id="validarRut" required>
+                        <label class="form-label"><b> Rut: </b><span style="color: red;"></label>
+                        <input type="text" name="rut" class="form-control" value="<?= $_SESSION['logged']->RUT?>" required readonly>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="mb-3">
-                        <label class="form-label"><span style="color: red;">*</span><b> Nombres: </b><span style="color: red;">*</span></label>
-                        <input type="text" name="firstname" class="form-control">
+                        <label class="form-label"><b> Nombres: </b></label>
+                        <input type="text" name="firstname" class="form-control" value="<?= $_SESSION['logged']->FIRSTNAME?>">
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="mb-3">
-                        <label class="form-label"><span style="color: red;">*</span><b> Apellidos: </b><span style="color: red;">*</span></label>
-                        <input type="text" name="lastname" class="form-control">
+                        <label class="form-label"><b> Apellidos: </b></label>
+                        <input type="text" name="lastname" class="form-control" value="<?= $_SESSION['logged']->LASTNAME?>">
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                        <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569 XXXXXXXX) </b><span style="color: red;">*</span> </label>
-                        <input type="text" name="phone" class="form-control">
+                        <label class="form-label"><b> Telefono de contacto: (+569 XXXXXXXX) </b> </label>
+                        <input type="text" name="phone" class="form-control" value="<?= $_SESSION['logged']->PHONE?>">
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="mb-3">
                         <label class="form-label"><b>Direccion:</b></label>
-                        <input type="text" name="address" class="form-control">
+                        <input type="text" name="address" class="form-control" value="<?= $_SESSION['logged']->ADDRESS?>">
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                         <label class="form-label"><b> Comuna: </b></label>
-                        <input type="text" name="commune" class="form-control">
+                        <input type="text" name="commune" class="form-control" value="<?= $_SESSION['logged']->COMMUNE?>">
                         </div>
                     </div>
                     <!-- <div class="col-12 col-md-4">
@@ -94,15 +94,13 @@
                     <div class="col-12 col-md-12">
                         <div class="mb-3">
                         <label class="form-label"><b> Correo electrónico:</b></label>
-                        <input type="text" name="email" class="form-control">
+                        <input type="text" name="email" class="form-control" value="<?= $_SESSION['logged']->EMAIL?>">
                         </div>
                     </div>
                     
                     <div class="col-12">
-                        <div class="float-start">
-                            <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
-                        </div>
-                        <button type="submit" class="btn btn-primary float-end">Agregar Vehiculo</button>
+                        
+                        <button type="submit" class="btn btn-primary float-end">Actualizar Datos</button>
                     </div>
                 </div>
                 
