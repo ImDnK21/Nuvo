@@ -1,162 +1,282 @@
+const displacementSlider = function(opts) {
+  let vertex = `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+        }
+    `;
+
+  let fragment = `
+        
+        varying vec2 vUv;
+  
+        uniform sampler2D currentImage;
+        uniform sampler2D nextImage;
+  
+        uniform float dispFactor;
+  
+        void main() {
+  
+            vec2 uv = vUv;
+            vec4 _currentImage;
+            vec4 _nextImage;
+            float intensity = 0.3;
+  
+            vec4 orig1 = texture2D(currentImage, uv);
+            vec4 orig2 = texture2D(nextImage, uv);
+            
+            _currentImage = texture2D(currentImage, vec2(uv.x, uv.y + dispFactor * (orig2 * intensity)));
+  
+            _nextImage = texture2D(nextImage, vec2(uv.x, uv.y + (1.0 - dispFactor) * (orig1 * intensity)));
+  
+            vec4 finalTexture = mix(_currentImage, _nextImage, dispFactor);
+  
+            gl_FragColor = finalTexture;
+  
+        }
+    `;
+
+  let images = opts.images,
+    image, sliderImages = [];;
+  let canvasWidth = images[0].clientWidth;
+  let canvasHeight = images[0].clientHeight;
+  let parent = opts.parent;
+  let renderWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  let renderHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+  let renderW, renderH;
+
+  if (renderWidth > canvasWidth) {
+    renderW = renderWidth;
+  } else {
+    renderW = canvasWidth;
+  }
+
+  renderH = canvasHeight;
+
+  let renderer = new THREE.WebGLRenderer({
+    antialias: false,
+  });
+
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setClearColor(0x23272A, 1.0);
+  renderer.setSize(renderW, renderH);
+  parent.appendChild(renderer.domElement);
+
+  let loader = new THREE.TextureLoader();
+  loader.crossOrigin = "anonymous";
+
+  images.forEach((img) => {
+
+    image = loader.load(img.getAttribute('src') + '?v=' + Date.now());
+    image.magFilter = image.minFilter = THREE.LinearFilter;
+    image.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    sliderImages.push(image);
+
+  });
+
+  let scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x23272A);
+  let camera = new THREE.OrthographicCamera(
+    renderWidth / -2,
+    renderWidth / 2,
+    renderHeight / 2,
+    renderHeight / -2,
+    1,
+    1000
+  );
+
+  camera.position.z = 1;
+
+  let mat = new THREE.ShaderMaterial({
+    uniforms: {
+      dispFactor: {
+        type: "f",
+        value: 0.0
+      },
+      currentImage: {
+        type: "t",
+        value: sliderImages[0]
+      },
+      nextImage: {
+        type: "t",
+        value: sliderImages[1]
+      },
+    },
+    vertexShader: vertex,
+    fragmentShader: fragment,
+    transparent: true,
+    opacity: 1.0
+  });
+
+  let geometry = new THREE.PlaneBufferGeometry(
+    parent.offsetWidth,
+    parent.offsetHeight,
+    1
+  );
+  let object = new THREE.Mesh(geometry, mat);
+  object.position.set(0, 0, 0);
+  scene.add(object);
+
+  let addEvents = function() {
+
+    let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
+    let isAnimating = false;
+
+    pagButtons.forEach((el) => {
+
+      el.addEventListener('click', function() {
+
+        if (!isAnimating) {
+
+          isAnimating = true;
+
+          document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
+          this.className = 'active';
+
+          let slideId = parseInt(this.dataset.slide, 10);
+
+          mat.uniforms.nextImage.value = sliderImages[slideId];
+          mat.uniforms.nextImage.needsUpdate = true;
+
+          TweenLite.to(mat.uniforms.dispFactor, 1, {
+            value: 1,
+            ease: 'Expo.easeInOut',
+            onComplete: function() {
+              mat.uniforms.currentImage.value = sliderImages[slideId];
+              mat.uniforms.currentImage.needsUpdate = true;
+              mat.uniforms.dispFactor.value = 0.0;
+              isAnimating = false;
+            }
+          });
+
+          let slideTitleEl = document.getElementById('slide-title');
+          let slideStatusEl = document.getElementById('slide-status');
+          let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
+          let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+
+          TweenLite.fromTo(slideTitleEl, 0.5, {
+            autoAlpha: 1,
+            y: 0
+          }, {
+            autoAlpha: 0,
+            y: 20,
+            ease: 'Expo.easeIn',
+            onComplete: function() {
+              slideTitleEl.innerHTML = nextSlideTitle;
+
+              TweenLite.to(slideTitleEl, 0.5, {
+                autoAlpha: 1,
+                y: 0,
+              })
+            }
+          });
+
+          TweenLite.fromTo(slideStatusEl, 0.5, {
+            autoAlpha: 1,
+            y: 0
+          }, {
+            autoAlpha: 0,
+            y: 20,
+            ease: 'Expo.easeIn',
+            onComplete: function() {
+              slideStatusEl.innerHTML = nextSlideStatus;
+
+              TweenLite.to(slideStatusEl, 0.5, {
+                autoAlpha: 1,
+                y: 0,
+                delay: 0.1,
+              })
+            }
+          });
+
+        }
+
+      });
+
+    });
+
+  };
+
+  addEvents();
+
+  window.addEventListener('resize', function(e) {
+    renderer.setSize(renderW, renderH);
+  });
+
+  let animate = function() {
+    requestAnimationFrame(animate);
+
+    renderer.render(scene, camera);
+  };
+  animate();
+};
+
+imagesLoaded(document.querySelectorAll('img'), () => {
+
+  document.body.classList.remove('loading');
+
+  const el = document.getElementById('slider');
+  const imgs = Array.from(el.querySelectorAll('img'));
+  new displacementSlider({
+    parent: el,
+    images: imgs
+  });
+
+});
+
+// 
+
 window.addEventListener('DOMContentLoaded', event => {
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
+  const sidebarToggle = document.body.querySelector('#sidebarToggle');
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', event => {
+      event.preventDefault();
+      document.body.classList.toggle('sb-sidenav-toggled');
+      localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+    });
+  }
 });
 
 
 
 var Fn = {
-    // Valida el rut con su cadena completa "XXXXXXXX-X"
-    validaRut: function(rutCompleto) {
-        rutCompleto = rutCompleto.replaceAll("‐", "-");
-        if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rutCompleto))
-            return false;
-        var tmp = rutCompleto.split('-');
-        var digv = tmp[1];
-        var rut = tmp[0];
-        if (digv == 'K') digv = 'k';
+  // Valida el rut con su cadena completa "XXXXXXXX-X"
+  validaRut: function(rutCompleto) {
+    rutCompleto = rutCompleto.replaceAll("‐", "-");
+    if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rutCompleto))
+      return false;
+    var tmp = rutCompleto.split('-');
+    var digv = tmp[1];
+    var rut = tmp[0];
+    if (digv == 'K') digv = 'k';
 
-        return (Fn.dv(rut) == digv);
-    },
-    dv: function(T) {
-        var M = 0,
-            S = 1;
-        for (; T; T = Math.floor(T / 10))
-            S = (S + T % 10 * (9 - M++ % 6)) % 11;
-        return S ? S - 1 : 'k';
-    }
+    return (Fn.dv(rut) == digv);
+  },
+  dv: function(T) {
+    var M = 0,
+      S = 1;
+    for (; T; T = Math.floor(T / 10))
+      S = (S + T % 10 * (9 - M++ % 6)) % 11;
+    return S ? S - 1 : 'k';
+  }
 }
 
 const rut = document.getElementById('validarRut')
 const signupButton = document.getElementById('btnvalida')
 if (rut) {
-    rut.addEventListener('keyup', function(e) {
-        if (Fn.validaRut(rut.value)) {
-            console.log('Rut valido')
-            rut.classList.add('is-valid')
-            rut.classList.remove('is-invalid')
-            signupButton.disabled = false;
-        } else {
-            console.log('Rut invalido')
-            rut.classList.add('is-invalid')
-            rut.classList.remove('is-valid')
-            signupButton.disabled = true;
-        }
-    })
+  rut.addEventListener('keyup', function(e) {
+    if (Fn.validaRut(rut.value)) {
+      console.log('Rut valido')
+      rut.classList.add('is-valid')
+      rut.classList.remove('is-invalid')
+      signupButton.disabled = false;
+    } else {
+      console.log('Rut invalido')
+      rut.classList.add('is-invalid')
+      rut.classList.remove('is-valid')
+      signupButton.disabled = true;
+    }
+  })
 }
-
-var RegionesYcomunas = {
-
-	"regiones": [{
-			"NombreRegion": "Arica y Parinacota",
-			"comunas": ["Arica", "Camarones", "Putre", "General Lagos"]
-	},
-		{
-			"NombreRegion": "Tarapacá",
-			"comunas": ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"]
-	},
-		{
-			"NombreRegion": "Antofagasta",
-			"comunas": ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"]
-	},
-		{
-			"NombreRegion": "Atacama",
-			"comunas": ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"]
-	},
-		{
-			"NombreRegion": "Coquimbo",
-			"comunas": ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"]
-	},
-		{
-			"NombreRegion": "Valparaíso",
-			"comunas": ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana"]
-	},
-		{
-			"NombreRegion": "Región del Libertador Gral. Bernardo O’Higgins",
-			"comunas": ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz"]
-	},
-		{
-			"NombreRegion": "Región del Maule",
-			"comunas": ["Talca", "ConsVtución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas"]
-	},
-		{
-			"NombreRegion": "Región del Biobío",
-			"comunas": ["Concepción", "Coronel", "Chiguayante", "Florida", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Hualpén", "Lebu", "Arauco", "Cañete", "Contulmo", "Curanilahue", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel", "Alto Biobío", "Chillán", "Bulnes", "Cobquecura", "Coelemu", "Coihueco", "Chillán Viejo", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco", "Yungay"]
-	},
-		{
-			"NombreRegion": "Región de la Araucanía",
-			"comunas": ["Temuco", "Carahue", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Cholchol", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén", "Renaico", "Traiguén", "Victoria", ]
-	},
-		{
-			"NombreRegion": "Región de Los Ríos",
-			"comunas": ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Futrono", "Lago Ranco", "Río Bueno"]
-	},
-		{
-			"NombreRegion": "Región de Los Lagos",
-			"comunas": ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "FruVllar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena"]
-	},
-		{
-			"NombreRegion": "Región Aisén del Gral. Carlos Ibáñez del Campo",
-			"comunas": ["Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez"]
-	},
-		{
-			"NombreRegion": "Región de Magallanes y de la AntárVca Chilena",
-			"comunas": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"]
-	},
-		{
-			"NombreRegion": "Región Metropolitana de Santiago",
-			"comunas": ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor"]
-	}]
-}
-
-
-jQuery(document).ready(function () {
-
-	var iRegion = 0;
-	var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
-	var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
-
-	jQuery.each(RegionesYcomunas.regiones, function () {
-		htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
-		iRegion++;
-	});
-
-	jQuery('#regiones').html(htmlRegion);
-	jQuery('#comunas').html(htmlComunas);
-
-	jQuery('#regiones').change(function () {
-		var iRegiones = 0;
-		var valorRegion = jQuery(this).val();
-		var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
-		jQuery.each(RegionesYcomunas.regiones, function () {
-			if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
-				var iComunas = 0;
-				jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
-					htmlComuna = htmlComuna + '<option value="' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '">' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '</option>';
-					iComunas++;
-				});
-			}
-			iRegiones++;
-		});
-		jQuery('#comunas').html(htmlComuna);
-	});
-	jQuery('#comunas').change(function () {
-		if (jQuery(this).val() == 'sin-region') {
-			alert('selecciones Región');
-		} else if (jQuery(this).val() == 'sin-comuna') {
-			alert('selecciones Comuna');
-		}
-	});
-	jQuery('#regiones').change(function () {
-		if (jQuery(this).val() == 'sin-region') {
-			alert('selecciones Región');
-		}
-	});
-
-});

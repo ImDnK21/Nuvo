@@ -10,11 +10,13 @@ class ClientController{
         $vehicle = new Vehicle();
         $vehicle = $vehicle->getByOwner($_SESSION['logged']->RUT);
 
-        // die(var_dump($vehicle));
-        // var_dump($vehicle);
         require_once('views/layout/sidebarClient.php');
-        require_once('views/client/vehicle/index.php');
-        // $vehicles = $vehicle->getByPatent($_SESSION['logged']->PATENT_VEHICLE);
+
+        if ($vehicle != NULL) {
+            require_once('views/client/vehicle/index.php');
+        } else {
+            die('error');
+        }
     }
 
     public function personalInformation(){
