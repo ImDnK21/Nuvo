@@ -6,23 +6,23 @@
       <div class="slider-inner">
         <div id="slider-content">
           <div class="meta">modelo</div>
-          <h2 id="slide-title">Amur <br>Leopard</h2>
-          <span data-slide-title="0">Amur <br>Leopard</span>
-          <span data-slide-title="1">Asiatic <br>Lion</span>
-          <span data-slide-title="2">Siberian <br>Tiger</span>
-          <span data-slide-title="3">Brown <br>Bear</span>
-          <div class="meta">Status</div>
-          <div id="slide-status">Critically Endangered</div>
-          <span data-slide-status="0">Critically Endangered</span>
-          <span data-slide-status="1">Endangered</span>
-          <span data-slide-status="2">Endangered</span>
-          <span data-slide-status="3">Least Concern</span>
+          <h2 id="slide-title">cars <br>rayito</h2>
+          <span data-slide-title="0">cars <br>rayito</span>
+          <span data-slide-title="1">v16 <br>meo corte</span>
+          <span data-slide-title="2">v16 2 <br>ultra fixa</span>
+          <span data-slide-title="3">rayito <br>makuin</span>
+          <div class="meta">Estado</div>
+          <div id="slide-status">1</div>
+          <span data-slide-status="0">1</span>
+          <span data-slide-status="1">2</span>
+          <span data-slide-status="2">3</span>
+          <span data-slide-status="3">4</span>
         </div>
       </div>
       <img src="<?= APP_URL . 'assets/img/1.jpg' ?>" />
       <img src="<?= APP_URL . 'assets/img/2.jpg' ?>" />
       <img src="<?= APP_URL . 'assets/img/3.jpg' ?>" />
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
+      <img src="<?= APP_URL . 'assets/img/4.jpg' ?>" />
       <div id="pagination">
         <button class="active" data-slide="0"></button>
         <button data-slide="1"></button>

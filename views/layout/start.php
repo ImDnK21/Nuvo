@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/384a6fe07a.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<?= APP_URL . 'assets/css/main.css' ?>">
-  <?php if ($_GET['controller'] == 'home' || !isset($_GET['controller'])) { ?> 
+  <?php if (!isset($_GET['controller'])) { ?> 
     <link rel="stylesheet" href="<?= APP_URL . 'assets/css/home.css' ?>">
   <?php } ?>
 </head>
