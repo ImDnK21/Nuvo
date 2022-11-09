@@ -5,3 +5,14 @@
     <p class="fs-5">Contactese con el taller</p>
   </div>
 </div>
+
+<?php
+  if (isset($_SESSION['message'])) {
+    echo "hola";
+
+  }
+    else{
+      echo "adios";
+
+    }
+?>

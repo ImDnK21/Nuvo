@@ -623,7 +623,7 @@ class AdminController {
         $supply = new Supply();
         $supplies = $supply->getAll();
         require_once('views/layout/sidebar.php');
-        require_once('views/admin/supplies/ViewSupply.php');
+        require_once('views/admin/supplies/ViewList.php');
     }
 
     public function AddSupply()
@@ -814,7 +814,7 @@ class AdminController {
 
         require_once('views/layout/sidebar.php');
 
-        require_once('views/admin/supplies/catalog.php');
+        require_once('views/admin/supplies/ViewSupply.php');
         // require_once('views/admin/supplies/ViewSupply.php');
 
 
