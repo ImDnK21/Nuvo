@@ -15,5 +15,6 @@
   <?php if (!isset($_GET['controller'])) { ?> 
     <link rel="stylesheet" href="<?= APP_URL . 'assets/css/home.css' ?>">
   <?php } ?>
+  <link rel="stylesheet" href="<?= APP_URL . 'assets/css/multiselect.css' ?>">
 </head>
 <body class="sb-nav-fixed">

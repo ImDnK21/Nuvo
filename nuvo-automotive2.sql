@@ -105,6 +105,8 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
+
+
 INSERT INTO `user` (`ROLE`, `RUT`, `FIRSTNAME`, `LASTNAME`, `PHONE`, `ADDRESS`, `COMMUNE`, `EMAIL`, `PASSWORD`, `CREATED_AT`, `UPDATED_AT`) VALUES
 ('mechanic', '14767262-4', 'Karel Andrade', 'Poblete Diaz', '+56927231842', 'Rossini #215', 'Pudahuel', 'kpoblete@gmai.com', '$2y$10$7qXffKLMAblQlpWrtQsDcudYwkbpXkvljxovSmGs5I.LG.ujdG7dS', '2022-07-09 17:32:47', '2022-07-09 17:32:47'),
 ('client', '16122091-4', 'Matias Fernando', 'Villaroel Castro', '89828238742', 'jnfgas #421', 'jdasd', 'fjwasj@gjasjdas.com', '$2y$10$a0hJ2SfjyavNR7blhO6oIeXFS69FSGcu0hLf5pMklfLF1jNFONmz.', '2022-08-16 22:47:41', '2022-08-16 22:47:41'),

@@ -1,3 +1,15 @@
+const select = document.multiselect('#select')
+const servicios = document.getElementById('servicios')
+
+if (select) {
+    setInterval(() => {
+        var checked = document.querySelectorAll('#select :checked');
+        var selected = [...checked].map(option => option.value);
+        servicios.value = selected
+        console.log(selected)
+    }, 1)
+}
+
 const displacementSlider = function(opts) {
     let vertex = `
         varying vec2 vUv;
@@ -227,6 +239,8 @@ imagesLoaded(document.querySelectorAll('img'), () => {
 });
 
 // 
+
+
 
 window.addEventListener('DOMContentLoaded', event => {
     const sidebarToggle = document.body.querySelector('#sidebarToggle');

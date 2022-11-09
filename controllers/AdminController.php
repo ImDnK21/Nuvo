@@ -511,24 +511,20 @@ class AdminController {
         require_once('views/admin/order/AddOrder.php');
     }
 
-
-      public function save(){
+    public function SaveOrder(){
         Utils::isAdmin();
         if (isset($_POST)) {
-            $id = isset($_POST['id']) ? trim($_POST['id']) : false;
-            $patent_vehicule= isset($_POST['patent_vehicule']) ? trim($_POST['patent_vehicule']) : false;
+            $patent_vehicle = isset($_POST['patent_vehicle']) ? trim($_POST['patent_vehicle']) : false;
             $rut_client = isset($_POST['rut_client']) ? trim($_POST['rut_client']) : false;
             $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
             $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
 
-
-            if ($id && $patent_vehicule && $rut_client && $rut_mechanic && $observations) {
+            if ($patent_vehicle && $rut_client && $rut_mechanic && $observations) {
                 $workorder = new WorkOrder();
-                $workorder->setId('id');
-                $workorder->setPatentVehicle($_POST['patent_vehicule']);
-                $workorder->setRutClient($_POST['rut_client']);
-                $workorder->setRutMechanic($_POST['rut_mechanic']);
-                $workorder->setObservations($_POST['observations']);
+                $workorder->setPatentVehicle($patent_vehicle);
+                $workorder->setRutClient($rut_client);
+                $workorder->setRutMechanic($rut_mechanic);
+                $workorder->setObservations($observations);
                 if ($workorder->save()) {
                     $_SESSION['saveOrder'] = 'Se agregó correctamente la orden de trabajo';
                 } else {
@@ -538,10 +534,26 @@ class AdminController {
                 $_SESSION['saveOrder'] = 'Debes rellenar todos los campos';
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListOrder');
-      }
+        header('Location:' . APP_URL . 'admin/ViewListWorkOrder');
+    }
 
+    public function EditOrder() {
+        Utils::isAdmin();
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $workorder = new WorkOrder();
+            $workorder->setId($id);
+            $order = $workorder->getOne();
+            $client  = new Account();
+            $vehicle = new Vehicle();
 
+            $clients = $client->getAllClients();
+            $mechanics = $client->getAllMechanics();
+            $vehicles = $vehicle->getAll();
+            require_once('views/layout/sidebar.php');
+            require_once('views/admin/order/EditOrder.php');
+        }
+    }
 
     public function ViewListCategories(){
         Utils::isAdmin();
