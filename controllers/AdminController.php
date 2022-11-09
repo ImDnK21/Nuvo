@@ -501,8 +501,11 @@ class AdminController {
         Utils::isAdmin();
         
         $client  = new Account();
+        $vehicle = new Vehicle();
+
         $clients = $client->getAllClients();
         $mechanics = $client->getAllMechanics();
+        $vehicles = $vehicle->getAll();
 
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/AddOrder.php');
@@ -608,7 +611,7 @@ class AdminController {
         $supply = new Supply();
         $supplies = $supply->getAll();
         require_once('views/layout/sidebar.php');
-        require_once('views/admin/supplies/ViewList.php');
+        require_once('views/admin/supplies/ViewSupply.php');
     }
 
     public function AddSupply()

@@ -9,19 +9,25 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label class="form-label">Id Orden</label>
-                            <input type="text" name="id" class="form-control" id="validarId" required>
+                            <input type="text" name="id" class="form-control" id="validarId" required disabled>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label class="form-label">Patente de vehiculo</label>
-                            <input type="text" name="patent_vehicule" class="form-control">
+                            <select name="patent_vehicle" class="form-select">
+                                <?php while ($vehicle = $vehicles->fetch_object()) : ?>
+                                <option value="<?= $vehicle->PATENT ?>"><?= $vehicle->PATENT ?>
+                                </option>
+                                <?php endwhile; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="rut_client" class="form-label required">Rut de cliente</label>
                             <select name="rut_client" class="form-select">
+
                                 <?php while ($client = $clients->fetch_object()) : ?>
                                 <option value="<?= $client->RUT ?>"><?= $client->FIRSTNAME . ' ' . $client->LASTNAME  ?>
                                 </option>
@@ -40,7 +46,8 @@
                             <label for="rut_mechanic" class="form-label required">Rut de mecanico</label>
                             <select name="rut_mechanic" class="form-select">
                                 <?php while ($mechanic = $mechanics->fetch_object()) : ?>
-                                <option value="<?= $mechanic->RUT ?>"><?= $mechanic->FIRSTNAME . ' ' . $mechanic->LASTNAME  ?>
+                                <option value="<?= $mechanic->RUT ?>">
+                                    <?= $mechanic->FIRSTNAME . ' ' . $mechanic->LASTNAME  ?>
                                 </option>
                                 <?php endwhile; ?>
                             </select>
@@ -52,9 +59,19 @@
                             <input type="text" name="observations" class="form-control">
                         </div>
                     </div>
-                    <div class="col-12 ">
-                        <button type="submit" class="btn btn-primary" id="btnvalida">Agregar Orden</button>
-                    </div>
+                    <p>Con Chosen y las opciones por defecto<p>
+                        <select name="chosen-multiple" class="chosen1" data-placeholder="Elige tus colores" multiple>
+                        <option value="azul">Azul</option>
+                        <option value="amarillo">Amarillo</option>
+                        <option value="blanco">Blanco</option>
+                        <option value="gris">Gris</option>
+                        <option value="marron">Marrón</option>
+                        <option value="naranja">Naranja</option>
+                        <option value="negro">Negro</option>
+                        <option value="rojo">Rojo</option>
+                        <option value="verde">Verde</option>
+                        <option value="violeta">Violeta</option>
+                        </select>
             </form>
         </div>
     </div>

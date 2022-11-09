@@ -30,5 +30,8 @@
         <button data-slide="3"></button>
       </div>
     </div>
+    
   </main>
+  
+  
 </div>
