@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 23-08-2022 a las 05:03:37
+-- Tiempo de generación: 12-11-2022 a las 01:39:33
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 8.1.6
 
@@ -78,8 +78,7 @@ CREATE TABLE `supply` (
 --
 
 INSERT INTO `supply` (`ID_SUPPLY`, `ID_CATEGORY`, `NAME`, `DESCRIPTION`, `STOCK`, `IMG`, `CREATED_AT`, `UPDATED_AT`) VALUES
-(653, 16, 'Huaipe', 'gasdas', 231, 'paños_huaipe.png', '2022-08-18 17:48:28', '2022-08-18 17:48:28'),
-(656, 8, 'Anticongelante', 'gas', 21, 'liquido-de-freno_anticongelante.jpeg', '2022-08-18 18:01:42', '2022-08-18 18:01:42');
+(653, 16, 'Huaipe', 'gasdas', 231, 'paños_huaipe.png', '2022-08-18 17:48:28', '2022-08-18 17:48:28');
 
 -- --------------------------------------------------------
 
@@ -105,16 +104,14 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-
-
 INSERT INTO `user` (`ROLE`, `RUT`, `FIRSTNAME`, `LASTNAME`, `PHONE`, `ADDRESS`, `COMMUNE`, `EMAIL`, `PASSWORD`, `CREATED_AT`, `UPDATED_AT`) VALUES
+('client', '11240241-1', 'Bryan Edison', 'Caro Castro', '+56928134542', 'gasjdsa', 'La Florida', 'caro@gmail.com', '$2y$10$DBwcn9xRQXhBq5RyMnRJw.ymPFjqyk1Gq90QH3sPptJznHpM47p.2', '2022-11-11 02:34:00', '2022-11-11 02:34:00'),
+('client', '13918256-1', 'Miguel Angel', 'Sanchez Arancibia', '+56982832421', 'Av Escuela Agricola #412', ' Macul', 'miguel@gmail.com', '$2y$10$HqBoOtoyXe0ZYatq3/sxU.lDkwtDIrWCCYqi0xGa5LUVYulHSAczC', '2022-11-11 03:26:42', '2022-11-11 03:26:42'),
 ('mechanic', '14767262-4', 'Karel Andrade', 'Poblete Diaz', '+56927231842', 'Rossini #215', 'Pudahuel', 'kpoblete@gmai.com', '$2y$10$7qXffKLMAblQlpWrtQsDcudYwkbpXkvljxovSmGs5I.LG.ujdG7dS', '2022-07-09 17:32:47', '2022-07-09 17:32:47'),
-('client', '16122091-4', 'Matias Fernando', 'Villaroel Castro', '89828238742', 'jnfgas #421', 'jdasd', 'fjwasj@gjasjdas.com', '$2y$10$a0hJ2SfjyavNR7blhO6oIeXFS69FSGcu0hLf5pMklfLF1jNFONmz.', '2022-08-16 22:47:41', '2022-08-16 22:47:41'),
-('mechanic', '16944090-5', 'Carlos Emanuel', 'Montt Sanhueza', '+56982371231', 'Av Vitacura #521', 'Vitacura', 'cmontt@gmail.com', '$2y$10$ItlMxlAUiHTuih9Pc8X.XexHz7RRdDHv8HD4bp9ys87p4GQIamT5m', '2022-07-03 03:38:54', '2022-07-09 17:56:15'),
-('client', '17701628-4', 'Miguel Angel', 'Sanchez Carrasco', '+56927348237', 'Gounod #1027', 'Las Condes', 'msanchez@gmail.com', '$2y$10$bjmaNPZHRNJfOQbMYS5e.O8Nj7XfyACCtsDdsfnuV4wRjUFEw.Zqu', '2022-07-09 17:31:10', '2022-07-09 17:31:10'),
-('mechanic', '18259168-8', 'Victor Cristian', 'Perez Sandia', '847318457321', 'jgasdasj #421', 'kfasjasdm', 'jfasdks@gkasdka.com', '$2y$10$tLEiltit2jymc7jxs9c3zu23ieetKCI8g7DZ0VNRXQ3cWq44I7H6K', '2022-08-16 22:50:34', '2022-08-16 22:50:34'),
-('admin', '20049429-6', 'Admin', 'Admin', '', '', '', 'admin@admin.cl', '$2y$10$yL6aeqScgE.CM6cmQ8Yu2.XynS0Gk0NkkbVNIiihJxeSfS5Ikw5LO', '2022-07-14 05:04:44', '2022-07-14 05:05:04'),
-('mechanic', '4355107-8', 'Ricarrdo Hernan', 'Soto Hernandez', '+56928234823', 'Santa Raquel #734', 'La Florida', 'rsoto@gmail.com', '$2y$10$4RSAInbqwgGq9HDsJXeMV.cVHEUrPU0kbuEH0G/JLPw.PXi7UbLTG', '2022-07-09 17:51:25', '2022-07-13 15:10:09');
+('client', '14774640-7', 'Karel Israel', 'Poblete Diaz', '+56989238128', 'Av los condores', 'La Florida', 'karel@gmail.com', '$2y$10$6LP70B5hncOERC94KK/P0e9BXMaw7hXA43h78/aWnygq6TRDMlgTS', '2022-11-11 02:40:55', '2022-11-11 02:40:55'),
+('client', '16122091-4', 'Vannesa Francisca', 'Carrion Perez', '+56928138532', 'Las Perdices #674', ' Estación Central', 'vanessa@gmail.com', '$2y$10$MHqLNwguzgBYFpjXUsEO7O4L8YyVTSvIoAE2359wjLDVNfSEKfkMK', '2022-11-10 23:55:18', '2022-11-10 23:55:18'),
+('client', '17664034-0', 'Andrea Josefa', 'Carrasco Diaz', '+56928132594', 'Av Escuela Agricola #445', ' Macul', 'andrea@gmail.com', '$2y$10$U7iKHM9GQkLhf6vr5PeN..ixCrunBxx5Fx.iY3s6Sdp3smwscO.sa', '2022-11-12 01:10:44', '2022-11-12 01:10:44'),
+('admin', '20049429-6', 'Admin', 'Admin', '', '', '', 'admin@admin.cl', '$2y$10$yL6aeqScgE.CM6cmQ8Yu2.XynS0Gk0NkkbVNIiihJxeSfS5Ikw5LO', '2022-07-14 05:04:44', '2022-07-14 05:05:04');
 
 -- --------------------------------------------------------
 
@@ -143,7 +140,8 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`PATENT`, `OWNER`, `BRAND`, `MODEL`, `YEAR`, `FUEL_TYPE`, `TRANSMISSION`, `COLOR`, `CHASSIS_NUMBER`, `MILEAGE`, `VEHICLE_TYPE`, `CREATED_AT`, `UPDATED_AT`) VALUES
-('PDRS-23', '16122091-4', 'Lamborigini', 'Urus', '2022', 'Bencina', 'Automatico', '#f50a2d', '#A2452132', '29.000', 'Deportivo', '2022-08-16 22:56:44', '2022-08-16 22:56:44');
+('PLRS-96', '16122091-4', 'Honda', 'Civic', '2021', 'Electrico', 'Automatico', '#000000', '#A8521321', '9482', 'Deportivo', '2022-11-11 00:58:10', '2022-11-11 00:58:10'),
+('RPDL-12', '13918256-1', 'Subaru', 'XV', '2021', 'Bencina', 'Automatico', '#cfcfcf', '#A98213124', '29132', 'SUV', '2022-11-12 00:55:57', '2022-11-12 00:55:57');
 
 -- --------------------------------------------------------
 
@@ -152,11 +150,12 @@ INSERT INTO `vehicle` (`PATENT`, `OWNER`, `BRAND`, `MODEL`, `YEAR`, `FUEL_TYPE`,
 --
 
 CREATE TABLE `workorder` (
-  `ID` varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `ID` int(255) NOT NULL,
   `PATENT_VEHICLE` varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
   `RUT_CLIENT` varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
   `RUT_MECHANIC` varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
   `OBSERVATIONS` varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
+  `SERVICE` varchar(255) CHARACTER SET ucs2 COLLATE ucs2_spanish2_ci NOT NULL,
   `CREATED_AT` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `UPDATED_AT` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
@@ -165,9 +164,8 @@ CREATE TABLE `workorder` (
 -- Volcado de datos para la tabla `workorder`
 --
 
-INSERT INTO `workorder` (`ID`, `PATENT_VEHICLE`, `RUT_CLIENT`, `RUT_MECHANIC`, `OBSERVATIONS`, `CREATED_AT`, `UPDATED_AT`) VALUES
-('99', NULL, '123', NULL, NULL, '2022-07-07 02:10:46', '2022-07-07 02:10:46'),
-('999', NULL, '20049429-6', NULL, NULL, '2022-07-14 05:04:28', '2022-07-14 05:04:28');
+INSERT INTO `workorder` (`ID`, `PATENT_VEHICLE`, `RUT_CLIENT`, `RUT_MECHANIC`, `OBSERVATIONS`, `SERVICE`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1000, 'RPDL-12', '13918256-1', '14767262-4', 'HOLA', 'Lavado', '2022-11-12 01:18:13', '2022-11-12 01:18:13');
 
 -- --------------------------------------------------------
 
@@ -248,13 +246,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `service`
 --
 ALTER TABLE `service`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `supply`
 --
 ALTER TABLE `supply`
-  MODIFY `ID_SUPPLY` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=657;
+  MODIFY `ID_SUPPLY` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=654;
+
+--
+-- AUTO_INCREMENT de la tabla `workorder`
+--
+ALTER TABLE `workorder`
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- AUTO_INCREMENT de la tabla `wo_service`
@@ -282,13 +286,9 @@ ALTER TABLE `vehicle`
 -- Filtros para la tabla `workorder`
 --
 ALTER TABLE `workorder`
+  ADD CONSTRAINT `CLIENT_VEHICLE` FOREIGN KEY (`RUT_CLIENT`) REFERENCES `user` (`RUT`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `MECHANIC_VEHICLE` FOREIGN KEY (`RUT_MECHANIC`) REFERENCES `user` (`RUT`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `PATENT_VEHICLE` FOREIGN KEY (`PATENT_VEHICLE`) REFERENCES `vehicle` (`PATENT`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `wo_service`
---
-ALTER TABLE `wo_service`
-  ADD CONSTRAINT `ID_WO` FOREIGN KEY (`ID_WO`) REFERENCES `workorder` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
