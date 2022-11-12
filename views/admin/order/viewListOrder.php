@@ -26,7 +26,8 @@
                   <th>Propietario</th>
                   <th>Mecanico a cargo</th>
                   <th>Observaciones</th>
-                  <th>Fecha Creacion</th>
+                  <th>Servicios Solicitados</th>
+                  <!-- <th>Fecha Creacion</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -37,7 +38,9 @@
                   <td><?= $workorder->RUT_CLIENT?></td>
                   <td><?= $workorder->RUT_MECHANIC?></td>
                   <td><?= $workorder->OBSERVATIONS?></td>
-                  <td><?= $workorder->CREATED_AT?></td>
+                  <td><?= $workorder->SERVICE?></td>
+
+                  <!-- <td><?= $workorder->CREATED_AT?></td> -->
                   <td>
                     <div class="icons">
                       <a href="<?= APP_URL . 'admin/EditOrder?id=' . $workorder->ID ?>" class="btn btn-warning btn-square btn-xs">

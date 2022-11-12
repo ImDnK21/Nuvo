@@ -512,19 +512,28 @@ class AdminController {
     }
 
     public function SaveOrder(){
+
+        
         Utils::isAdmin();
         if (isset($_POST)) {
             $patent_vehicle = isset($_POST['patent_vehicle']) ? trim($_POST['patent_vehicle']) : false;
-            $rut_client = isset($_POST['rut_client']) ? trim($_POST['rut_client']) : false;
+            // $rut_client = isset($_POST['rut_client']) ? trim($_POST['rut_client']) : false;
             $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
             $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
+            $service = isset($_POST['service']) ? trim($_POST['service']) : false;
 
-            if ($patent_vehicle && $rut_client && $rut_mechanic && $observations) {
+
+            if ($patent_vehicle  && $rut_mechanic && $observations && $service) {
+                $vehicle = new Vehicle();
+                $vehicle = $vehicle->getByPatent($patent_vehicle);
+                $rut_client = $vehicle->OWNER;
+
                 $workorder = new WorkOrder();
                 $workorder->setPatentVehicle($patent_vehicle);
                 $workorder->setRutClient($rut_client);
                 $workorder->setRutMechanic($rut_mechanic);
                 $workorder->setObservations($observations);
+                $workorder->setService($service);
                 if ($workorder->save()) {
                     $_SESSION['saveOrder'] = 'Se agregó correctamente la orden de trabajo';
                 } else {

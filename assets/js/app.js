@@ -101,6 +101,9 @@ const displacementSlider = function(opts) {
 
     camera.position.z = 1;
 
+    document.getElementById('output').innerHTML = location.search;
+    $(".chosen-select").chosen();
+
     let mat = new THREE.ShaderMaterial({
         uniforms: {
             dispFactor: {

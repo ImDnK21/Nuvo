@@ -7,6 +7,7 @@ class WorkOrder
   private $rut_client;
   private $rut_mechanic;
   private $observations;
+  private $service;
 
   public function __construct()
   {
@@ -38,6 +39,10 @@ class WorkOrder
     return $this->observations;
   }
 
+  public function getService(){
+    return $this->service;
+  }
+
   public function setId($id)
   {
     $this->id = $id;
@@ -61,6 +66,10 @@ class WorkOrder
   public function setObservations($observations)
   {
     $this->observations = $observations;
+  }
+
+  public function setService($service){
+    $this->service = $service;
   }
 
   public function validarOT()
@@ -87,7 +96,7 @@ class WorkOrder
 
   public function save()
   {
-    $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}')";
+    $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS, SERVICE) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}', '{$this->service}')";
     // die($query);
     $save = $this->db->query($query);
     $result = false;
