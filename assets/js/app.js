@@ -5,8 +5,8 @@ if (select) {
     setInterval(() => {
         var checked = document.querySelectorAll('#select :checked');
         var selected = [...checked].map(option => option.value);
-        servicios.value = selected
-        console.log(selected)
+        // servicios.value = selected
+        // console.log(selected)
     }, 1)
 }
 
@@ -294,5 +294,9 @@ if (rut) {
         }
     })
 }
+
+
+// ERROR 404 PAGE NO DATA VEHICLE
+
 
 // chosen

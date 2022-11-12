@@ -19,7 +19,7 @@
           <span data-slide-status="3">4</span>
         </div>
       </div>
-      <img src="<?= APP_URL . 'assets/img/1.jpg' ?>" />
+      <img src="<?= APP_URL . 'assets/img/2.jpg' ?>" />
       <img src="<?= APP_URL . 'assets/img/2.jpg' ?>" />
       <img src="<?= APP_URL . 'assets/img/3.jpg' ?>" />
       <img src="<?= APP_URL . 'assets/img/4.jpg' ?>" />

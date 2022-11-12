@@ -79,7 +79,7 @@ class AdminController {
             $address = isset($_POST['address']) ? trim($_POST['address']) : false;
             $commune = isset($_POST['commune']) ? trim($_POST['commune']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
-            // var_dump($_POST);
+            
 
 
             if ($rut && $firstname && $lastname && $phone && $address && $commune && $email) {
@@ -228,7 +228,7 @@ class AdminController {
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
 
 
-            if ($rut && $firstname && $lastname && $phone && $email) {
+            if ($rut && $firstname && $lastname && $phone && $commune && $email) {
                 $mechanic = new Account();
                 $mechanic->setRole('mechanic');
                 $mechanic->setRut($_POST['rut']);

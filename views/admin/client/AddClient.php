@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Rut: </b><span style="color: red;">*</span></label>
+              <label class="form-label"><span style="color: red;">*</span><b> Rut: (Ej: XXXXXXXX-X) </b><span style="color: red;">*</span></label>
               <input type="text" name="rut" class="form-control" id="validarRut" required>
             </div>
           </div>
@@ -26,8 +26,8 @@
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569 XXXXXXXX) </b><span style="color: red;">*</span> </label>
-              <input type="text" name="phone" class="form-control">
+              <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569XXXXXXXX) </b><span style="color: red;">*</span> </label>
+              <input type="text" name="phone" class="form-control" maxlength="12">
             </div>
           </div>
           <div class="col-12 col-md-8">
@@ -39,7 +39,7 @@
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><b> Comuna: </b></label>
-              <select name="comune" class="form-select">
+              <select name="commune" class="form-select">
                 <option selected="selected" value="La Florida">La Florida</option>
                 <option value="Cerrillos">Cerrillos</option>
                 <option value="Cerro Navia">Cerro Navia</option>
@@ -56,7 +56,7 @@
                 <option value=" Lo Barnechea">Lo Barnechea</option>
                 <option value=" Lo Espejo">Lo Espejo</option>
                 <option value=" Lo Prado">Lo Prado</option>
-                <option value=" NatuMaculral">Macul</option>
+                <option value=" Macul">Macul</option>
                 <option value=" Maipú">Maipú</option>
                 <option value=" Ñuñoa">Ñuñoa</option>
                 <option value=" Pedro Aguirre Cerda">Pedro Aguirre Cerda</option>
@@ -94,7 +94,7 @@
             <div class="float-start">
               <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
             </div>
-            <button type="submit" class="btn btn-primary float-end">Agregar Vehiculo</button>
+            <button type="submit" class="btn btn-primary float-end">Agregar Cliente</button>
           </div>
         </div>
 

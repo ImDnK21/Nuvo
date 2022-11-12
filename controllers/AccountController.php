@@ -26,9 +26,11 @@ class AccountController
       $email = isset($_POST['email']) ? trim($_POST['email']) : false;
       $password = isset($_POST['password']) ? trim($_POST['password']) : false;
       $confirmPassword = isset($_POST['confirm-password']) ? trim($_POST['confirm-password']) : false;
+      
 
       if ($id && $rut && $firstname && $lastname && $email && $password && $confirmPassword) {
         if ($password === $confirmPassword) {
+          
           $ot = new WorkOrder();
           $ot->setId($id);
           $ot->setRutClient($rut);
@@ -72,6 +74,8 @@ class AccountController
       $account = new Account();
       $account->setEmail($_POST['email']);
       $account->setPassword($_POST['password']);
+      var_dump($_POST);
+            // die(var_dump($_POST));
 
       $auth = $account->login();
 

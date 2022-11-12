@@ -27,7 +27,7 @@
                   <th>Correo</th>
                   <th>Dirección</th>
                   <th>Comuna</th>
-                  <th>Fecha Creacion</th>
+                  <!-- <th>Fecha Creacion</th> -->
                 </tr>
               </thead>
               <tbody>

@@ -50,9 +50,10 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                            <label for="fuel_type" class="form-label required" value="<?=$vehicle->FUEL_TYPE?>" >Tipo de Combustible</label>
-                            <select name="fuel_type" class="form-select">
-                                <option selected="selected" value="nuevo">Bencina</option>
+                            <label for="fuel_type" class="form-label required"  >Tipo de Combustible</label>
+                            <select name="fuel_type" class="form-select" >
+                            <option value="<?php echo $vehicle->FUEL_TYPE;?>" hidden><?php echo $vehicle->FUEL_TYPE;?></option>
+                                <option value="Bencina">Bencina</option>
                                 <option value="Diesel">Diesel</option>
                                 <option value="Electrico">Electrico</option>
                                 <option value="Gas natural">Gas Natural</option>
@@ -62,9 +63,10 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                            <label for="transmission" class="form-label required" value="<?=$vehicle->TRANSMISSION?>" >Transmision</label>
-                            <select name="transmission" class="form-select">
-                                <option selected="selected" value="mechanic">Mecanico</option>
+                            <label for="transmission" class="form-label required" >Transmision</label>
+                            <select name="transmission" class="form-select" >
+                                <option value="<?php echo $vehicle->TRANSMISSION;?>" hidden><?php echo $vehicle->TRANSMISSION;?></option>
+                                <option value="Mecanico">Mecanico</option>
                                 <option value="Automatica">Automatico</option>
                                 <option value="CVT">CVT</option>
                             </select>
@@ -92,9 +94,10 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                            <label for="vehicle_type" class="form-label required" value="<?=$vehicle->VEHICLE_TYPE?>">Tipo de Vehiculo</label>
+                            <label for="vehicle_type" class="form-label required">Tipo de Vehiculo</label>
                             <select name="vehicle_type" class="form-select">
-                                <option selected="selected" value="Sedan">Sedan</option>
+                                <option value="<?php echo $vehicle->VEHICLE_TYPE;?>" hidden><?php echo $vehicle->VEHICLE_TYPE;?></option>
+                                <option value="Sedan">Sedan</option>
                                 <option value="Station Wagon">Station Wagon</option>
                                 <option value="HatchBack">HatchBack</option>
                                 <option value="SUV">SUV</option>

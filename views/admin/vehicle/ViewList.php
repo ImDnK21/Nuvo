@@ -32,7 +32,7 @@
                   <th>N° de chasis</th>
                   <th>Kilometraje</th>
                   <th>Tipo de vehiculo</th>
-                  <th>Fecha Creacion</th>
+                  <!-- <th>Fecha Creacion</th> -->
                 </tr>
               </thead>
               <tbody>

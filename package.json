@@ -1,0 +1,22 @@
+{
+    "name": "nuvo",
+    "version": "1.0.0",
+    "description": "Proyecto tesis Taller mecanico Novo Automotive MVC",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ImDnK21/Nuvo.git"
+    },
+    "author": "Danko Sanchez",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ImDnK21/Nuvo/issues"
+    },
+    "homepage": "https://github.com/ImDnK21/Nuvo#readme",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}

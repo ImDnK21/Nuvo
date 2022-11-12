@@ -15,7 +15,8 @@ class ClientController{
         if ($vehicle != NULL) {
             require_once('views/client/vehicle/index.php');
         } else {
-            die('error');
+            require_once('views/client/vehicle/error.php');
+            // die('error');
         }
     }
 
