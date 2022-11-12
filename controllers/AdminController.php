@@ -18,6 +18,8 @@ class AdminController {
         $workorder = new WorkOrder();
         $supply = new Supply();
         $supplies= $supply->getAll();
+        $supliesLow = $supply->getSupplyLowStock();
+
         $clients = $account->getAllClients();
         $mechanics = $account->getAllMechanics();
         $workorders = $workorder->getAll();
@@ -494,7 +496,8 @@ class AdminController {
         $workorder = new WorkOrder();
         $workorders = $workorder->getAll();
         require_once('views/layout/sidebar.php');
-        require_once('views/admin/order/viewListOrder.php');
+        // require_once('views/admin/order/viewListOrder.php');
+        require_once('views/admin/order/viewWorkOrder.php');
     }
 
     public function AddWorkOrder() {

@@ -7410,7 +7410,7 @@ fieldset:disabled .btn {
     border: 0;
     opacity: 0.5;
     transition: opacity 0.15s ease;
-    /* filter: invert(100%); */
+    filter: invert(100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -12509,6 +12509,96 @@ form {
 
 select {
     width: 300px;
+}
+
+
+/* VIEW WORK ORDER*/
+
+.form-title {
+    border-bottom: 3px solid darkgray;
+    padding-bottom: 1rem;
+}
+
+.input-text {
+    width: 50%;
+    height: 30px;
+}
+
+.field-radio {
+    font-size: 18px;
+    padding: 1px
+}
+
+.field-radio input {
+    width: 20px;
+    height: 20px;
+}
+
+.input-link {
+    width: 10%;
+    height: 30px;
+}
+
+.input-name {
+    width: 20%;
+    height: 30px;
+}
+
+.input-note {
+    width: 50%;
+}
+
+.field-value {
+    margin-bottom: 1.5rem;
+}
+
+.wo-form {
+    margin-top: 25px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 15px -4px black;
+    padding: 1rem 3rem 3rem;
+}
+
+.submit {
+    background-color: green;
+    color: white;
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 9px;
+}
+
+.cancel {
+    background-color: red;
+    color: white;
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 9px;
+}
+
+.edit {
+    background-color: #4e62c0;
+    color: white;
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 9px;
+}
+
+.judul-field {
+    float: left;
+    margin-right: 70px;
+    width: 100px;
+    font-weight: 600;
+}
+
+.value-field::before {
+    content: " :"
 }
 
 

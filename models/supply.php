@@ -84,6 +84,12 @@ class Supply{
         return $supplies;
     }
 
+    public function getSupplyLowStock(){
+        $query = "SELECT * FROM SUPPLY LEFT JOIN CATEGORY ON SUPPLY.ID_CATEGORY = CATEGORY.ID WHERE SUPPLY.STOCK < 50";
+        $supplies = $this->db->query($query);
+        return $supplies;
+    }
+
     public function save() {
         $query = "INSERT INTO SUPPLY (ID_CATEGORY, NAME, DESCRIPTION, STOCK, IMG) VALUES ('{$this->id_category}', '{$this->name}', '{$this->description}', '{$this->stock}', '{$this->img}')";
         $save = $this->db->query($query);

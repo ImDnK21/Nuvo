@@ -1,14 +1,14 @@
 const select = document.multiselect('#select')
 const servicios = document.getElementById('servicios')
 
-if (select) {
-    setInterval(() => {
-        var checked = document.querySelectorAll('#select :checked');
-        var selected = [...checked].map(option => option.value);
-        // servicios.value = selected
-        // console.log(selected)
-    }, 1)
-}
+// if (select) {
+//     setInterval(() => {
+//         var checked = document.querySelectorAll('#select :checked');
+//         var selected = [...checked].map(option => option.value);
+//         servicios.value = selected
+//             // console.log(selected)
+//     }, 1)
+// }
 
 const displacementSlider = function(opts) {
     let vertex = `
@@ -100,9 +100,6 @@ const displacementSlider = function(opts) {
     );
 
     camera.position.z = 1;
-
-    document.getElementById('output').innerHTML = location.search;
-    $(".chosen-select").chosen();
 
     let mat = new THREE.ShaderMaterial({
         uniforms: {
@@ -241,7 +238,25 @@ imagesLoaded(document.querySelectorAll('img'), () => {
 
 });
 
-// 
+//  JS VIEW WORK ORDER
+
+$(document).ready(function() {
+    $(".wo-parent").click(function() {
+        $(".wo-child").toggle(500);
+    });
+});
+
+$(document).ready(function() {
+    $(".po-parent").click(function() {
+        $(".po-child").toggle(500);
+    });
+});
+
+$(document).ready(function() {
+    $(".dropbtn").click(function() {
+        $("#myDropdown").toggle();
+    });
+});
 
 
 
@@ -297,9 +312,5 @@ if (rut) {
         }
     })
 }
-
-
-// ERROR 404 PAGE NO DATA VEHICLE
-
 
 // chosen

@@ -8,9 +8,8 @@
       {
         "ignore": [
           "-ms-text-size-adjust",
-          "text-align: -webkit-match-parent",
           "-webkit-text-size-adjust",
-          "scroll-behavior"
+          "text-align: -webkit-match-parent"
         ]
       }
     ]
