@@ -26,7 +26,7 @@
 				<div class="row justify-content-center text-center">
 						<div class="col-md-8 col-lg-6">
 								<div class="header">
-										<h2>Herramientas e Insumos</h2>
+										<h2 style="color: #444444;">Herramientas e Insumos</h2>
 								</div>
 						</div>
 				</div>

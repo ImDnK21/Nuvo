@@ -74,8 +74,10 @@ class WorkOrder
 
   public function validarOT()
   {
-    $query = "SELECT * FROM workorder WHERE ID = $this->id AND RUT_CLIENT = $this->rut_client";
+    $query = "SELECT * FROM workorder WHERE ID = $this->id";
+    //RUT_CLIENT = $this->rut_client
     // die($query);
+    
     $result = $this->db->query($query);
 
     return $result->fetch_object();

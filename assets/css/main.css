@@ -424,6 +424,30 @@ a:hover {
     transition: all 0.3s;
 }
 
+.section-products #product-9 .part-1::before {
+    background: url("../img/SiliconaRTVred.png") no-repeat center;
+    background-size: cover;
+    transition: all 0.3s;
+}
+
+.section-products #product-10 .part-1::before {
+    background: url("../img/contrapeso-gancho.png") no-repeat center;
+    background-size: cover;
+    transition: all 0.3s;
+}
+
+.section-products #product-11 .part-1::before {
+    background: url("../img/carroHerramientas.jpg") no-repeat center;
+    background-size: cover;
+    transition: all 0.3s;
+}
+
+.section-products #product-12 .part-1::before {
+    background: url("../img/juego-de-llaves.png") no-repeat center;
+    background-size: cover;
+    transition: all 0.3s;
+}
+
 .section-products .single-product .part-1 .discount,
 .section-products .single-product .part-1 .new {
     position: absolute;

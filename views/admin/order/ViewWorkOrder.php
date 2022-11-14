@@ -1,9 +1,9 @@
 <div class="main container">
 
 
-    <div class="content wo-form">
-    <?php while ($workorder = $workorders->fetch_object()): ?>
 
+    <?php while ($workorder = $workorders->fetch_object()): ?>
+    <div class="content wo-form">
         <h2 class="form-title">
             Detalle Orden de trabajo N <?= $workorder->ID ?>
         </h2>
@@ -12,7 +12,7 @@
             <div class="s">
                 <dl>
                     <dt class="judul-field">
-                        Patente: 
+                        Patente:
                     </dt>
                     <dd class="value-field">
                         <?= $workorder->PATENT_VEHICLE?>
@@ -34,8 +34,8 @@
                     <dt class="judul-field">
                         Status</dt>
                     <dd class="value-field">
-                    <?= $workorder->RUT_MECHANIC ?> </dd>
-                    
+                        <?= $workorder->RUT_MECHANIC ?> </dd>
+
                 </dl>
             </div>
 
@@ -68,4 +68,5 @@
             </div>
 
             <input type="submit" class="edit" value="Edit">
-<?php endwhile; ?>
+    </div>
+            <?php endwhile; ?>
