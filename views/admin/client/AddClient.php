@@ -4,42 +4,43 @@
       <span class="fw-bold">Agregar Cliente</span>
     </div>
     <div class="card-body">
-      <form action="<?= APP_URL . 'admin/SaveClient' ?>" method="post" enctype="multipart/form-data">
+      <form class="nededs-validation" action="<?= APP_URL . 'admin/SaveClient' ?>" method="post" enctype="multipart/form-data">
         <div class="row">
+          
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Rut: (Ej: XXXXXXXX-X) </b><span style="color: red;">*</span></label>
-              <input type="text" name="rut" class="form-control" id="validarRut" required>
+              <label class="form-label"  ><span style="color: red;">*</span><b> Rut: (Ej: XXXXXXXX-X) </b><span style="color: red;">*</span></label>
+              <input type="text" name="rut" class="form-control" id="id" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Nombres: </b><span style="color: red;">*</span></label>
-              <input type="text" name="firstname" class="form-control">
+              <input type="text" name="firstname" class="form-control" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Apellidos: </b><span style="color: red;">*</span></label>
-              <input type="text" name="lastname" class="form-control">
+              <input type="text" name="lastname" class="form-control" required>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569XXXXXXXX) </b><span style="color: red;">*</span> </label>
-              <input type="text" name="phone" class="form-control" maxlength="12">
+              <input type="text" name="phone" class="form-control" maxlength="12" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><b>Direccion:</b></label>
-              <input type="text" name="address" class="form-control">
+              <input type="text" name="address" class="form-control" required>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><b> Comuna: </b></label>
-              <select name="commune" class="form-select">
+              <select name="commune" class="form-select" required>
                 <option selected="selected" value="La Florida">La Florida</option>
                 <option value="Cerrillos">Cerrillos</option>
                 <option value="Cerro Navia">Cerro Navia</option>
@@ -86,7 +87,7 @@
           <div class="col-12 col-md-12">
             <div class="mb-3">
               <label class="form-label"><b> Correo electrónico:</b></label>
-              <input type="text" name="email" class="form-control">
+              <input type="text" name="email" class="form-control" required>
             </div>
           </div>
 

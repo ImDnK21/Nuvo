@@ -274,29 +274,36 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 var Fn = {
-    // Valida el rut con su cadena completa "XXXXXXXX-X"
     validaRut: function(rutCompleto) {
-        rutCompleto = rutCompleto.replaceAll("‐", "-");
-        if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rutCompleto))
-            return false;
+        rutCompleto = rutCompleto.replaceAll('.', '')
+        console.log(rutCompleto)
+        if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rutCompleto)) {
+            return false
+        }
         var tmp = rutCompleto.split('-');
         var digv = tmp[1];
         var rut = tmp[0];
         if (digv == 'K') digv = 'k';
-
         return (Fn.dv(rut) == digv);
     },
     dv: function(T) {
         var M = 0,
-            S = 1;
-        for (; T; T = Math.floor(T / 10))
+            S = 1
+        for (; T; T = Math.floor(T / 10)) {
             S = (S + T % 10 * (9 - M++ % 6)) % 11;
+        }
         return S ? S - 1 : 'k';
     }
 }
 
-const rut = document.getElementById('validarRut')
-const signupButton = document.getElementById('btnvalida')
+const rut = document.getElementById('rut')
+    // const firstname = document.getElementById('firstname')
+    // const lastname = document.getElementById('lastname')
+    // const email = document.getElementById('email')
+    // const password = document.getElementById('password')
+    // const confirmPassword = document.getElementById('confirm-password')
+const signupButton = document.getElementById('signup')
+
 if (rut) {
     rut.addEventListener('keyup', function(e) {
         if (Fn.validaRut(rut.value)) {
@@ -312,5 +319,27 @@ if (rut) {
         }
     })
 }
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
+
 
 // chosen
