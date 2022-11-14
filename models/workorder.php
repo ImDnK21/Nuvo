@@ -94,6 +94,19 @@ class WorkOrder
     return $workorder->fetch_object();
   }
 
+//   public function getWoByPatent($patent_vehicle){
+//     $query = "SELECT * FROM WORKORDER WHERE PATENT = '$patent_vehicle'";
+//     $vehicle = $this->db->query($query);
+//     return $vehicle->fetch_object();
+// }
+
+public function getByPatent($patent_vehicle) {
+  $query = "SELECT * FROM WORKORDER WHERE PATENT_VEHICLE = '$patent_vehicle'";
+  $workorder = $this->db->query($query);
+  return $workorder->fetch_object();
+}
+
+
   public function save()
   {
     $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS, SERVICE) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}', '{$this->service}')";

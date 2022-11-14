@@ -100,7 +100,7 @@ class AdminController {
                 if ($client->save()) {
                     $_SESSION['saveClient'] = 'Se agregó correctamente el cliente';
                 } else {
-                    $_SESSION['saveClient'] = 'Error al agregar el cliente';
+                    echo $_SESSION['saveClient'] = 'Error al agregar el cliente';
                 }
             } else {
                 $_SESSION['saveClient'] = 'Debes rellenar todos los campos';
@@ -496,7 +496,16 @@ class AdminController {
         $workorder = new WorkOrder();
         $workorders = $workorder->getAll();
         require_once('views/layout/sidebar.php');
-        // require_once('views/admin/order/viewListOrder.php');
+        require_once('views/admin/order/viewListOrder.php');
+        // require_once('views/admin/order/viewWorkOrder.php');
+    }
+
+    public function ViewWorkOrder(){
+        Utils::isAdmin();
+        $workorder = new WorkOrder();
+        $workorders = $workorder->getAll();
+        
+        require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewWorkOrder.php');
     }
 

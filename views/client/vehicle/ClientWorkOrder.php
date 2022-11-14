@@ -2,7 +2,7 @@
 
 
     <div class="content wo-form">
-    <?php while ($workorder = $workorders->fetch_object()): ?>
+    <!-- <?php while ($workorder = $workorders->fetch_object()): ?> -->
 
         <h2 class="form-title">
             Detalle Orden de trabajo N <?= $workorder->ID ?>
@@ -68,4 +68,4 @@
             </div>
 
             <input type="submit" class="edit" value="Edit">
-<?php endwhile; ?>
+<!-- <?php endwhile; ?> -->

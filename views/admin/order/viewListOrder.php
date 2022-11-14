@@ -4,6 +4,8 @@
       <div class="mb-3">
         <h2 class="fw-bold mb-3">Lista de Ordenes de trabajo</h2>
         <a href="<?= APP_URL . 'admin/AddWorkOrder' ?>" class="btn btn-primary mb-3">Agregar Orden de trabajo</a>
+        <a href="<?= APP_URL . 'admin/ViewWorkOrder' ?>" class="btn btn-primary mb-3">Vista Previa de ordenes</a>
+
         <div class="clontainer">
           <div class="col-xs-3">
             <div class="input-group">

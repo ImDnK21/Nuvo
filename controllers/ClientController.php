@@ -2,6 +2,8 @@
 
 require_once('models/account.php');
 require_once('models/vehicle.php');
+require_once('models/workorder.php');
+
 
 class ClientController{
     public function view(){
@@ -91,6 +93,17 @@ class ClientController{
         
         require_once('views/layout/sidebar.php');
         require_once('views/admin/vehicle/ViewList.php');
+    }
+
+    public function ClientWorkOrder(){
+        Utils::isAuth();
+
+        $workorder = new WorkOrder();
+        $workorder = $workorder->getByPatent($_GET['patent_vehicle']);    
+        // $service = $service->getById($_GET['id']);
+
+        require_once('views/layout/sidebarClient.php');
+        require_once('views/client/vehicle/ClientWorkOrder.php');
     }
 
 

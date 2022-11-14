@@ -24,7 +24,7 @@
                         <a class="nav-link" href="<?= APP_URL . 'admin/ViewListVehicle' ?>">Vehículos</a>
                     </nav>
                 </div> -->
-                <a class="nav-link" href="<?= APP_URL . 'client/viewInfo' ?>">
+                <a class="nav-link" href="<?= APP_URL . 'client/ClientWorkOrder' ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Mi Orden de Trabajo
                 </a>

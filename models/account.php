@@ -125,7 +125,7 @@ class Account {
   public function save() {
     $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getCommune()}', '{$this->getEmail()}', '{$this->getPassword()}')";
     $save = $this->db->query($query);
-    die($query);
+    // die($query);
     $result = false;
     if ($save) {
       $result = true;
