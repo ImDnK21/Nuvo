@@ -103,7 +103,7 @@
             <div class="float-start">
               <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
             </div>
-            <button type="submit" class="btn btn-primary float-end">Editar Cliente</button>
+            <button type="submit" class="btn btn-primary float-end">Editar Mecanico</button>
           </div>
         </div>
 

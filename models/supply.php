@@ -65,12 +65,12 @@ class Supply{
     }
 
     public function getAll(){
-        $query = "SELECT * FROM SUPPLY LEFT JOIN CATEGORY ON SUPPLY.ID_CATEGORY = CATEGORY.ID";
+        $query = "SELECT * FROM SUPPLY INNER JOIN CATEGORY ON SUPPLY.ID_CATEGORY = CATEGORY.ID ";
         $supplies = $this->db->query($query);
         return $supplies;
     }
 
-    public function getOne($id) {
+    public function getById($id) {
         $query = $this->db->query("SELECT * FROM SUPPLY WHERE ID_SUPPLY = '$id'");
         return $query->fetch_object();
       }
@@ -119,16 +119,28 @@ class Supply{
 		return $result;
 	}
 
-
     public function delete(){
-        $query = "DELETE FROM SUPPLY WHERE ID = '{$this->getId()}'";
+        $query = "DELETE FROM SUPPLY WHERE ID_SUPPLY = '{$this->getID()}'";
+        // die($query);
         $delete = $this->db->query($query);
         $result = false;
-        if($delete){
+        if ($delete) {
             $result = true;
         }
         return $result;
     }
+
+
+    // public function delete(){
+    //     $query = "DELETE FROM SUPPLY WHERE ID_SUPPLY = '{$this->getId()}'";
+    //     die($query);
+    //     $delete = $this->db->query($query);
+    //     $result = false;
+    //     if($delete){
+    //         $result = true;
+    //     }
+    //     return $result;
+    // }
 }
 
 

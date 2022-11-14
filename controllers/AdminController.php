@@ -657,6 +657,34 @@ class AdminController {
         require_once('views/admin/supplies/AddSupply.php');
     }
 
+    public function EditSupply()
+    {
+        Utils::isAdmin();
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $supply = new Supply();
+            $supply = $supply->getById($_GET['id']);
+            require_once('views/layout/sidebar.php');
+            require_once('views/admin/supplies/editSupply.php');
+        }
+    }
+
+    public function DeleteSupply(){
+        if (isset($_GET['id'])){
+            $id = $_GET['id'];
+            $supply = new Supply();
+            $supply->setId($id);
+            // var_dump($_GET['id_supply']);
+            if ($supply->delete()){
+                $_SESSION['saveCategory'] = 'Se eliminó correctamente la categoria';
+            } else {
+                $_SESSION['saveCategory'] = 'Error al eliminar la categoria';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListSupplies');
+    }
+
+   
+
     public function saveSupply() {
         Utils::isAdmin();
         if (isset($_POST)) {

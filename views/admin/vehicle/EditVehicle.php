@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary float-end">Agregar Vehiculo</button>
+                        <button type="submit" class="btn btn-primary float-end">Editar Vehiculo</button>
                     </div>
                 </div>
             </form>

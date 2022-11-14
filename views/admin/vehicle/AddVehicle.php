@@ -86,7 +86,7 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="mileage" class="form-label required">Kilometraje</label>
-                            <input type="number" name="mileage" value="<?= Utils::old('mileage') ?>" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                            <input type="number" min="1" name="mileage" value="<?= Utils::old('mileage') ?>" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                         </div>
                     </div>
                     <div class="col-12 col-md-4">

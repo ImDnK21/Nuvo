@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 14-11-2022 a las 00:04:12
+-- Tiempo de generación: 14-11-2022 a las 05:42:54
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 8.1.6
 
@@ -40,8 +40,7 @@ INSERT INTO `category` (`ID`, `NAME_CATEGORY`) VALUES
 (3, 'Papel'),
 (5, 'Herramientas'),
 (8, 'Liquido de freno'),
-(13, 'Tornillos'),
-(16, 'Paños');
+(13, 'Tornillos');
 
 -- --------------------------------------------------------
 
@@ -78,7 +77,7 @@ CREATE TABLE `supply` (
 --
 
 INSERT INTO `supply` (`ID_SUPPLY`, `ID_CATEGORY`, `NAME`, `DESCRIPTION`, `STOCK`, `IMG`, `CREATED_AT`, `UPDATED_AT`) VALUES
-(653, 16, 'Huaipe', 'gasdas', 231, 'paños_huaipe.png', '2022-08-18 17:48:28', '2022-08-18 17:48:28');
+(657, 5, 'LLavev', 'gasgas', 21, '', '2022-11-14 05:26:36', '2022-11-14 05:26:36');
 
 -- --------------------------------------------------------
 
@@ -140,6 +139,7 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`PATENT`, `OWNER`, `BRAND`, `MODEL`, `YEAR`, `FUEL_TYPE`, `TRANSMISSION`, `COLOR`, `CHASSIS_NUMBER`, `MILEAGE`, `VEHICLE_TYPE`, `CREATED_AT`, `UPDATED_AT`) VALUES
+('LKLS-24', '11240241-1', 'jdsajdjs', 'jdsajdasj', '2021', 'Diesel', 'Automatico', '#000000', '#A5321321', '2813812', 'HatchBack', '2022-11-14 04:35:54', '2022-11-14 04:35:54'),
 ('PLRS-96', '16122091-4', 'Honda', 'Civic', '2021', 'Electrico', 'Automatico', '#000000', '#A8521321', '9482', 'Deportivo', '2022-11-11 00:58:10', '2022-11-11 00:58:10'),
 ('PROL-87', '11240241-1', 'Lamborgini', 'Spider', '2021', 'Diesel', 'Automatico', '#d71d1d', '#A854218321', '2123', 'HatchBack', '2022-11-13 04:43:45', '2022-11-13 04:43:45'),
 ('RPDL-12', '13918256-1', 'Subaru', 'XV', '2021', 'Bencina', 'Automatico', '#cfcfcf', '#A98213124', '29132', 'SUV', '2022-11-12 00:55:57', '2022-11-12 00:55:57');
@@ -254,7 +254,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT de la tabla `supply`
 --
 ALTER TABLE `supply`
-  MODIFY `ID_SUPPLY` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=654;
+  MODIFY `ID_SUPPLY` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=658;
 
 --
 -- AUTO_INCREMENT de la tabla `workorder`

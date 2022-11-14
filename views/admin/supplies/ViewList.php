@@ -40,7 +40,7 @@
                             <thead>
                                 <tr>
                                     <th>Id Insumo</th>
-                                    <th>ID Categoria</th>
+                                    <th>Nombre Categoria</th>
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
                                     <th>Stock</th>
@@ -58,20 +58,20 @@
                                     <td><?= $supply->CREATED_AT ?></td>
                                     <td>
                                         <div class="icons">
-                                            <a href="<?= APP_URL . 'admin/EditSupply?rut=' . $supply->ID ?>"
+                                            <a href="<?= APP_URL . 'admin/EditSupply?id=' . $supply->ID_SUPPLY ?>"
                                                 type="button" class="btn btn-warning btn-square btn-xs">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a type="button" class="btn btn-danger btn-square btn-xs"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#deleteSupply<?= str_replace(array(".", "-"), "", $supply->ID) ?>">
+                                                data-bs-target="#deleteSupply<?= str_replace(array(".", "-"), "", $supply->ID_SUPPLY) ?>">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
                                 <div class="modal fade"
-                                    id="deleteSupply<?= str_replace(array(".", "-"), "", $supply->ID) ?>" tabindex="-1"
+                                    id="deleteSupply<?= str_replace(array(".", "-"), "", $supply->ID_SUPPLY) ?>" tabindex="-1"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -90,7 +90,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cancelar</button>
-                                                <a href="<?= APP_URL . 'admin/deleteClient?rut=' . $supply->ID ?>"
+                                                <a href="<?= APP_URL . 'admin/deleteSupply?id=' . $supply->ID_SUPPLY ?>"
                                                     class="btn btn-danger">Eliminar</a>
                                             </div>
                                         </div>
