@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Rut: (Ej: XXXXXXXX-X) </b><span style="color: red;">*</span></label>
+              <label class="form-label"><span style="color: red;">*</span><b> Rut: </b><span style="color: red;">*</span></label>
               <input type="text" name="rut" class="form-control" id="validarRut" value="<?= $client->RUT ?>" required readonly>
             </div>
           </div>

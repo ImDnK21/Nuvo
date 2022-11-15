@@ -9,8 +9,8 @@
           
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"  ><span style="color: red;">*</span><b> Rut: (Ej: XXXXXXXX-X) </b><span style="color: red;">*</span></label>
-              <input type="text" name="rut" class="form-control" id="id" required>
+              <label class="form-label"  ><span style="color: red;">*</span><b> Rut: </b><span style="color: red;">*</span></label>
+              <input type="text" name="rut" class="form-control" id="id" placeholder="Ej: 12345678-9" maxlength="10" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
@@ -28,7 +28,7 @@
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569XXXXXXXX) </b><span style="color: red;">*</span> </label>
-              <input type="text" name="phone" class="form-control" maxlength="12" required>
+              <input type="text" name="phone" class="form-control" maxlength="12" placeholder="Ej: +569XXXXXXXX" required>
             </div>
           </div>
           <div class="col-12 col-md-8">

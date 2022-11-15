@@ -100,6 +100,7 @@ class AdminController {
                 if ($client->save()) {
                     $_SESSION['saveClient'] = 'Se agregó correctamente el cliente';
                 } else {
+                    // die(var_dump($_GET['id']));
                     echo $_SESSION['saveClient'] = 'Error al agregar el cliente';
                 }
             } else {
@@ -319,6 +320,7 @@ class AdminController {
         Utils::isAdmin();
         $vehicle = new Vehicle();
         $vehicles = $vehicle->getAll();
+        // $vehicles = $vehicle->getByOwner($_GET['owner']);
         
         require_once('views/layout/sidebar.php');
         require_once('views/admin/vehicle/ViewList.php');
@@ -655,6 +657,20 @@ class AdminController {
         $categories = $category->getAll();
         require_once('views/layout/sidebar.php');
         require_once('views/admin/supplies/AddSupply.php');
+    }
+
+    public function deleteWorkOrder(){
+        if (isset($_GET['id'])){
+            $id = $_GET['id'];
+            $workorder = new WorkOrder();
+            $workorder->setId($id);
+            if ($workorder->delete()){
+                $_SESSION['saveCategory'] = 'Se eliminó correctamente la categoria';
+            } else {
+                $_SESSION['saveCategory'] = 'Error al eliminar la categoria';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListCategories');
     }
 
     public function EditSupply()

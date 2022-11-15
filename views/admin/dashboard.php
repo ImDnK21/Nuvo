@@ -1,6 +1,3 @@
-
-
-
 <div class="sb-nav-fixed">
 
 <div class="header-h1">
@@ -68,7 +65,7 @@
     <div class="col-xl-6">
       <div class="card mb-4">
         <div class="card-header">
-          <i class="fas fa-chart-area me-1"></i> Area Chart Example
+          <i class="fas fa-chart-area me-1"></i> Categoria de insumos mas utilizados en el año
         </div>
         <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
       </div>
@@ -110,7 +107,7 @@
 
 <!-- Site footer -->
 <footer class="site-footer">
-<div class="container">
+<div class="container" style="max-width: none;;">
   <h1 class="Contact-us text-center" style=" border-style: groove; border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #444444; color:aliceblue">CONTACTANOS</h1>
   <div class="row">
     <div class="col-12 col-lg-6">
@@ -134,7 +131,7 @@
     <div class="col-xs-6 col-md-3">
       <h6>Quick Links</h6>
       <ul class="footer-links">
-        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+        <li><a href=<?= APP_URL . 'admin/terms' ?>>Terminos y condiciones</a></li>
         <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
         <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
         <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
@@ -147,7 +144,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-sm-6 col-xs-12">
-      <p class="copyright-text" style="color: black;">Copyright &copy; 2017 All Rights Reserved by
+      <p class="copyright-text" style="color: black;">Copyright &copy; 2022 All Rights Reserved by
         <b><a href="#">Danko Sanchez</a></b>
       </p>
     </div>
@@ -187,7 +184,6 @@
       </div>
     </div>
   </div>
-
   <div class="col-12 col-lg-6">
     <iframe src="https://maps.google.com/maps?q=Inacap%20Santiago%20Sur&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="500" loading="lazy"></iframe>
   </div>

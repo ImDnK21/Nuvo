@@ -17,7 +17,7 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="owner" class="form-label required">Propietario</label>
-                            <select name="owner" class="form-select">
+                            <select name="owner" class="form-select" >
                                 <?php while ($client = $clients->fetch_object()) : ?>
                                 <option value="<?= $client->RUT ?>" <?php
                                 if ($client->RUT == $vehicle->OWNER) {

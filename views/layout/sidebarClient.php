@@ -12,39 +12,19 @@
                     Mis datos personales
                 </a>
                 <div class="sb-sidenav-menu-heading">Administración</div>
-                <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTaller" aria-expanded="false" aria-controls="collapseTaller">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Gestión del taller
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapseTaller" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= APP_URL . 'admin/ViewListClient' ?>">Clientes</a>
-                        <a class="nav-link" href="<?= APP_URL . 'admin/ViewListMechanic' ?>">Mecánico</a>
-                        <a class="nav-link" href="<?= APP_URL . 'admin/ViewListVehicle' ?>">Vehículos</a>
-                    </nav>
-                </div> -->
-                <a class="nav-link" href="<?= APP_URL . 'client/ClientWorkOrder' ?>">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                <a class="nav-link" href="#">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area" ></i></div>
                     Mi Orden de Trabajo
-                </a>
-                <a class="nav-link" href="<?= APP_URL . 'client/viewRequestedService' ?>">
+                </a> 
+                <a class="nav-link" href="#">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Servicios Solicitados
-                </a>
-                <a class="nav-link" href="<?= APP_URL . 'client/view' ?>">
+                </a> 
+                 <a class="nav-link" href="#">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Historial de Ordenes de trabajos
                 </a>
-                <!-- <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="charts.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                    Charts
-                </a>
-                <a class="nav-link" href="tables.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    Tables
-                </a> -->
+                
             </div>
         </div>
         <div class="sb-sidenav-footer">

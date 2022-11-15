@@ -1,7 +1,7 @@
 <div class="container py-3">
     <div class="card">
         <div class="card-header">
-            <span class="fw-bold">Agregar Servicio</span>
+            <span class="fw-bold">Agregar Servicio (En Desarrollo)</span>
         </div>
         <div class="card-body">
             <form action="<?= APP_URL . 'admin/saveService' ?>" method="post" enctype="multipart/form-data">
@@ -10,7 +10,7 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="name" class="form-label required"> <span style="color: red;"> * </span>
-                                Nombre del servicio</label>
+                                Nombre del servicio </label>
                             <input type="text" name="name" value="<?= Utils::old('name') ?>" class="form-control">
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="float-start">
                             <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
                         </div>
-                        <button type="submit" class="btn btn-primary float-end">Agregar Servicio</button>
+                        <button type="submit" class="btn btn-primary float-end" disabled>Agregar Servicio</button>
                     </div>
                 </div>
 

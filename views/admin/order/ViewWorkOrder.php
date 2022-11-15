@@ -67,6 +67,6 @@
                 </dl>
             </div>
 
-            <input type="submit" class="edit" value="Edit">
+            <input type="submit" class="edit" value="Edit" disabled>
     </div>
             <?php endwhile; ?>

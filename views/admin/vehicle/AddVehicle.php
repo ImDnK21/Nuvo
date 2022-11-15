@@ -79,7 +79,7 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="chassis_number" class="form-label required">N° de Chasis</label>
-                            <input type="text" name="chassis_number" value="<?= Utils::old('chassis_number') ?>"
+                            <input type="text" name="chassis_number" maxlength="10" value="<?= Utils::old('chassis_number') ?>"
                                 class="form-control">
                         </div>
                     </div>

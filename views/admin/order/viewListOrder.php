@@ -43,7 +43,7 @@
                   <td><?= $workorder->SERVICE?></td>
 
                   <!-- <td><?= $workorder->CREATED_AT?></td> -->
-                  <td>
+                  <!-- <td>
                     <div class="icons">
                       <a href="<?= APP_URL . 'admin/EditOrder?id=' . $workorder->ID ?>" class="btn btn-warning btn-square btn-xs">
                         <i class="fa fa-edit"></i>
@@ -54,26 +54,29 @@
                     </div>
                   </td>
                 </tr>
-                <div class="modal fade" id="deleteVehicle<?=$workorder->ID?>" tabindex="-1" aria-hidden="true">
+                <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID?>" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                      <div class="modal-header" style="color: red;">
+                      <div class="modal-header" style="color: red ;">
                     <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta Orden de trabajo?</h5>
                         <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
                       </div>
                       <div class="modal-body text-center">
-                        <b>ID: <?= $workorder->ID ?></b>
+                        <b>ID Orden de trabajo: <?= $workorder->ID ?></b>
                         <br>
-                        Una vez eliminado, no podrás recuperarlo.
+                        <b>Patente Vehiculo: <?= $workorder->PATENT_VEHICLE ?></b>
+
+                        <br>
+                        Una vez eliminado, no podrás recuperarla.
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a href="<?= APP_URL . 'admin/deleteOrder?id=' . $workorder->ID ?>"
+                        <a href="<?= APP_URL . 'admin/deleteWorkOrder?id=' . $workorder->ID ?>"
                           class="btn btn-danger">Eliminar</a>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <?php endwhile; ?>
               </tbody>
             </table>

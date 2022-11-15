@@ -48,26 +48,26 @@
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Rut: (Ej: XXXXXXXX-X) </b><span style="color: red;">*</span></label>
-              <input type="text" name="rut" class="form-control" id="validarRut" required>
+              <label class="form-label"><span style="color: red;">*</span><b> Rut: </b><span style="color: red;">*</span></label>
+              <input type="text" name="rut" class="form-control" id="validarRut" placeholder="Ej: 12345678-9" maxlength="10" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Nombres: </b><span style="color: red;">*</span></label>
-              <input type="text" name="firstname" class="form-control" required>
+              <input type="text" name="firstname" class="form-control"  required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Apellidos: </b><span style="color: red;">*</span></label>
-              <input type="text" name="lastname" class="form-control" required>
+              <input type="text" name="lastname" class="form-control"  required>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569XXXXXXXX) </b><span style="color: red;">*</span> </label>
-              <input type="text" name="phone" class="form-control" maxlength="12" required>
+              <input type="text" name="phone" class="form-control" maxlength="12" placeholder="Ej: +569XXXXXXXX" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
@@ -134,7 +134,7 @@
             <div class="float-start">
               <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
             </div>
-            <button type="submit" class="btn btn-primary float-end">Agregar Cliente</button>
+            <button type="submit" class="btn btn-primary float-end">Agregar Mecanico</button>
           </div>
         </div>
 

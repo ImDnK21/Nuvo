@@ -7,7 +7,6 @@
         <div class="card-body">
 
             <div class="row">
-
                 <div class="col-12 col-md-4">
                     <div class="mb-3">
                         <label for="patent" class="form-label required"><b>Patente</b></label>
@@ -74,6 +73,7 @@
                             value="<?= $vehicle->VEHICLE_TYPE ?>" readonly>
                     </div>
                 </div>
+                
 
             </div>
 

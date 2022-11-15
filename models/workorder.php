@@ -120,4 +120,15 @@ public function getByPatent($patent_vehicle) {
     }
     return $result;
   }
+
+  public function delete(){
+    $query = "DELETE FROM WORKORDER WHERE ID_SUPPLY = '{$this->getID()}'";
+    die($query);
+    $delete = $this->db->query($query);
+    $result = false;
+    if ($delete) {
+        $result = true;
+    }
+    return $result;
+}
 }

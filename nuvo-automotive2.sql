@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 14-11-2022 a las 05:42:54
+-- Tiempo de generación: 15-11-2022 a las 06:00:29
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 8.1.6
 
@@ -77,7 +77,8 @@ CREATE TABLE `supply` (
 --
 
 INSERT INTO `supply` (`ID_SUPPLY`, `ID_CATEGORY`, `NAME`, `DESCRIPTION`, `STOCK`, `IMG`, `CREATED_AT`, `UPDATED_AT`) VALUES
-(657, 5, 'LLavev', 'gasgas', 21, '', '2022-11-14 05:26:36', '2022-11-14 05:26:36');
+(657, 5, 'LLavev', 'gasgas', 21, '', '2022-11-14 05:26:36', '2022-11-14 05:26:36'),
+(658, 3, 'Herramienta', 'dsadas', 21, '', '2022-11-15 05:46:34', '2022-11-15 05:46:34');
 
 -- --------------------------------------------------------
 
@@ -108,9 +109,7 @@ INSERT INTO `user` (`ROLE`, `RUT`, `FIRSTNAME`, `LASTNAME`, `PHONE`, `ADDRESS`, 
 ('client', '13918256-1', 'Miguel Angel', 'Sanchez Arancibia', '+56982832421', 'Av Escuela Agricola #412', ' Macul', 'miguel@gmail.com', '$2y$10$HqBoOtoyXe0ZYatq3/sxU.lDkwtDIrWCCYqi0xGa5LUVYulHSAczC', '2022-11-11 03:26:42', '2022-11-11 03:26:42'),
 ('mechanic', '14767262-4', 'Karel Andrade', 'Poblete Diaz', '+56927231842', 'Rossini #215', 'Pudahuel', 'kpoblete@gmai.com', '$2y$10$7qXffKLMAblQlpWrtQsDcudYwkbpXkvljxovSmGs5I.LG.ujdG7dS', '2022-07-09 17:32:47', '2022-07-09 17:32:47'),
 ('client', '14774640-7', 'Karel Israel', 'Poblete Diaz', '+56989238128', 'Av los condores', 'La Florida', 'karel@gmail.com', '$2y$10$6LP70B5hncOERC94KK/P0e9BXMaw7hXA43h78/aWnygq6TRDMlgTS', '2022-11-11 02:40:55', '2022-11-11 02:40:55'),
-('client', '16122091-4', 'Vannesa Francisca', 'Carrion Perez', '+56928138532', 'Las Perdices #674', ' Estación Central', 'vanessa@gmail.com', '$2y$10$MHqLNwguzgBYFpjXUsEO7O4L8YyVTSvIoAE2359wjLDVNfSEKfkMK', '2022-11-10 23:55:18', '2022-11-10 23:55:18'),
-('client', '17664034-0', 'Angie Eleana', 'Riera Bolivar', '+56928132594', 'Av Escuela Agricola #445', ' Estación Central', 'angie@gmail.com', '$2y$10$U7EzCXyX1DQDecJZWIUk5OlkeTFuTO75dCevr2Fvfv11EomE60Hya', '2022-11-12 01:10:44', '2022-11-13 03:54:10'),
-('admin', '20049429-6', 'Admin', 'Admin', '', '', '', 'admin@admin.cl', '$2y$10$yL6aeqScgE.CM6cmQ8Yu2.XynS0Gk0NkkbVNIiihJxeSfS5Ikw5LO', '2022-07-14 05:04:44', '2022-07-14 05:05:04');
+('admin', '20049429-6', 'Admin', 'Admin', '', '', '', 'admin@admin.cl', '$2y$10$yL6aeqScgE.CM6cmQ8Yu2.XynS0Gk0NkkbVNIiihJxeSfS5Ikw5LO', '2022-07-14 09:04:44', '2022-07-14 09:05:04');
 
 -- --------------------------------------------------------
 
@@ -139,10 +138,9 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`PATENT`, `OWNER`, `BRAND`, `MODEL`, `YEAR`, `FUEL_TYPE`, `TRANSMISSION`, `COLOR`, `CHASSIS_NUMBER`, `MILEAGE`, `VEHICLE_TYPE`, `CREATED_AT`, `UPDATED_AT`) VALUES
-('LKLS-24', '11240241-1', 'jdsajdjs', 'jdsajdasj', '2021', 'Diesel', 'Automatico', '#000000', '#A5321321', '2813812', 'HatchBack', '2022-11-14 04:35:54', '2022-11-14 04:35:54'),
-('PLRS-96', '16122091-4', 'Honda', 'Civic', '2021', 'Electrico', 'Automatico', '#000000', '#A8521321', '9482', 'Deportivo', '2022-11-11 00:58:10', '2022-11-11 00:58:10'),
-('PROL-87', '11240241-1', 'Lamborgini', 'Spider', '2021', 'Diesel', 'Automatico', '#d71d1d', '#A854218321', '2123', 'HatchBack', '2022-11-13 04:43:45', '2022-11-13 04:43:45'),
-('RPDL-12', '13918256-1', 'Subaru', 'XV', '2021', 'Bencina', 'Automatico', '#cfcfcf', '#A98213124', '29132', 'SUV', '2022-11-12 00:55:57', '2022-11-12 00:55:57');
+('LKLS-24', '11240241-1', 'Nissan', '350z', '2021', 'Diesel', 'Automatico', '#000000', '#A5321321', '2813812', 'HatchBack', '2022-11-14 04:35:54', '2022-11-15 05:44:15'),
+('RPDL-12', '13918256-1', 'Subaru', 'XV', '2021', 'Bencina', 'Automatico', '#cfcfcf', '#A98213124', '29132', 'SUV', '2022-11-12 00:55:57', '2022-11-12 00:55:57'),
+('SAPD-21', '14774640-7', 'Audi', 'A8', '2021', 'Bencina', 'Mecanico', '#ff0000', '#A82183128', '2122', 'SUV', '2022-11-15 03:52:35', '2022-11-15 03:53:05');
 
 -- --------------------------------------------------------
 
@@ -167,7 +165,7 @@ CREATE TABLE `workorder` (
 
 INSERT INTO `workorder` (`ID`, `PATENT_VEHICLE`, `RUT_CLIENT`, `RUT_MECHANIC`, `OBSERVATIONS`, `SERVICE`, `CREATED_AT`, `UPDATED_AT`) VALUES
 (1000, 'RPDL-12', '13918256-1', '14767262-4', 'HOLA', 'Lavado', '2022-11-12 01:18:13', '2022-11-12 01:18:13'),
-(1001, 'PLRS-96', '16122091-4', '14767262-4', 'Vehiculo en excelente estado', '- Lavado Entero\r\n- Limpieza Interior', '2022-11-13 04:30:14', '2022-11-13 04:30:14');
+(1002, 'SAPD-21', '14774640-7', '14767262-4', 'VEHICULO SIN PROBLEMAS', '- Lavado Completo\r\n- Cambio de Caja automatica', '2022-11-15 03:53:49', '2022-11-15 03:53:49');
 
 -- --------------------------------------------------------
 
@@ -242,7 +240,7 @@ ALTER TABLE `wo_service`
 -- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `service`
@@ -254,13 +252,13 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT de la tabla `supply`
 --
 ALTER TABLE `supply`
-  MODIFY `ID_SUPPLY` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=658;
+  MODIFY `ID_SUPPLY` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=659;
 
 --
 -- AUTO_INCREMENT de la tabla `workorder`
 --
 ALTER TABLE `workorder`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 
 --
 -- AUTO_INCREMENT de la tabla `wo_service`

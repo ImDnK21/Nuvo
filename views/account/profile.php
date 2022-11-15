@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Correo electronico</label>
-              <input type="text" name="email" class="form-control" value="<?= $account->EMAIL ?>">
+              <input type="text"  name="email" class="form-control" value="<?= $account->EMAIL ?>">
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
