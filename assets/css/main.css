@@ -12627,4 +12627,16 @@ select {
 }
 
 
-/*FOotoer
+/* VIEW WORK ORDER*/
+
+.invoice-main-box {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 30px 30px 15px;
+    position: relative;
+}
+
+
+/* VIEW WORK ORDER*/

@@ -107,7 +107,7 @@
 
 <!-- Site footer -->
 <footer class="site-footer">
-<div class="container" style="max-width: none;;">
+<div id="contact" class="container" style="max-width: none;;">
   <h1 class="Contact-us text-center" style=" border-style: groove; border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #444444; color:aliceblue">CONTACTANOS</h1>
   <div class="row">
     <div class="col-12 col-lg-6">

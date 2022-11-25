@@ -25,7 +25,7 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="price" class="form-label required">Precio</label>
-                            <input type="number" name="price" min="0" value="<?= Utils::old('price') ?>"
+                            <input type="text" name="price" placeholder="$" value="<?= Utils::old('price') ?>"
                                 class="form-control">
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="float-start">
                             <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
                         </div>
-                        <button type="submit" class="btn btn-primary float-end" disabled>Agregar Servicio</button>
+                        <button type="submit" class="btn btn-primary float-end" >Agregar Servicio</button>
                     </div>
                 </div>
 

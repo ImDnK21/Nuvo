@@ -19,7 +19,7 @@
     </li>
     <?php } ?>
     <li class="nav-item">
-      <a href="#" class="nav-link">Contáctanos</a>
+      <a href="<?= APP_URL . 'admin/dashboard#contact' ?>" class="nav-link">Contáctanos</a>
     </li>
 
   </ul>

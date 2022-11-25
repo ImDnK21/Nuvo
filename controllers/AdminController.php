@@ -5,6 +5,7 @@ require_once('models/workorder.php');
 require_once('models/category.php');
 require_once('models/supply.php');
 require_once('models/service.php');
+require_once('models/wo_service.php');
 
 class AdminController {
     /**
@@ -516,11 +517,14 @@ class AdminController {
         
         $client  = new Account();
         $vehicle = new Vehicle();
+        $service = new Service();
 
         $clients = $client->getAllClients();
         $mechanics = $client->getAllMechanics();
         $vehicles = $vehicle->getAll();
-
+        $services = $service->getAll();
+        // echo $services;
+        // var_dump($services[0]->ID);
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/AddOrder.php');
     }
@@ -534,21 +538,40 @@ class AdminController {
             // $rut_client = isset($_POST['rut_client']) ? trim($_POST['rut_client']) : false;
             $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
             $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
-            $service = isset($_POST['service']) ? trim($_POST['service']) : false;
+            // $service = isset($_POST['service']) ? trim($_POST['service']) : false;
+            $status = isset($_POST['status']) ? trim($_POST['status']) : false;
+            $services  = isset($_POST['services']) ? $_POST['services'] : [];
+            // var_dump($services);
 
-
-            if ($patent_vehicle  && $rut_mechanic && $observations && $service) {
+            if ($patent_vehicle  && $rut_mechanic && $observations && $services && $status) {
                 $vehicle = new Vehicle();
                 $vehicle = $vehicle->getByPatent($patent_vehicle);
                 $rut_client = $vehicle->OWNER;
+
+               
 
                 $workorder = new WorkOrder();
                 $workorder->setPatentVehicle($patent_vehicle);
                 $workorder->setRutClient($rut_client);
                 $workorder->setRutMechanic($rut_mechanic);
                 $workorder->setObservations($observations);
-                $workorder->setService($service);
+                // $workorder->setService($service);
+                $workorder->setStatus($status);
+
+                
                 if ($workorder->save()) {
+                    // var_dump('esta es la order de trabajo', $workorder);
+                    foreach ($services as $service){
+                        // var_dump('ORDEN DE TRABAJO',intval($workorder->getId()));
+                        // var_dump('valor de serivicio', $service);
+                        $newService = new Wo_Service();
+                        // $newService->setID();
+                        $newService->setIdService(intval($service));
+                        $newService->setIdWo($workorder->getLastId());
+                        
+                        $newService->save();
+                        
+                    }
                     $_SESSION['saveOrder'] = 'Se agregó correctamente la orden de trabajo';
                 } else {
                     $_SESSION['saveOrder'] = 'Error al agregar la orden de trabajo';
@@ -827,24 +850,25 @@ class AdminController {
             $name = isset($_POST['name']) ? trim($_POST['name']) : false;
             $description = isset($_POST['description']) ? trim($_POST['description']) : false;
             $price = isset($_POST['price']) ? trim($_POST['price']) : false;
+      
 
-            if ($name && $description && $price) {
+            if ($id && $name && $description && $price) {
                 $service = new Service();
-                $service->setId($id);
+                $service->setId($_POST['id']);
                 $service->setName($_POST['name']);
                 $service->setDescription($_POST['description']);
                 $service->setPrice($_POST['price']);
 
                 if ($service->update()) {
-                    $_SESSION['SaveService'] = 'Se actualizó correctamente la categoria';
+                    $_SESSION['saveService'] = 'Se actualizó correctamente el servicio';
                 } else {
-                    $_SESSION['SaveService'] = 'Error al editar la categoria';
+                    $_SESSION['saveService'] = 'Error al editar el servicio';
                 }
             } else {
-                $_SESSION['SaveService'] = 'Debes rellenar todos los campos';
+                $_SESSION['saveService'] = 'Debes rellenar todos los campos';
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListServices');
+        header('Location:' . APP_URL . 'admin/ViewListClient');
     }
 
 

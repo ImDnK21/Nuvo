@@ -1,0 +1,5 @@
+user : admin@admin.cl
+pass: admin
+
+corrreo cliente
+ppas: 123

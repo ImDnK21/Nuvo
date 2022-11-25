@@ -12,7 +12,7 @@
                     Mis datos personales
                 </a>
                 <div class="sb-sidenav-menu-heading">Administración</div>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= APP_URL . 'client/ClientWorkOrder' ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area" ></i></div>
                     Mi Orden de Trabajo
                 </a> 

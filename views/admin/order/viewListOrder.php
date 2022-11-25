@@ -28,7 +28,7 @@
                   <th>Propietario</th>
                   <th>Mecanico a cargo</th>
                   <th>Observaciones</th>
-                  <th>Servicios Solicitados</th>
+                  <th>Estado de orden de trabajo</th>
                   <!-- <th>Fecha Creacion</th> -->
                 </tr>
               </thead>
@@ -40,7 +40,7 @@
                   <td><?= $workorder->RUT_CLIENT?></td>
                   <td><?= $workorder->RUT_MECHANIC?></td>
                   <td><?= $workorder->OBSERVATIONS?></td>
-                  <td><?= $workorder->SERVICE?></td>
+                  <td><?= $workorder->STATUS?></td>
 
                   <!-- <td><?= $workorder->CREATED_AT?></td> -->
                   <!-- <td>

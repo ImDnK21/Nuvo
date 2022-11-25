@@ -31,7 +31,7 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="price" class="form-label required">Precio</label>
-                            <input type="number" name="price" min="0" value="<?= $service -> PRICE ?>"
+                            <input type="text" name="price" placeholder="$" value="<?= $service -> PRICE ?>"
                                 class="form-control">
                         </div>
                     </div>

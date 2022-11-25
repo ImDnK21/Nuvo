@@ -10,233 +10,233 @@ const servicios = document.getElementById('servicios')
 //     }, 1)
 // }
 
-const displacementSlider = function(opts) {
-    let vertex = `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-        }
-    `;
+// const displacementSlider = function(opts) {
+//     let vertex = `
+//         varying vec2 vUv;
+//         void main() {
+//           vUv = uv;
+//           gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+//         }
+//     `;
 
-    let fragment = `
-        
-        varying vec2 vUv;
-  
-        uniform sampler2D currentImage;
-        uniform sampler2D nextImage;
-  
-        uniform float dispFactor;
-  
-        void main() {
-  
-            vec2 uv = vUv;
-            vec4 _currentImage;
-            vec4 _nextImage;
-            float intensity = 0.3;
-  
-            vec4 orig1 = texture2D(currentImage, uv);
-            vec4 orig2 = texture2D(nextImage, uv);
-            
-            _currentImage = texture2D(currentImage, vec2(uv.x, uv.y + dispFactor * (orig2 * intensity)));
-  
-            _nextImage = texture2D(nextImage, vec2(uv.x, uv.y + (1.0 - dispFactor) * (orig1 * intensity)));
-  
-            vec4 finalTexture = mix(_currentImage, _nextImage, dispFactor);
-  
-            gl_FragColor = finalTexture;
-  
-        }
-    `;
+//     let fragment = `
 
-    let images = opts.images,
-        image, sliderImages = [];;
-    let canvasWidth = images[0].clientWidth;
-    let canvasHeight = images[0].clientHeight;
-    let parent = opts.parent;
-    let renderWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    let renderHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+//         varying vec2 vUv;
 
-    let renderW, renderH;
+//         uniform sampler2D currentImage;
+//         uniform sampler2D nextImage;
 
-    if (renderWidth > canvasWidth) {
-        renderW = renderWidth;
-    } else {
-        renderW = canvasWidth;
-    }
+//         uniform float dispFactor;
 
-    renderH = canvasHeight;
+//         void main() {
 
-    let renderer = new THREE.WebGLRenderer({
-        antialias: false,
-    });
+//             vec2 uv = vUv;
+//             vec4 _currentImage;
+//             vec4 _nextImage;
+//             float intensity = 0.3;
 
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x23272A, 1.0);
-    renderer.setSize(renderW, renderH);
-    parent.appendChild(renderer.domElement);
+//             vec4 orig1 = texture2D(currentImage, uv);
+//             vec4 orig2 = texture2D(nextImage, uv);
 
-    let loader = new THREE.TextureLoader();
-    loader.crossOrigin = "anonymous";
+//             _currentImage = texture2D(currentImage, vec2(uv.x, uv.y + dispFactor * (orig2 * intensity)));
 
-    images.forEach((img) => {
+//             _nextImage = texture2D(nextImage, vec2(uv.x, uv.y + (1.0 - dispFactor) * (orig1 * intensity)));
 
-        image = loader.load(img.getAttribute('src') + '?v=' + Date.now());
-        image.magFilter = image.minFilter = THREE.LinearFilter;
-        image.anisotropy = renderer.capabilities.getMaxAnisotropy();
-        sliderImages.push(image);
+//             vec4 finalTexture = mix(_currentImage, _nextImage, dispFactor);
 
-    });
+//             gl_FragColor = finalTexture;
 
-    let scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x23272A);
-    let camera = new THREE.OrthographicCamera(
-        renderWidth / -2,
-        renderWidth / 2,
-        renderHeight / 2,
-        renderHeight / -2,
-        1,
-        1000
-    );
+//         }
+//     `;
 
-    camera.position.z = 1;
+//     let images = opts.images,
+//         image, sliderImages = [];;
+//     let canvasWidth = images[0].clientWidth;
+//     let canvasHeight = images[0].clientHeight;
+//     let parent = opts.parent;
+//     let renderWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+//     let renderHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-    let mat = new THREE.ShaderMaterial({
-        uniforms: {
-            dispFactor: {
-                type: "f",
-                value: 0.0
-            },
-            currentImage: {
-                type: "t",
-                value: sliderImages[0]
-            },
-            nextImage: {
-                type: "t",
-                value: sliderImages[1]
-            },
-        },
-        vertexShader: vertex,
-        fragmentShader: fragment,
-        transparent: true,
-        opacity: 1.0
-    });
+//     let renderW, renderH;
 
-    let geometry = new THREE.PlaneBufferGeometry(
-        parent.offsetWidth,
-        parent.offsetHeight,
-        1
-    );
-    let object = new THREE.Mesh(geometry, mat);
-    object.position.set(0, 0, 0);
-    scene.add(object);
+//     if (renderWidth > canvasWidth) {
+//         renderW = renderWidth;
+//     } else {
+//         renderW = canvasWidth;
+//     }
 
-    let addEvents = function() {
+//     renderH = canvasHeight;
 
-        let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
-        let isAnimating = false;
+//     let renderer = new THREE.WebGLRenderer({
+//         antialias: false,
+//     });
 
-        pagButtons.forEach((el) => {
+//     renderer.setPixelRatio(window.devicePixelRatio);
+//     renderer.setClearColor(0x23272A, 1.0);
+//     renderer.setSize(renderW, renderH);
+//     parent.appendChild(renderer.domElement);
 
-            el.addEventListener('click', function() {
+//     let loader = new THREE.TextureLoader();
+//     loader.crossOrigin = "anonymous";
 
-                if (!isAnimating) {
+//     images.forEach((img) => {
 
-                    isAnimating = true;
+//         image = loader.load(img.getAttribute('src') + '?v=' + Date.now());
+//         image.magFilter = image.minFilter = THREE.LinearFilter;
+//         image.anisotropy = renderer.capabilities.getMaxAnisotropy();
+//         sliderImages.push(image);
 
-                    document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
-                    this.className = 'active';
+//     });
 
-                    let slideId = parseInt(this.dataset.slide, 10);
+//     let scene = new THREE.Scene();
+//     scene.background = new THREE.Color(0x23272A);
+//     let camera = new THREE.OrthographicCamera(
+//         renderWidth / -2,
+//         renderWidth / 2,
+//         renderHeight / 2,
+//         renderHeight / -2,
+//         1,
+//         1000
+//     );
 
-                    mat.uniforms.nextImage.value = sliderImages[slideId];
-                    mat.uniforms.nextImage.needsUpdate = true;
+//     camera.position.z = 1;
 
-                    TweenLite.to(mat.uniforms.dispFactor, 1, {
-                        value: 1,
-                        ease: 'Expo.easeInOut',
-                        onComplete: function() {
-                            mat.uniforms.currentImage.value = sliderImages[slideId];
-                            mat.uniforms.currentImage.needsUpdate = true;
-                            mat.uniforms.dispFactor.value = 0.0;
-                            isAnimating = false;
-                        }
-                    });
+//     let mat = new THREE.ShaderMaterial({
+//         uniforms: {
+//             dispFactor: {
+//                 type: "f",
+//                 value: 0.0
+//             },
+//             currentImage: {
+//                 type: "t",
+//                 value: sliderImages[0]
+//             },
+//             nextImage: {
+//                 type: "t",
+//                 value: sliderImages[1]
+//             },
+//         },
+//         vertexShader: vertex,
+//         fragmentShader: fragment,
+//         transparent: true,
+//         opacity: 1.0
+//     });
 
-                    let slideTitleEl = document.getElementById('slide-title');
-                    let slideStatusEl = document.getElementById('slide-status');
-                    let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
-                    let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+//     let geometry = new THREE.PlaneBufferGeometry(
+//         parent.offsetWidth,
+//         parent.offsetHeight,
+//         1
+//     );
+//     let object = new THREE.Mesh(geometry, mat);
+//     object.position.set(0, 0, 0);
+//     scene.add(object);
 
-                    TweenLite.fromTo(slideTitleEl, 0.5, {
-                        autoAlpha: 1,
-                        y: 0
-                    }, {
-                        autoAlpha: 0,
-                        y: 20,
-                        ease: 'Expo.easeIn',
-                        onComplete: function() {
-                            slideTitleEl.innerHTML = nextSlideTitle;
+//     let addEvents = function() {
 
-                            TweenLite.to(slideTitleEl, 0.5, {
-                                autoAlpha: 1,
-                                y: 0,
-                            })
-                        }
-                    });
+//         let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
+//         let isAnimating = false;
 
-                    TweenLite.fromTo(slideStatusEl, 0.5, {
-                        autoAlpha: 1,
-                        y: 0
-                    }, {
-                        autoAlpha: 0,
-                        y: 20,
-                        ease: 'Expo.easeIn',
-                        onComplete: function() {
-                            slideStatusEl.innerHTML = nextSlideStatus;
+//         pagButtons.forEach((el) => {
 
-                            TweenLite.to(slideStatusEl, 0.5, {
-                                autoAlpha: 1,
-                                y: 0,
-                                delay: 0.1,
-                            })
-                        }
-                    });
+//             el.addEventListener('click', function() {
 
-                }
+//                 if (!isAnimating) {
 
-            });
+//                     isAnimating = true;
 
-        });
+//                     document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
+//                     this.className = 'active';
 
-    };
+//                     let slideId = parseInt(this.dataset.slide, 10);
 
-    addEvents();
+//                     mat.uniforms.nextImage.value = sliderImages[slideId];
+//                     mat.uniforms.nextImage.needsUpdate = true;
 
-    window.addEventListener('resize', function(e) {
-        renderer.setSize(renderW, renderH);
-    });
+//                     TweenLite.to(mat.uniforms.dispFactor, 1, {
+//                         value: 1,
+//                         ease: 'Expo.easeInOut',
+//                         onComplete: function() {
+//                             mat.uniforms.currentImage.value = sliderImages[slideId];
+//                             mat.uniforms.currentImage.needsUpdate = true;
+//                             mat.uniforms.dispFactor.value = 0.0;
+//                             isAnimating = false;
+//                         }
+//                     });
 
-    let animate = function() {
-        requestAnimationFrame(animate);
+//                     let slideTitleEl = document.getElementById('slide-title');
+//                     let slideStatusEl = document.getElementById('slide-status');
+//                     let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
+//                     let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
 
-        renderer.render(scene, camera);
-    };
-    animate();
-};
+//                     TweenLite.fromTo(slideTitleEl, 0.5, {
+//                         autoAlpha: 1,
+//                         y: 0
+//                     }, {
+//                         autoAlpha: 0,
+//                         y: 20,
+//                         ease: 'Expo.easeIn',
+//                         onComplete: function() {
+//                             slideTitleEl.innerHTML = nextSlideTitle;
 
-imagesLoaded(document.querySelectorAll('img'), () => {
+//                             TweenLite.to(slideTitleEl, 0.5, {
+//                                 autoAlpha: 1,
+//                                 y: 0,
+//                             })
+//                         }
+//                     });
 
-    document.body.classList.remove('loading');
+//                     TweenLite.fromTo(slideStatusEl, 0.5, {
+//                         autoAlpha: 1,
+//                         y: 0
+//                     }, {
+//                         autoAlpha: 0,
+//                         y: 20,
+//                         ease: 'Expo.easeIn',
+//                         onComplete: function() {
+//                             slideStatusEl.innerHTML = nextSlideStatus;
 
-    const el = document.getElementById('slider');
-    const imgs = Array.from(el.querySelectorAll('img'));
-    new displacementSlider({
-        parent: el,
-        images: imgs
-    });
+//                             TweenLite.to(slideStatusEl, 0.5, {
+//                                 autoAlpha: 1,
+//                                 y: 0,
+//                                 delay: 0.1,
+//                             })
+//                         }
+//                     });
 
-});
+//                 }
+
+//             });
+
+//         });
+
+//     };
+
+//     addEvents();
+
+//     window.addEventListener('resize', function(e) {
+//         renderer.setSize(renderW, renderH);
+//     });
+
+//     let animate = function() {
+//         requestAnimationFrame(animate);
+
+//         renderer.render(scene, camera);
+//     };
+//     animate();
+// };
+
+// imagesLoaded(document.querySelectorAll('img'), () => {
+
+//     document.body.classList.remove('loading');
+
+//     const el = document.getElementById('slider');
+//     const imgs = Array.from(el.querySelectorAll('img'));
+//     new displacementSlider({
+//         parent: el,
+//         images: imgs
+//     });
+
+// });
 
 //  JS VIEW WORK ORDER
 
@@ -340,6 +340,3 @@ if (rut) {
             }, false)
         })
 })()
-
-
-// chosen

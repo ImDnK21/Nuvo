@@ -63,16 +63,16 @@ class Service {
     }
     
     public function update(){
-		$sql = "UPDATE SERVICE SET NAME='{$this->GetName()}', DESCRIPTION='{$this->GetDescription()}', PRICE={$this->GetPrice()} WHERE ID={$this->getId()};";
-        // die($sql);
-		$save = $this->db->query($sql);
-		
-		$result = false;
-		if($save){
-			$result = true;
-		}
-		return $result;
-	}
+        $query = "UPDATE SERVICE SET NAME = '{$this->getName()}' , DESCRIPTION = '{$this->getDescription()}', PRICE = '{$this->getPrice()}' WHERE ID = '{$this->getId()}'";
+        die($query);
+
+        $update = $this->db->query($query);
+        $result = false;
+        if ($update) {
+          return true;
+        }
+        return $result;
+      }
 
 
 

@@ -40,9 +40,25 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                            <label class="selectpicker"><b></label>servicios solicitados:</b></label>
+                            <select name="services[]" class="form-select" multiple data-live-search="true">
+                                <?php while ($service = $services->fetch_object()) : ?>
+                                <option value="<?= $service->ID ?>">
+                                    <?= $service->NAME . ' ' . $service->PRICE  ?>
+                                </option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
                         <div class="mb-3">
-                            <label class="form-label"><b>Servicios Solicitados</b></label>
-                            <textarea name="service" class="form-control" placeholder="Ej: - Lavado Completo "></textarea>
+                            <label class="form-label"><b>Estado de orden de trabajo:</b></label>
+                            <select name="status" class="form-select">
+                                <option value="En Preparacion">En Preparacion</option>
+                                <option value="En proceso">En proceso</option>
+                                <option value="Finalizado">Finalizado</option>
+                            </select>
                         </div>
                     </div>
                 </div>

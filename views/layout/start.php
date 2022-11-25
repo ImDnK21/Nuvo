@@ -13,6 +13,17 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/384a6fe07a.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  \
+ <!-- HOME css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <!-- HOME CSS-->
+
+  <!-- HOME JS-->
+  <link rel="stylesheet" href="https://assets.codepen.io/16327/gsap-latest-beta.min.js'">
+  <link rel="stylesheet" href="https://assets.codepen.io/16327/Observer.min.js">
+  <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js">
+  <!-- HOME JS-->
+  
   <link rel="stylesheet" href="<?= APP_URL . 'assets/css/main.css' ?>">
   <?php if (!isset($_GET['controller'])) { ?> 
     <link rel="stylesheet" href="<?= APP_URL . 'assets/css/home.css' ?>">

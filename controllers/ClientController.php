@@ -97,13 +97,18 @@ class ClientController{
 
     public function ClientWorkOrder(){
         Utils::isAuth();
-
         $workorder = new WorkOrder();
-        $workorder = $workorder->getByPatent($_GET['patent_vehicle']);    
-        // $service = $service->getById($_GET['id']);
-
-        require_once('views/layout/sidebarClient.php');
-        require_once('views/client/vehicle/ClientWorkOrder.php');
+        $client = new Account();
+        $workorders = $workorder->getByRut($_SESSION['logged']->RUT);
+        //if does not exist work order show error
+        if ($workorders == NULL) {
+            require_once('views/layout/sidebarClient.php');
+            require_once('views/client/vehicle/errorWO.php');
+        } else {
+            require_once('views/layout/sidebarClient.php');
+            require_once('views/client/vehicle/ClientWorkOrder.php');
+        }
+   
     }
 
 
