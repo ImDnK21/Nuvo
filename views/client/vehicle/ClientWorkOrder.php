@@ -1,72 +1,46 @@
-<div class="main container">
-    <div class="content wo-form">
+<?php while ($workorder = $workorders->fetch_object()): ?>
+    <div class='invoice-main-box'>
+        <div class='header'>
+            <div class='company col-12'>
+                <h1>Orden de Trabajo <?= $workorder->ID ?></h1>
+                <p><b>Fecha y Hora:</b> <?= $workorder->CREATED_AT ?></p>
 
-        <?php while ($workorder = $workorders->fetch_object()): ?>
-           
-        <h2 class="form-title">
-            Detalle Orden de trabajo N <?= $workorder->ID ?>
-        </h2>
+               
 
-        <form>
-            <div class="s">
-                <dl>
-                    <dt class="judul-field">
-                        Patente:
-                    </dt>
-                    <dd class="value-field">
-                        <?= $workorder->PATENT_VEHICLE?>
-                    </dd>
-                </dl>
+        </div>
+        <div class='client'>
+            <p class='col-7'><b>Cliente:</b> Lucrecia Díaz</p>
+            <p class='col-5'><b>Celular:</b> (011) 4228-5449</p>
+            <p class='col-12'><b>Domicilio:</b> Av San Martín 83 ~ Sarandí</p>
+            <p class='col-6'><b>Marca:</b> Apple iPhone</p>
+            <p class='col-4'><b>Modelo:</b> 6S</p>
+            <p class='col-2'><b>Nuevo:</b> ✓</p>
+            <p class='col-6'><b>N° Serie:</b> 4539692767016948</p>
+            <p class='col-6'><b>IMEI:</b> 868380020765902</p>
+            <p class='col-6'><b>Observaciones:</b> Pantalla rota, funda color rojo desgastada.</p>
+            <div class='col-6 montos'>
+                <p class='col-12'><b>Valor:</b> $ 2000</p>
+                <p class='col-12'><b>Seña:</b> $ 500</p>
+                <p class='col-12'><b>Saldo:</b> $ 1500</p>
+                <p class='col-12'><small style='color: grey'>En caso de que no se pueda reparar tendrá un costo
+                        mínimo</small></p>
             </div>
-
-            <div class="issue">
-                <dl>
-                    <dt class="judul-field">
-                        Rut Cliente: </dt>
-                    <dd class="value-field">
-                        <?= $workorder->RUT_CLIENT ?></dd>
-                </dl>
-            </div>
-
-            <div class="status-detail">
-                <dl>
-                    <dt class="judul-field">
-                        Mecanico:</dt>
-                    <dd class="value-field">
-                        <?= $workorder->RUT_MECHANIC ?> </dd>
-
-                </dl>
-            </div>
-
-            <div class="po-link-detail">
-                <dl>
-                    <dt class="judul-field">
-                        Observaciones: </dt>
-                    <dd class="value-field">
-                        <a href="#"><?= $workorder->OBSERVATIONS ?></a></a>
-                </dl>
-            </div>
-
-
-            <div class="pic-prod">
-                <dl>
-                    <dt class="judul-field">
-                        Servicios </dt>
-                    <dd class="value-field">
-                        <?= $workorder->SERVICE ?></dd>
-                </dl>
-            </div>
-
-            <div class="pic-eng">
-                <dl>
-                    <dt class="judul-field">
-                        Fecha </dt>
-                    <dd class="value-field">
-                        <?= $workorder->CREATED_AT ?></dd>
-                </dl>
-            </div>
-
-        </form>
-
-
-        <?php endwhile; ?>
+        </div>
+        <div class='footer'>
+            <p class='col-3'>
+                <b>Fecha de Recepción:</b>
+                30/08/2017
+            </p>
+            <p class='col-3'>
+                <b>Fecha de Entrega:</b>
+                05/09/2017
+            </p>
+            <p class='col-6' style='text-align: justify'>
+                <small>Pasados 15 días de la fecha acordada (fecha de ingreso) tendrá un cargo diario de ($1,00).
+                    Pasados 45 días de la fecha acordada será considerada como abandono de equipo y la casa tendrá
+                    derecho a darle el destino que considere pertinente, según lo establecido por el código civil de
+                    C.N.</small>
+            </p>
+        </div>
+    </div>
+    <?php endwhile; ?>

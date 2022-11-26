@@ -36,21 +36,23 @@
                     <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label class="form-label" for="observations"><b>Observaciones</b></label>
-                            <textarea name="observations" class="form-control" placeholder="Ingrese las observaciones detectadas aqui "></textarea>
+                            <textarea name="observations" class="form-control"
+                                placeholder="Ingrese las observaciones detectadas aqui "></textarea>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
-                    <div class="mb-3">
-                            <label class="selectpicker"><b></label>servicios solicitados:</b></label>
-                            <select name="services[]" class="form-select" multiple data-live-search="true">
+                        <div class="mb-3">
+                            <label class="selectpicker"><b></label>Servicios solicitados:</b></label>
+                            <select name="services[]" class="chosen" data-placeholder="Seleccione Servicios" multiple>
                                 <?php while ($service = $services->fetch_object()) : ?>
                                 <option value="<?= $service->ID ?>">
-                                    <?= $service->NAME . ' ' . $service->PRICE  ?>
+                                    <?= $service->NAME      . '  ' . $service->PRICE  ?>
                                 </option>
                                 <?php endwhile; ?>
                             </select>
                         </div>
                     </div>
+                    
                     <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label class="form-label"><b>Estado de orden de trabajo:</b></label>
@@ -61,6 +63,8 @@
                             </select>
                         </div>
                     </div>
+                    
+                   
                 </div>
                 <button type="submit" class="btn btn-primary">Agregar Orden de trabajo</button>
             </form>
