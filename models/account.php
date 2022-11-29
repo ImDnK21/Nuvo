@@ -93,7 +93,7 @@ class Account {
   }
 
   public function setPassword($password) {
-    $this->password = $password;
+    $this->password = $this->db->escape_string($password);;
   }
   public function setCreatedAt($created_at) {
     $this->created_at = $created_at;
