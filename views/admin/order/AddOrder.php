@@ -58,7 +58,7 @@
                             <label class="form-label"><b>Estado de orden de trabajo:</b></label>
                             <select name="status" class="form-select">
                                 <option value="En Preparacion">En Preparacion</option>
-                                <option value="En proceso">En proceso</option>
+                                <option value="En Reparacion">En Reparacion</option>
                                 <option value="Finalizado">Finalizado</option>
                             </select>
                         </div>

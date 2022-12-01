@@ -1,12 +1,9 @@
 <?php while ($workorder = $workorders->fetch_object()): ?>
-    <div class='invoice-main-box'>
-        <div class='header'>
-            <div class='company col-12'>
-                <h1>Orden de Trabajo <?= $workorder->ID ?></h1>
-                <p><b>Fecha y Hora:</b> <?= $workorder->CREATED_AT ?></p>
-
-               
-
+<div class='invoice-main-box' id="content">
+    <div class='header'>
+        <div class='company col-12'>
+            <h1>Orden de Trabajo <?= $workorder->ID ?></h1>
+            <p><b>Fecha y Hora:</b> <?= $workorder->CREATED_AT ?></p>
         </div>
         <div class='client'>
             <p class='col-7'><b>Cliente:</b> Lucrecia Díaz</p>
@@ -42,5 +39,7 @@
                     C.N.</small>
             </p>
         </div>
+        <div id="editor"></div>
+        <button id="cmd">generate pdf</button>
     </div>
     <?php endwhile; ?>

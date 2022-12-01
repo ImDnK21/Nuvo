@@ -54,14 +54,17 @@
                 <div class="modal fade" id="deleteMechanic<?= str_replace(array(".", "-"), "", $mechanic->RUT) ?>" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                      <div class="modal-header">
-                      <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar este mecanico?</h5>
+                      <div class="modal-header" style="color: red;">
+                      <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta orden de trabajo?</h5>
                         <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
                       </div>
                       <div class="modal-body text-center">
-                        <b>RUT: <?= $mechanic->RUT ?></b>
+                      <b>ID Orden de trabajo: <?= $workorder->ID ?></b>
                         <br>
-                        Una vez eliminado, no podrás recuperarlo.
+                        <b>Patente Vehiculo: <?= $workorder->PATENT_VEHICLE ?></b>
+
+                        <br>
+                        Una vez eliminado, no podrás recuperarla.
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

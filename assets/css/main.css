@@ -12474,6 +12474,20 @@ body {
     transition: all .2s linear
 }
 
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #0d6efd;
+    border-radius: 10px
+}
+
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {
@@ -12629,13 +12643,241 @@ select {
 
 /* VIEW WORK ORDER*/
 
-.invoice-main-box {
-    background-color: #fff;
-    border: 1px solid #e1e1e1;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    padding: 30px 30px 15px;
-    position: relative;
+
+/* @page {
+    size: A4;
+    margin: 0;
+}
+
+html,
+body {
+    width: 210mm;
+    height: 297mm;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.col-11 {
+    width: 91.66666667%;
+}
+
+.col-10 {
+    width: 83.33333333%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-8 {
+    width: 66.66666667%;
+}
+
+.col-7 {
+    width: 58.33333333%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-5 {
+    width: 41.66666667%;
+}
+
+.col-4 {
+    width: 33.33333333%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-2 {
+    width: 16.66666667%;
+}
+
+.col-1 {
+    width: 8.33333333%;
+}
+
+.invoice {
+    height: calc(297mm / 2);
+    overflow: hidden;
+    padding: 10px 15px;
+}
+
+.invoice .header {
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+}
+
+.invoice .header .company {
+    border-right: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+
+.invoice .header .company span {
+    font-size: 11pt;
+}
+
+.invoice .header .company img {
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.invoice .header .company-tax {
+    padding-left: 10px;
+}
+
+.invoice .header .company-tax h1 {
+    font-size: calc(14pt + 0.8vw);
+}
+
+.invoice .header .company-tax p {
+    margin: 5px 0;
+}
+
+.invoice .client {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.invoice .client p {
+    margin: 0.4em 0;
+}
+
+.invoice .client .montos p {
+    margin: 0.2em 0;
+}
+
+.invoice .footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+} */
+
+.col-12 {
+    width: 100%;
+}
+
+.col-11 {
+    width: 91.66666667%;
+}
+
+.col-10 {
+    width: 83.33333333%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-8 {
+    width: 66.66666667%;
+}
+
+.col-7 {
+    width: 58.33333333%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-5 {
+    width: 41.66666667%;
+}
+
+.col-4 {
+    width: 33.33333333%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-2 {
+    width: 16.66666667%;
+}
+
+.col-1 {
+    width: 8.33333333%;
+}
+
+.invoice {
+    height: calc(297mm / 2);
+    overflow: hidden;
+    padding: 10px 15px;
+    width: 50%;
+}
+
+.invoice .header {
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+}
+
+.invoice .header .company {
+    border-right: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+
+.invoice .header .company span {
+    font-size: 11pt;
+}
+
+.invoice .header .company img {
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.invoice .header .company-tax {
+    padding-left: 10px;
+}
+
+.invoice .header .company-tax h1 {
+    font-size: calc(14pt + 0.8vw);
+}
+
+.invoice .header .company-tax p {
+    margin: 5px 0;
+}
+
+.invoice .client {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.invoice .client p {
+    margin: 0.4em 0;
+}
+
+.invoice .client .montos p {
+    margin: 0.2em 0;
+}
+
+.invoice .footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-top: none;
 }
 
 

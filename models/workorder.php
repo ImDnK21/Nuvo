@@ -151,8 +151,8 @@ public function getByPatent($patent_vehicle) {
   }
 
   public function delete(){
-    $query = "DELETE FROM WORKORDER WHERE ID_SUPPLY = '{$this->getID()}'";
-    die($query);
+    $query = "DELETE FROM WORKORDER WHERE ID = '{$this->getID()}'";
+    // die($query);
     $delete = $this->db->query($query);
     $result = false;
     if ($delete) {

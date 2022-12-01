@@ -19,7 +19,7 @@
       });
     </script>
     <script src="../node_modules/chosen_v1.8.7/chosen.jquery.min.js"></script>
-
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 
     </body>
 

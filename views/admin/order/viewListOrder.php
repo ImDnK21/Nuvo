@@ -29,32 +29,69 @@
                   <th>Mecanico a cargo</th>
                   <th>Observaciones</th>
                   <th>Estado de orden de trabajo</th>
-                  <!-- <th>Fecha Creacion</th> -->
+                  <th>Fecha Creacion</th>
                 </tr>
               </thead>
               <tbody>
                 <?php while ($workorder = $workorders->fetch_object()): ?>
+
                 <tr>
                   <td><?= $workorder->ID ?></td>
                   <td><?= $workorder->PATENT_VEHICLE?></td>
                   <td><?= $workorder->RUT_CLIENT?></td>
                   <td><?= $workorder->RUT_MECHANIC?></td>
                   <td><?= $workorder->OBSERVATIONS?></td>
-                  <td><?= $workorder->STATUS?></td>
+                  <td>
+                    <?php
+                        if ($workorder->STATUS == 'En Preparacion') {
+                          echo '<span class="badge badge-warning" style="background-color:red;"> En Preparacion</span>';
+                        } elseif ($workorder->STATUS == 'En Reparacion') {
+                          echo '<span class="badge badge-primary" >Vehiculo en reparacion</span>';
+                        } elseif ($workorder->STATUS == 'Finalizado') {
+                          echo '<span class="badge badge-success" style="background-color: green;">Vehiculo finalizado</span>';
+                        }
+                      ?>
+                  </td>
 
-                  <!-- <td><?= $workorder->CREATED_AT?></td> -->
-                  <!-- <td>
+                  <td><?= $workorder->CREATED_AT?></td>
+                  <td>
                     <div class="icons">
                       <a href="<?= APP_URL . 'admin/EditOrder?id=' . $workorder->ID ?>" class="btn btn-warning btn-square btn-xs">
                         <i class="fa fa-edit"></i>
                       </a>
-                      <a class="btn btn-danger btn-square btn-xs" data-bs-toggle="modal" data-bs-target="#deleteVehicle<?=$workorder->ID?>">
+                      <!-- <a class="btn btn-danger btn-square btn-xs" data-bs-toggle="modal" data-bs-target="#deleteOrder<?=$workorder->ID?>">
+                        <i class="fa fa-trash"></i>
+                      </a> -->
+                      <a type="button" class="btn btn-danger btn-square btn-xs" data-bs-toggle="modal" data-bs-target="#deleteWorkOrder<?=$workorder->ID?>">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
                   </td>
                 </tr>
                 <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID?>" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header" style="color: red ;">
+                    <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta orden de trabajo?</h5>
+                        <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                      </div>
+                      <div class="modal-body text-center">
+                        <b>ID Orden: <?= $workorder->ID ?></b>
+                        <br>
+                        <b>Nombre: <?= $workorder->ID ?></b>
+
+                        <br>
+                        Una vez eliminado, no podrás recuperarla.
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="<?= APP_URL . 'admin/deleteWorkOrder?id=' . $workorder->ID ?>"
+                          class="btn btn-danger">Eliminar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID?>" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header" style="color: red ;">
@@ -75,13 +112,36 @@
                           class="btn btn-danger">Eliminar</a>
                       </div>
                     </div>
+                  </div> -->
+
+                <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header" style="color: red;">
+                        <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar este cliente?</h5>
+                        <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                      </div>
+                      <div class="modal-body text-center">
+                        <b>RUT : <?= $workorder->ID ?></b>
+                        <br>
+                        Una vez eliminado, no podrás recuperarlo.
+                        <br><b><span style="color: red;">Si Eliminas este cliente, se eliminara el vehiculo asociado a
+                            este cliente </span></b>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="<?= APP_URL . 'admin/deleteWorkOrder?id=' . $workorder->ID ?>"
+                          class="btn btn-danger">Eliminar</a>
+                      </div>
+                    </div>
                   </div>
-                </div> -->
-                <?php endwhile; ?>
-              </tbody>
-            </table>
+                </div>
           </div>
+          <?php endwhile; ?>
+          </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
+</div>

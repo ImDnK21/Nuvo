@@ -41,12 +41,10 @@
                   
                   <td>
                     <div class="icons">
-                      <a href="<?= APP_URL . 'admin/EditCategory?id=' . $category->ID ?>" type="button"
-                        class="btn btn-warning btn-square btn-xs">
+                      <a href="<?= APP_URL . 'admin/EditCategory?id=' . $category->ID ?>" type="button" class="btn btn-warning btn-square btn-xs">
                         <i class="fa fa-edit"></i>
                       </a>
-                      <a type="button" class="btn btn-danger btn-square btn-xs" data-bs-toggle="modal"
-                        data-bs-target="#deleteCategory<?=$category->ID?>">
+                      <a type="button" class="btn btn-danger btn-square btn-xs" data-bs-toggle="modal" data-bs-target="#deleteCategory<?=$category->ID?>">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
