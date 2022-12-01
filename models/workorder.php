@@ -114,6 +114,12 @@ class WorkOrder
     return $workorder->fetch_object();
   }
 
+  public function getServices() {
+    $query = "SELECT * FROM workorder WO JOIN wo_service WOS ON WO.ID = WOS.ID_WO JOIN service S ON WOS.ID_SERVICE = S.ID WHERE WO.ID = '$this->id'";
+    $services = $this->db->query($query);
+    return $services;
+  }
+
   public function getLastId(){
     $query = "SELECT LAST_INSERT_ID()";
     $lastId = $this->db->query($query);

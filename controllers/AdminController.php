@@ -498,6 +498,7 @@ class AdminController {
         Utils::isAdmin();
         $workorder = new WorkOrder();
         $workorders = $workorder->getAll();
+
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewListOrder.php');
         // require_once('views/admin/order/viewWorkOrder.php');
@@ -506,7 +507,10 @@ class AdminController {
     public function ViewWorkOrder(){
         Utils::isAdmin();
         $workorder = new WorkOrder();
-        $workorders = $workorder->getAll();
+        $workorder->setId($_GET['id']);
+        $wo = $workorder->getOne();
+
+        $services = $workorder->getServices();
         
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewWorkOrder.php');
