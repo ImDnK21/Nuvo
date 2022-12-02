@@ -114,6 +114,16 @@ class WorkOrder
     return $workorder->fetch_object();
   }
 
+  public function getDataToWO(){
+    $query = "SELECT w.id as id_workorder,w.PATENT_VEHICLE,w.RUT_MECHANIC
+              ,w.OBSERVATIONS,w.STATUS,w.CREATED_AT,w.UPDATED_AT,v.BRAND,v.MODEL,v.YEAR,u.RUT,u.FIRSTNAME, u.LASTNAME FROM workorder w 
+              INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+              INNER JOIN user u on u.RUT = w.RUT_CLIENT WHERE w.ID = '$this->id'";
+    $dataWO = $this->db->query($query);
+    // return $data->fetch_object();   
+    return $dataWO;                             
+  }
+
   public function getServices() {
     $query = "SELECT * FROM workorder WO JOIN wo_service WOS ON WO.ID = WOS.ID_WO JOIN service S ON WOS.ID_SERVICE = S.ID WHERE WO.ID = '$this->id'";
     $services = $this->db->query($query);

@@ -50,6 +50,7 @@
                             <tbody>
                                 <?php while ($supply = $supplies->fetch_object()): ?>
                                 <tr>
+                                    <!-- <td><?= var_dump($supply) ?></td> -->
                                     <td><?= $supply->ID_SUPPLY ?></td>
                                     <td><?= $supply->NAME_CATEGORY?></td>
                                     <td><?= $supply->NAME?></td>

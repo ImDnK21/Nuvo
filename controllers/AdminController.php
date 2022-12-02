@@ -498,6 +498,10 @@ class AdminController {
         Utils::isAdmin();
         $workorder = new WorkOrder();
         $workorders = $workorder->getAll();
+        $wo = $workorder->getOne();
+        $services = $workorder->getServices();
+        $dataWO = $workorder->getDataToWO();
+
 
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewListOrder.php');
@@ -508,9 +512,12 @@ class AdminController {
         Utils::isAdmin();
         $workorder = new WorkOrder();
         $workorder->setId($_GET['id']);
-        $wo = $workorder->getOne();
-
+        $workorder = $workorder->getOne();
         $services = $workorder->getServices();
+        $dataWO = $workorder->getDataToWO();
+
+        // $supply = new Supply();
+        // $supplies = $supply->getAll();
         
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewWorkOrder.php');
@@ -603,6 +610,19 @@ class AdminController {
             require_once('views/layout/sidebar.php');
             require_once('views/admin/order/EditOrder.php');
         }
+    } 
+    public function deleteWorkOrder(){
+        if (isset($_GET['id'])){
+            $id = $_GET['id'];
+            $workorder = new WorkOrder();
+            $workorder->setId($id);
+            if ($workorder->delete()){
+                $_SESSION['saveOrder'] = 'Se eliminó correctamente la categoria';
+            } else {
+                $_SESSION['saveOrder'] = 'Error al eliminar la categoria';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListWorkOrder');
     }
 
     public function ViewListCategories(){
@@ -686,19 +706,7 @@ class AdminController {
         require_once('views/admin/supplies/AddSupply.php');
     }
 
-    public function deleteWorkOrder(){
-        if (isset($_GET['id'])){
-            $id = $_GET['id'];
-            $workorder = new WorkOrder();
-            $workorder->setId($id);
-            if ($workorder->delete()){
-                $_SESSION['saveOrder'] = 'Se eliminó correctamente la categoria';
-            } else {
-                $_SESSION['saveOrder'] = 'Error al eliminar la categoria';
-            }
-        }
-        header('Location:' . APP_URL . 'admin/ViewListWorkOrder');
-    }
+    
     public function DeleteSupply(){
         if (isset($_GET['id'])){
             $id = $_GET['id'];

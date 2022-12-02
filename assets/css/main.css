@@ -6858,9 +6858,10 @@ fieldset:disabled .btn {
     margin: -0.5rem -0.5rem -0.5rem auto;
 }
 
-.modal-title {
+.modal-title .fs-6 .fw-bold {
     margin-bottom: 0;
     line-height: 1.5;
+    color: red;
 }
 
 .modal-body {
@@ -12642,6 +12643,8 @@ select {
 
 
 /* VIEW WORK ORDER*/
+
+
 /* 
 .col-12 {
     width: 100%;
@@ -12732,7 +12735,9 @@ select {
     margin: 5px 0;
 }
 
-.header, .client, .footer {
+.header,
+.client,
+.footer {
     /* background: rgb(245, 245, 245); */
 }
 

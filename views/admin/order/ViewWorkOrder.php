@@ -5,7 +5,7 @@
         <div class='header'>
           <div class='company col-6'>
             <img src="<?= APP_URL . 'assets/img/logo.png' ?>" width=75 alt="logo">
-            <span>Güemes 4834 ~ Mar Del Plata ~ Buenos Aires</span><br>
+            <span>Porto Seguro #4955 ~ Santiago ~ Chile</span><br>
             <span>(0223) 489-7464 ~ (011) 4228-5449</span><br>
             <span><b><small>IVA RESPONSABLE INSCRIPTO</small></b></span>
           </div>
@@ -53,7 +53,7 @@
         <div class="footer">
           <ol>
           <?php $total = 0; while ($service = $services->fetch_object()) { ?>
-            <li><b><?= $service->NAME ?></b> <?= ' - ' . $service->DESCRIPTION . ' -  $' . $service->PRICE ?></li>
+            <li><b><?= $service->NAME ?></b> <?= ' - ' . $service->DESCRIPTION . ' -  ' . $service->PRICE ?></li>
           <?php $total = $total + $service->PRICE; } echo '<b>Precio total de los servicios asignados:</b> $' . $total; ?>
           </ol>
         </div>

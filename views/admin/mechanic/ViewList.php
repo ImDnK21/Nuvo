@@ -59,9 +59,9 @@
                         <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
                       </div>
                       <div class="modal-body text-center">
-                      <b>ID Orden de trabajo: <?= $workorder->ID ?></b>
+                      <b>Rut Mecanico: <?= $mechanic->RUT ?></b>
                         <br>
-                        <b>Patente Vehiculo: <?= $workorder->PATENT_VEHICLE ?></b>
+                        <b>Nombre mecanico: <?= $mechanic->FIRSTNAME . ' ' . $mechanic->LASTNAME ?></b>
 
                         <br>
                         Una vez eliminado, no podrás recuperarla.
