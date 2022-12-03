@@ -95,7 +95,9 @@ class WorkOrder
 
   public function getAll()
   {
-    $query = "SELECT * FROM WORKORDER";
+  //   $query = "SELECT * FROM WORKORDER";
+    $query = "SELECT * FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+    INNER JOIN user u on u.RUT = w.RUT_CLIENT";
     $workorders = $this->db->query($query);
     return $workorders;
   }
@@ -108,20 +110,30 @@ class WorkOrder
 
   }
 
+  public function getAllServices(){
+    $query = "SELECT wo.*,s.NAME,s.DESCRIPTION,s.PRICE FROM wo_service wo INNER JOIN service s on wo.ID_SERVICE = s.ID ";
+    $allServices = $this->db->query($query);
+    return $allServices;
+}
+
   public function getOne() {
-    $query = "SELECT * FROM WORKORDER WHERE ID = '$this->id'";
+    $query = "SELECT * FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+    INNER JOIN user u on u.RUT = w.RUT_CLIENT WHERE w.ID = '$this->id'";
     $workorder = $this->db->query($query);
+    // die($query);
     return $workorder->fetch_object();
   }
 
   public function getDataToWO(){
     $query = "SELECT w.id as id_workorder,w.PATENT_VEHICLE,w.RUT_MECHANIC
-              ,w.OBSERVATIONS,w.STATUS,w.CREATED_AT,w.UPDATED_AT,v.BRAND,v.MODEL,v.YEAR,u.RUT,u.FIRSTNAME, u.LASTNAME FROM workorder w 
+              ,w.OBSERVATIONS,w.STATUS,w.CREATED_AT,w.UPDATED_AT,v.BRAND,v.MODEL,
+              v.YEAR,u.RUT,u.FIRSTNAME, u.LASTNAME FROM workorder w 
               INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
               INNER JOIN user u on u.RUT = w.RUT_CLIENT WHERE w.ID = '$this->id'";
     $dataWO = $this->db->query($query);
+    // die($query);
     // return $data->fetch_object();   
-    return $dataWO;                             
+    return $dataWO;;                             
   }
 
   public function getServices() {

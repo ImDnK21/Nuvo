@@ -498,9 +498,11 @@ class AdminController {
         Utils::isAdmin();
         $workorder = new WorkOrder();
         $workorders = $workorder->getAll();
-        $wo = $workorder->getOne();
-        $services = $workorder->getServices();
-        $dataWO = $workorder->getDataToWO();
+        $services = $workorder->getAllServices();
+        // $wo = $workorder->getOne();
+        // $services = $workorder->getServices();
+        $workorder->setId('6');
+        // $dataWO = $workorder->getDataToWO();
 
 
         require_once('views/layout/sidebar.php');
@@ -508,20 +510,7 @@ class AdminController {
         // require_once('views/admin/order/viewWorkOrder.php');
     }
 
-    public function ViewWorkOrder(){
-        Utils::isAdmin();
-        $workorder = new WorkOrder();
-        $workorder->setId($_GET['id']);
-        $workorder = $workorder->getOne();
-        $services = $workorder->getServices();
-        $dataWO = $workorder->getDataToWO();
-
-        // $supply = new Supply();
-        // $supplies = $supply->getAll();
-        
-        require_once('views/layout/sidebar.php');
-        require_once('views/admin/order/viewWorkOrder.php');
-    }
+    
 
     public function AddWorkOrder() {
         Utils::isAdmin();

@@ -117,6 +117,20 @@ body {
     color: #444444;
 }
 
+.login-box.register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: large;
+}
+
 .login-box {
     position: absolute;
     top: 50%;
@@ -6861,7 +6875,11 @@ fieldset:disabled .btn {
 .modal-title .fs-6 .fw-bold {
     margin-bottom: 0;
     line-height: 1.5;
-    color: red;
+}
+
+.modal-title.w-100 {
+    color: #000;
+    font-weight: bold;
 }
 
 .modal-body {
@@ -12737,14 +12755,39 @@ select {
 
 .header,
 .client,
-.footer {
-    /* background: rgb(245, 245, 245); */
+.vehicle,
+.footer-order {
+    background: rgb(245, 245, 245);
+}
+
+.title-client {
+    padding: 10px 0 20px 0;
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.title-vehicle {
+    padding: 20px 0 10px 0;
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .invoice .client {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px 10px;
+    padding: 5px 10px 20px 35px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.invoice .vehicle {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px 0 35px;
     border: 1px solid #ccc;
     border-top: none;
 }
@@ -12757,7 +12800,7 @@ select {
     margin: 0.2em 0;
 }
 
-.invoice .footer {
+.footer-order {
     display: flex;
     flex-wrap: wrap;
     padding: 5px 10px;

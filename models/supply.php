@@ -84,6 +84,8 @@ class Supply{
         return $supplies;
     }
 
+    
+
     public function getSupplyLowStock(){
         $query = "SELECT * FROM SUPPLY LEFT JOIN CATEGORY ON SUPPLY.ID_CATEGORY = CATEGORY.ID WHERE SUPPLY.STOCK < 50";
         $supplies = $this->db->query($query);
@@ -131,16 +133,7 @@ class Supply{
     }
 
 
-    // public function delete(){
-    //     $query = "DELETE FROM SUPPLY WHERE ID_SUPPLY = '{$this->getId()}'";
-    //     die($query);
-    //     $delete = $this->db->query($query);
-    //     $result = false;
-    //     if($delete){
-    //         $result = true;
-    //     }
-    //     return $result;
-    // }
+   
 }
 
 

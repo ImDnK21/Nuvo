@@ -4,7 +4,7 @@
       <div class="mb-3">
         <h2 class="fw-bold mb-3">Lista de Ordenes de trabajo</h2>
         <a href="<?= APP_URL . 'admin/AddWorkOrder' ?>" class="btn btn-primary mb-3">Agregar Orden de trabajo</a>
-        <a href="<?= APP_URL . 'admin/ViewWorkOrder' ?>" class="btn btn-primary mb-3">Vista Previa de ordenes</a>
+        <!-- <a href="<?= APP_URL . 'admin/ViewWorkOrder' ?>" class="btn btn-primary mb-3">Vista Previa de ordenes</a> -->
 
         <div class="clontainer">
           <div class="col-xs-3">
@@ -35,7 +35,7 @@
               <tbody>
                 <?php while ($workorder = $workorders->fetch_object()): ?>
                 <tr>
-                  <td><?= var_dump($workorder)?></td>
+                  <!-- <td><?= var_dump($workorder)?></td> -->
                   <td><?= $workorder->ID ?></td>
                   <td><?= $workorder->PATENT_VEHICLE?></td>
                   <td><?= $workorder->RUT_CLIENT?></td>
@@ -73,22 +73,22 @@
                 <div id="viewWorkOrder<?=$workorder->ID ?>" class="modal fade" tabindex="-1" role="dialog">
                   <div class="modal-dialog modal-xl">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Vista Previa de Orden de trabajo</h5>
+                      <div class="modal-header text-center">
+                        <h5 class="modal-title w-100">Vista Previa de Orden de trabajo</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                       </div>
                       <div class="modal-body">
                         <!--content modal body -->
                         <div class="container-fluid py-3">
                           <div class="row justify-content-center">
-                            <div class="col-12 col-md-8">
+                            <div class="col-12 ">
                               <div class='invoice'>
                                 <div class='header'>
                                   <div class='company col-8'>
                                     <img src="<?= APP_URL . 'assets/img/logo.png' ?>" width=75 alt="logo">
                                     <span class="name" style="font-size: 22px;"><b>Nuvo Automotive</b></span><br>
                                     <span>(+569) 12345678 ~ (+562) 98765432</span><br>
-                                    <span><b><small>Porto Seguro #4955 ~ Santiago ~ Chile</small></b></span>
+                                    <span><b>Porto Seguro #4955 ~ Santiago ~ Chile</b></span>
                                   </div>
                                   <div class='company-tax col-4 text-center'>
                                     <h1 style="margin-top: 10px;"><b>N° de orden:</b></h1>
@@ -99,26 +99,34 @@
                                 </div>
                                 <div class='client'>
                                   <div class="col-12">
-                                    <h4 class="title text-decoration-underline text-center">Datos Del Propietario</h3>
+                                    <h4 class="title-client">Datos Del Propietario</h3>
                                   </div>
-                                  <p class='col-12'><b>Rut Cliente: </b><?=$workorder->RUT_CLIENT?></p>
-                                  <p class='col-12'><b>Nombre Cliente: </b>Alejandro Sebastian Santibanez Rodriguez</p>
-                                  <p class='col-6'><b>Telefono de contacto:</b> </p>
-                                  <p class='col-6'><b>Domicilio:</b> Av San Martín 83 ~ Sarandí</p>
-                                  <p class='col-6'><b>Comuna de residencia:</b> Las Condes</p>
-                                  <p class='col-6'><b>Correo de contaco:</b> Ejemplo@gmail.com</p>
-                                  <div class="col-12">
-                                    <h4 class="title text-decoration-underline text-center">Datos Del vehiculo</h3> 
-                                    
-                                  </div>
-                                  <p class='col-6'><b>Marca:</b> Audi</p>
-                                  <p class='col-6'><b>Modelo:</b> Q8</p>
-                                  <p class='col-6'><b>Año:</b> </p>
-                                  <p class='col-6'><b>N° de chasis:</b> #A5213212</p>
-                                  <p class='col-6'><b>Tipo de combustible:</b> Bencina</p>
-                                  <p class='col-6'><b>Observaciones: </b> <?=$workorder->OBSERVATIONS?></p>
+                                  <p class='col-6'><b>Rut Cliente: </b><?=$workorder->RUT_CLIENT?></p>
+                                  <p class='col-6'><b>Nombre Cliente:
+                                    </b><?=$workorder->FIRSTNAME . ' ' . $workorder->LASTNAME ?></p>
+                                  <p class='col-6'><b>Domicilio:</b> <?=$workorder->ADDRESS?></p>
+                                  <p class='col-6'><b>Comuna de residencia:</b> <?=$workorder->COMMUNE ?></p>
+                                  <p class='col-6'><b>Correo de contaco: </b> <?= $workorder->EMAIL?> </p>
+                                  <p class='col-6'><b>Telefono de contacto: </b> <?= $workorder->PHONE?> </p>
                                 </div>
-                                <div class='footer'>
+                                <div class="vehicle">
+                                  <div class="col-12">
+                                    <h4 class="title-vehicle">Datos Del vehiculo</h4>
+                                  </div>
+                                  <p class='col-6'><b>Patent:</b> <?=$workorder->PATENT?></p>
+                                  <p class='col-6'><b>Marca:</b> <?=$workorder->BRAND?></p>
+                                  <p class='col-6'><b>Modelo:</b> <?=$workorder->MODEL?></p>
+                                  <p class='col-6'><b>Año:</b> <?=$workorder->YEAR?></p>
+                                  <p class='col-6'><b>Combustible:</b> <?=$workorder->FUEL_TYPE?></p>
+                                  <p class='col-6'><b>Transmision:</b> <?=$workorder->TRANSMISSION?></p>
+                                  <p class='col-6'><b>Color: </b><input type="color" name="color" class="color w-25"
+                                      value="<?=$workorder->COLOR?>"></p>
+                                  <p class='col-6'><b>N° de chasis:</b> <?=$workorder->CHASSIS_NUMBER?></p>
+                                  <p class='col-6'><b>Kilometraje:</b> <?=$workorder->MILEAGE?> Km</p>
+                                  <p class='col-6'><b>Tipo de vehiculo:</b> <?=$workorder->VEHICLE_TYPE?></p>
+                                </div>
+                              </div>
+                              <!-- <div class='footer-order'>
                                   <p class='col-3'>
                                     <b>Fecha de Recepción:</b>
                                     30/08/2017
@@ -135,68 +143,71 @@
                                       destino que considere pertinente, según lo establecido por el código civil de
                                       C.N.</small>
                                   </p>
-                                </div>
-                                <div class="footer">
-                                  <ol>
-                                    <?php $total = 0; while ($service = $services->fetch_object()) { ?>
-                                    <li><b><?= $service->NAME ?></b>
-                                      <?= ' - ' . $service->DESCRIPTION . ' -  ' . $service->PRICE ?></li>
-                                    <?php $total = $total + $service->PRICE; } echo '<b>Precio total de los servicios asignados:</b> $' . $total; ?>
-                                  </ol>
-                                </div>
+                                </div> -->
+                              <div class="footer">
+                                <ol>
+                                  <?php $total = 0 ;foreach ($services as $service) { ?>
+                                  <?php if ($service['ID_WO'] == $workorder->ID) { ?>
+                                  <li><?= $service['NAME'] . $service['PRICE'] ?> </li>
+                                  <?php $total += intval($service['PRICE']) ?>
+                                  <!--  -->
+                                  <?php } ?>
+                                  <?php } echo $total; ?>
+                                </ol>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">OK</button>
-                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-primary">OK</button>
                     </div>
                   </div>
                 </div>
-                <!-- Modal View Work order-->
-                <div class="modal fade" id="2viewWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header" style="color: red;">
-                        <h5 class=" modal-title fs-6 fw-bold ">Vista Previa de Orden de trabajo</h5>
-                        <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
-                      </div>
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-                <!-- Modal Delete Work order -->
-                <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header" style="color: red;">
-                        <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta Orden de trabajo?
-                        </h5>
-                        <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
-                      </div>
-                      <div class="modal-body text-center">
-                        <b>ID orden de trabajo : <?= $workorder->ID ?></b>
-                        <br>
-                        <b>Vehiculo Patente : <?= $workorder->PATENT_VEHICLE ?></b>
-                        <br>
-                        Una vez eliminado, no podrás recuperarlo.
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a href="<?= APP_URL . 'admin/deleteWorkOrder?id=' . $workorder->ID ?>"
-                          class="btn btn-danger">Eliminar</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <?php endwhile; ?>
-              </tbody>
-            </table>
           </div>
+          <!-- Modal View Work order-->
+          <div class="modal fade" id="2viewWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header" style="color: red;">
+                  <h5 class=" modal-title fs-6 fw-bold ">Vista Previa de Orden de trabajo</h5>
+                  <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                </div>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Delete Work order -->
+          <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header" style="color: red;">
+                  <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta Orden de trabajo?
+                  </h5>
+                  <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                </div>
+                <div class="modal-body text-center">
+                  <b>ID orden de trabajo : <?= $workorder->ID ?></b>
+                  <br>
+                  <b>Vehiculo Patente : <?= $workorder->PATENT_VEHICLE ?></b>
+                  <br>
+                  Una vez eliminado, no podrás recuperarlo.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <a href="<?= APP_URL . 'admin/deleteWorkOrder?id=' . $workorder->ID ?>"
+                    class="btn btn-danger">Eliminar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endwhile; ?>
+          </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
+</div>
