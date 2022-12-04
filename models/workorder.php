@@ -178,6 +178,17 @@ public function getByPatent($patent_vehicle) {
     return $result;
   }
 
+  public function update(){
+    $query = "UPDATE WORKORDER SET PATENT_VEHICLE = '{$this->getPatentVehicle()}' , RUT_CLIENT = '{$this->getRutClient()}', RUT_MECHANIC = '{$this->getRutMechanic()}' , OBSERVATIONS = '{$this->getObservations()}', STATUS = '{$this->getStatus}' WHERE ID = '{$this->getId()}'";
+    die($query);
+    $update = $this->db->query($query);
+    $result = false;
+    if ($update) {
+      return true;
+    }
+    return $result;
+  }
+
   public function delete(){
     $query = "DELETE FROM WORKORDER WHERE ID = '{$this->getID()}'";
     // die($query);

@@ -4,7 +4,7 @@
       <span class="fw-bold">Editar Orden de Trabajo</span>
     </div>
     <div class="card-body">
-      <form action="<?= APP_URL . 'admin/SaveOrder' ?>" method="post">
+      <form action="<?= APP_URL . 'admin/UpdateOrder' ?>" method="post">
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="mb-3">
@@ -36,11 +36,15 @@
               </select>
             </div>
           </div>
+          
           <div class="col-12 col-md-6">
             <div class="mb-3">
               <label class="form-label" for="observations"><b>Observaciones</b></label>
-              <textarea name="observations" class="form-control"
-                placeholder="Ingrese las observaciones detectadas aqui "></textarea>
+              <!-- <textarea name="observations" class="form-control"
+                placeholder="Ingrese las observaciones detectadas aqui "></textarea> -->
+                <!-- <input type="text" name="id" class="form-control" vale readonly> -->
+                <textarea name="order" class="form-control" ><?=$order->OBSERVATIONS?></textarea>
+
             </div>
           </div>
           
@@ -58,7 +62,7 @@
 
 
         </div>
-        <button type="submit" class="btn btn-primary">Agregar Orden de trabajo</button>
+        <button type="submit" class="btn btn-primary">Editar Orden de trabajo</button>
       </form>
     </div>
   </div>

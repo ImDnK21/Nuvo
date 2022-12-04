@@ -600,6 +600,45 @@ class AdminController {
             require_once('views/admin/order/EditOrder.php');
         }
     } 
+
+    public function UpdateOrder(){
+        Utils::isAdmin();
+
+        if (isset($_POST)){
+            $id = isset($_POST['id']) ? trim($_POST['id']) : false;
+            $patent = isset($_POST['patent']) ? trim($_POST['patent']) : false;
+            $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
+            $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
+            $status = isset($_POST['status']) ? trim($_POST['status']) : false;
+            // die($_POST[]);
+            var_dump($_POST);
+
+            if ($id && $patent && $rut_mechanic && $observations && $status) {
+                die();
+                $workorder = new WorkOrder();
+                $workorder->setId($id);
+                $workorder->setPatentVehicle($patent);
+                $workorder->setRutMechanic($rut_mechanic);
+                $workorder->setObservations($observations);
+                $workorder->setStatus($status);
+
+
+                if ($workorder->update()) {
+                    $_SESSION['saveCategory'] = 'Se actualizó correctamente la categoria';
+                } else {
+                    $_SESSION['saveCategory'] = 'Error al editar la categoria';
+                }
+            } else {
+                $_SESSION['saveCategory'] = 'Debes rellenar todos los campos';
+            }
+        }
+        header('Location:' . APP_URL . 'admin/ViewListWorkOrder');
+
+        }
+
+
+        
+
     public function deleteWorkOrder(){
         if (isset($_GET['id'])){
             $id = $_GET['id'];
