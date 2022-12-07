@@ -1,6 +1,6 @@
 
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark h-150">
   <a href="<?= APP_URL ?>" title="Página de inicio" class="navbar-brand fw-bold">
     <img src="<?= APP_URL . 'assets/img/logo_x28.png' ?>" alt="<?= APP_NAME  ?>" class="logo">
     Nuvo Automotive

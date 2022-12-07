@@ -32,13 +32,14 @@ class AccountController
         if ($password === $confirmPassword) {
           
           $ot = new WorkOrder();
+          // var_dump($_POST);
           $ot->setId($id);
           $ot->setRutClient($rut);
           $validacion = $ot->validarOT();
 
           if ($validacion) {
             $account = new Account();
-            $account->setRut($rut);
+            $account->getRut($rut);
             $account->setRole('client');
             $account->setFirstname($firstname);
             $account->setLastname($lastname);
@@ -46,6 +47,7 @@ class AccountController
             $account->setPassword($password);
   
             if ($account->save()) {
+              // die($account);
               $_SESSION['signup_message'] = 'Usuario creado correctamente';
               $_SESSION['signup_message_type'] = 'success';
             } else {
@@ -53,7 +55,7 @@ class AccountController
               $_SESSION['signup_message_type'] = 'warning';
             }
           } else {
-            $_SESSION['signup_message'] = 'Esta orden de trabajo no existe.';
+            $_SESSION['signup_message'] = 'La orden de trabajo ingresada no existe.';
             $_SESSION['signup_message_type'] = 'warning';
           }   
         } else {
@@ -61,6 +63,7 @@ class AccountController
           $_SESSION['signup_message_type'] = 'warning';
         }
       } else {
+        var_dump($_POST);
         $_SESSION['signup_message'] = 'Rellena todos los campos.';
         $_SESSION['signup_message_type'] = 'warning';
       }

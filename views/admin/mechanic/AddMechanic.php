@@ -79,47 +79,46 @@
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><b> Comuna: </b></label>
-              <select name="commune" class="form-select" required>
-                <option selected="selected" value="La Florida">La Florida</option>
-                <option value="Cerrillos">Cerrillos</option>
-                <option value="Cerro Navia">Cerro Navia</option>
-                <option value=" Conchalí">Conchalí</option>
-                <option value=" El Bosque">El Bosque</option>
-                <option value=" Estación Central">Estación Central</option>
-                <option value=" Huechuraba">Huechuraba</option>
-                <option value=" Independencia">Independencia</option>
-                <option value=" La Cisterna">La Cisterna</option>
-                <option value=" La Granja">La Granja</option>
-                <option value=" La Pintana">La Pintana</option>
-                <option value=" La Reina">La Reina</option>
-                <option value=" Las Condes">Las Condes</option>
-                <option value=" Lo Barnechea">Lo Barnechea</option>
-                <option value=" Lo Espejo">Lo Espejo</option>
-                <option value=" Lo Prado">Lo Prado</option>
-                <option value=" NatuMaculral">Macul</option>
-                <option value=" Maipú">Maipú</option>
-                <option value=" Ñuñoa">Ñuñoa</option>
-                <option value=" Pedro Aguirre Cerda">Pedro Aguirre Cerda</option>
-                <option value=" Peñalolén">Peñalolén</option>
-                <option value=" Providencia">Providencia</option>
-                <option value=" Pudahuel">Pudahuel</option>
-                <option value=" Quilicura">Quilicura</option>
-                <option value=" Quinta Normal">Quinta Normal</option>
-                <option value=" Recoleta">Recoleta</option>
-                <option value=" Renca">Renca</option>
-                <option value=" San Joaquín">San Joaquín</option>
-                <option value=" San Miguel">San Miguel</option>
-                <option value=" San Ramón">San Ramón</option>
-                <option value=" Vitacura">Vitacura</option>
-                <option value=" Puente Alto">Puente Alto</option>
-                <option value=" Pirque">Pirque</option>
-                <option value=" San José de Maipo">San José de Maipo</option>
-                <option value=" Colina">Colina</option>
-                <option value=" Lampa">Lampa</option>
-                <option value=" San Bernardo">San Bernardo</option>
-                <option value=" Buin">Buin</option>
-                <option value=" Peñaflor">Peñaflor</option>
-                </option>
+              <select name="id_commune" class="form-select" required>
+              <option selected="selected" value="1">La Florida</option>
+                <option value="2">Cerrillos</option>
+                <option value="3">Cerro Navia</option>
+                <option value="4">Conchalí</option>
+                <option value="5">El Bosque</option>
+                <option value="6">Estación Central</option>
+                <option value="7">Huechuraba</option>
+                <option value="8">Independencia</option>
+                <option value="9">La Cisterna</option>
+                <option value="10">La Granja</option>
+                <option value="11">La Pintana</option>
+                <option value="12">La Reina</option>
+                <option value="13">Las Condes</option>
+                <option value="14">Lo Barnechea</option>
+                <option value="15">Lo Espejo</option>
+                <option value="16">Lo Prado</option>
+                <option value="17">Macul</option>
+                <option value="18">Maipú</option>
+                <option value="19">Ñuñoa</option>
+                <option value="20">Pedro Aguirre Cerda</option>
+                <option value="21">Peñalolén</option>
+                <option value="22">Providencia</option>
+                <option value="23">Pudahuel</option>
+                <option value="24">Quilicura</option>
+                <option value="25">Quinta Normal</option>
+                <option value="26">Recoleta</option>
+                <option value="27">Renca</option>
+                <option value="28">San Joaquín</option>
+                <option value="29">San Miguel</option>
+                <option value="30">San Ramón</option>
+                <option value="31">Vitacura</option>
+                <option value="32">Puente Alto</option>
+                <option value="33">Pirque</option>
+                <option value="34">San José de Maipo</option>
+                <option value="35">Colina</option>
+                <option value="36">Lampa</option>
+                <option value="37">San Bernardo</option>
+                <option value="38">Buin</option>
+                <option value="39">Peñaflor</option>
               </select>
             </div>
           </div>

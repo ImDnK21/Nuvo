@@ -80,12 +80,12 @@ class AdminController {
             $lastname = isset($_POST['lastname']) ? trim($_POST['lastname']) : false;
             $phone = isset($_POST['phone']) ? trim($_POST['phone']) : false;
             $address = isset($_POST['address']) ? trim($_POST['address']) : false;
-            $commune = isset($_POST['commune']) ? trim($_POST['commune']) : false;
+            $id_commune = isset($_POST['id_commune']) ? trim($_POST['id_commune']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
             
 
 
-            if ($rut && $firstname && $lastname && $phone && $address && $commune && $email) {
+            if ($rut && $firstname && $lastname && $phone && $address && $id_commune && $email) {
                 $client = new Account();
                 $client->setRut($_POST['rut']);
                 $client->setRole('client');
@@ -94,7 +94,7 @@ class AdminController {
                 $client->setPassword('123');
                 $client->setPhone($_POST['phone']);
                 $client->setAddress($_POST['address']);
-                $client->setCommune($_POST['commune']);
+                $client->setIdCommune($_POST['id_commune']);
                 $client->setEmail($_POST['email']);
 
 
@@ -124,7 +124,7 @@ class AdminController {
             $phone = isset($_POST['phone']) ? trim($_POST['phone']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
             $address = isset($_POST['address']) ? trim($_POST['address']) : false;
-            $commune = isset($_POST['commune']) ? trim($_POST['commune']) : false;
+            $id_commune = isset($_POST['id_commune']) ? trim($_POST['id_commune']) : false;
 
             if ($rut && $firstname && $lastname && $email) {
                 $client = new Account();
@@ -134,7 +134,7 @@ class AdminController {
                 $client->setPhone($_POST['phone']);
                 $client->setEmail($_POST['email']);
                 $client->setAddress($_POST['address']);
-                $client->setCommune($_POST['commune']);
+                $client->setIdCommune($_POST['id_commune']);
 
                 if ($client->update()) {
                     $_SESSION['saveClient'] = 'Se actualizó correctamente el cliente';
@@ -228,18 +228,18 @@ class AdminController {
             $lastname = isset($_POST['lastname']) ? trim($_POST['lastname']) : false;
             $phone = isset($_POST['phone']) ? trim($_POST['phone']) : false;
             $address = isset($_POST['address']) ? trim($_POST['address']) : false;
-            $commune = isset($_POST['commune']) ? trim($_POST['commune']) : false;
+            $id_commune = isset($_POST['id_commune']) ? trim($_POST['id_commune']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
 
 
-            if ($rut && $firstname && $lastname && $phone && $commune && $email) {
+            if ($rut && $firstname && $lastname && $phone && $id_commune && $email) {
                 $mechanic = new Account();
                 $mechanic->setRole('mechanic');
                 $mechanic->setRut($_POST['rut']);
                 $mechanic->setFirstname($_POST['firstname']);
                 $mechanic->setLastname($_POST['lastname']);
                 $mechanic->setAddress($_POST['address']);
-                $mechanic->setCommune($_POST['commune']);
+                $mechanic->setIdCommune($_POST['id_commune']);
                 $mechanic->setPhone($_POST['phone']);
                 $mechanic->setEmail($_POST['email']);
 
@@ -267,7 +267,7 @@ class AdminController {
             $lastname = isset($_POST['lastname']) ? trim($_POST['lastname']) : false;
             $phone = isset($_POST['phone']) ? trim($_POST['phone']) : false;
             $address = isset($_POST['address']) ? trim($_POST['address']) : false;
-            $commune = isset($_POST['commune']) ? trim($_POST['commune']) : false;
+            $id_commune = isset($_POST['id_commune']) ? trim($_POST['id_commune']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
             
             if ($rut && $firstname && $lastname && $phone && $email) {
@@ -277,7 +277,7 @@ class AdminController {
                 $mechanic->setLastname($_POST['lastname']);
                 $mechanic->setPhone($_POST['phone']);
                 $mechanic->setAddress($_POST['address']);
-                $mechanic->setCommune($_POST['commune']);
+                $mechanic->setIdCommune($_POST['id_commune']);
                 $mechanic->setEmail($_POST['email']);
 
                 if ($mechanic->update()) {
@@ -373,26 +373,26 @@ class AdminController {
             $brand = isset($_POST['brand']) ? trim($_POST['brand']) : false;
             $model = isset($_POST['model']) ? trim($_POST['model']) : false;
             $year = isset($_POST['year']) ? trim($_POST['year']) : false;
-            $fuel_type = isset($_POST['fuel_type']) ? trim($_POST['fuel_type']) : false;
-            $transmission = isset($_POST['transmission']) ? trim($_POST['transmission']) : false;
+            $id_fuel_type = isset($_POST['id_fuel_type']) ? trim($_POST['id_fuel_type']) : false;
+            $id_transmission = isset($_POST['id_transmission']) ? trim($_POST['id_transmission']) : false;
             $color = isset($_POST['color']) ? trim($_POST['color']) : false;
             $chassis_number = isset($_POST['chassis_number']) ? trim($_POST['chassis_number']) : false;
             $mileage = isset($_POST['mileage']) ? trim($_POST['mileage']) : false;
-            $vehicle_type = isset($_POST['vehicle_type']) ? trim($_POST['vehicle_type']) : false;
+            $id_vehicle_type = isset($_POST['id_vehicle_type']) ? trim($_POST['id_vehicle_type']) : false;
 
-            if ($patent && $owner && $brand && $model && $year && $fuel_type && $transmission && $color && $chassis_number && $mileage && $vehicle_type) {
+            if ($patent && $owner && $brand && $model && $year && $id_fuel_type && $id_transmission && $color && $chassis_number && $mileage && $id_vehicle_type) {
                 $vehicle = new Vehicle();
                 $vehicle->setPatent($_POST['patent']);
                 $vehicle->setOwner($_POST['owner']);
                 $vehicle->setBrand($_POST['brand']);
                 $vehicle->setModel($_POST['model']);
                 $vehicle->setYear($_POST['year']);
-                $vehicle->setFuelType($_POST['fuel_type']);
-                $vehicle->setTransmission($_POST['transmission']);
+                $vehicle->setIdFuelType($_POST['id_fuel_type']);
+                $vehicle->setIdTransmission($_POST['id_transmission']);
                 $vehicle->setColor($_POST['color']);
                 $vehicle->setChassis_number($_POST['chassis_number']);
                 $vehicle->setMileage($_POST['mileage']);
-                $vehicle->setVehicle_type($_POST['vehicle_type']);
+                $vehicle->setIdVehicle_type($_POST['id_vehicle_type']);
                 
                 if ($vehicle->save()) {
                     $_SESSION['saveVehicle'] = 'Se agregó correctamente el vehiculo';
@@ -416,26 +416,26 @@ class AdminController {
             $brand = isset($_POST['brand']) ? trim($_POST['brand']) : false;
             $model = isset($_POST['model']) ? trim($_POST['model']) : false;
             $year = isset($_POST['year']) ? trim($_POST['year']) : false;
-            $fuel_type = isset($_POST['fuel_type']) ? trim($_POST['fuel_type']) : false;
-            $transmission = isset($_POST['transmission']) ? trim($_POST['transmission']) : false;
+            $id_fuel_type = isset($_POST['id_fuel_type']) ? trim($_POST['id_fuel_type']) : false;
+            $id_transmission = isset($_POST['id_transmission']) ? trim($_POST['id_transmission']) : false;
             $color = isset($_POST['color']) ? trim($_POST['color']) : false;
             $chassis_number = isset($_POST['chassis_number']) ? trim($_POST['chassis_number']) : false;
             $mileage = isset($_POST['mileage']) ? trim($_POST['mileage']) : false;
-            $vehicle_type = isset($_POST['vehicle_type']) ? trim($_POST['vehicle_type']) : false;
+            $id_vehicle_type = isset($_POST['id_vehicle_type']) ? trim($_POST['id_vehicle_type']) : false;
 
-            if ($patent && $owner && $brand && $model && $year && $fuel_type && $transmission && $color && $chassis_number && $mileage && $vehicle_type) {
+            if ($patent && $owner && $brand && $model && $year && $id_fuel_type && $id_transmission && $color && $chassis_number && $mileage && $id_vehicle_type) {
                 $vehicle = new Vehicle();
                 $vehicle->setPatent($_POST['patent']);
-                $vehicle->setOwner($_POST['patent']);
+                $vehicle->setOwner($_POST['owner']);
                 $vehicle->setBrand($_POST['brand']);
                 $vehicle->setModel($_POST['model']);
                 $vehicle->setYear($_POST['year']);
-                $vehicle->setFuelType($_POST['fuel_type']);
-                $vehicle->setTransmission($_POST['transmission']);
+                $vehicle->setIdFuelType($_POST['id_fuel_type']);
+                $vehicle->setIdTransmission($_POST['id_transmission']);
                 $vehicle->setColor($_POST['color']);
                 $vehicle->setChassis_number($_POST['chassis_number']);
                 $vehicle->setMileage($_POST['mileage']);
-                $vehicle->setVehicle_type($_POST['vehicle_type']);
+                $vehicle->setIdVehicle_type($_POST['id_vehicle_type']);
 
                 if ($vehicle->update()) {
                     $_SESSION['saveVehicle'] = 'Se actualizó correctamente el vehiculo';
@@ -539,11 +539,11 @@ class AdminController {
             $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
             $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
             // $service = isset($_POST['service']) ? trim($_POST['service']) : false;
-            $status = isset($_POST['status']) ? trim($_POST['status']) : false;
+            $id_status = isset($_POST['id_status']) ? trim($_POST['id_status']) : false;
             $services  = isset($_POST['services']) ? $_POST['services'] : [];
             // var_dump($services);
 
-            if ($patent_vehicle  && $rut_mechanic && $observations && $services && $status) {
+            if ($patent_vehicle  && $rut_mechanic && $observations && $services && $id_status) {
                 $vehicle = new Vehicle();
                 $vehicle = $vehicle->getByPatent($patent_vehicle);
                 $rut_client = $vehicle->OWNER;
@@ -556,7 +556,7 @@ class AdminController {
                 $workorder->setRutMechanic($rut_mechanic);
                 $workorder->setObservations($observations);
                 // $workorder->setService($service);
-                $workorder->setStatus($status);
+                $workorder->setIdStatus($id_status);
 
                 
                 if ($workorder->save()) {
@@ -609,35 +609,41 @@ class AdminController {
             $patent = isset($_POST['patent']) ? trim($_POST['patent']) : false;
             $rut_mechanic = isset($_POST['rut_mechanic']) ? trim($_POST['rut_mechanic']) : false;
             $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
-            $status = isset($_POST['status']) ? trim($_POST['status']) : false;
+            $id_status = isset($_POST['id_status']) ? trim($_POST['id_status']) : false;
             // die($_POST[]);
-            var_dump($_POST);
+            // var_dump($_POST);
 
-            if ($id && $patent && $rut_mechanic && $observations && $status) {
-                die();
+            // echo implode(" ",$_POST[]);
+            // var_dump($_POST);
+            if ($id && $patent && $rut_mechanic && $observations && $id_status) {
+                // die();
+                echo 'Metodo Post despues de if';
                 $workorder = new WorkOrder();
                 $workorder->setId($id);
                 $workorder->setPatentVehicle($patent);
                 $workorder->setRutMechanic($rut_mechanic);
                 $workorder->setObservations($observations);
-                $workorder->setStatus($status);
+                $workorder->setIdStatus($id_status);
+
 
 
                 if ($workorder->update()) {
-                    $_SESSION['saveCategory'] = 'Se actualizó correctamente la categoria';
+                    var_dump($_SESSION['editOrder']);
+                    $_SESSION['editOrder'] = 'Se actualizó correctamente la categoria';
                 } else {
-                    $_SESSION['saveCategory'] = 'Error al editar la categoria';
+                    $_SESSION['editOrder'] = 'Error al editar la categoria';
                 }
             } else {
-                $_SESSION['saveCategory'] = 'Debes rellenar todos los campos';
+                $_SESSION['editOrder'] = 'Debes rellenar todos los campos';
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListWorkOrder');
+        // header('Location:' . APP_URL . 'admin/ViewListWorkOrder');
 
         }
 
 
         
+
 
     public function deleteWorkOrder(){
         if (isset($_GET['id'])){

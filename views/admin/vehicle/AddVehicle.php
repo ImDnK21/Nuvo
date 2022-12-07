@@ -46,24 +46,24 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                            <label for="fuel_type" class="form-label required">Tipo de Combustible</label>
-                            <select name="fuel_type" class="form-select">
-                                <option selected="selected" value="Bencina">Bencina</option>
-                                <option value="Diesel">Diesel</option>
-                                <option value="Electrico">Electrico</option>
-                                <option value="Gas Natural">Gas Natural</option>
-                                <option value="Hibrido (Bencina - Gas natural)">Bencina (Gasolina - Gas natural)
+                            <label for="id_fuel_type" class="form-label required">Tipo de Combustible</label>
+                            <select name="id_fuel_type" class="form-select">
+                                <option selected="selected" value="1">Bencina</option>
+                                <option value="2">Diesel</option>
+                                <option value="3">Electrico</option>
+                                <option value="4">Gas Natural</option>
+                                <option value="5">Hibrido (Bencina - Gas)
                                 </option>
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                            <label for="transmission" class="form-label required">Transmision</label>
-                            <select name="transmission" class="form-select">
-                                <option selected="selected" value="Mecanico">Mecanico</option>
-                                <option value="Automatico">Automatico</option>
-                                <option value="CVT">CVT</option>
+                            <label for="id_transmission" class="form-label required">Transmision</label>
+                            <select name="id_transmission" class="form-select">
+                                <option selected="selected" value="1">Mecanico</option>
+                                <option value="2">Automatico</option>
+                                <option value="3">CVT</option>
                             </select>
                         </div>
                     </div>
@@ -92,15 +92,15 @@
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="vehicle_type" class="form-label required">Tipo de Vehiculo</label>
-                            <select name="vehicle_type" class="form-select">
-                                <option selected="selected" value="Sedan">Sedan</option>
-                                <option value="Station Wagon">Station Wagon</option>
-                                <option value="HatchBack">HatchBack</option>
-                                <option value="SUV">SUV</option>
-                                <option value="Deportivo">Deportivo</option>
-                                <option value="Vehiculo Comercial">Vehiculo Comercial</option>
-                                <option value="VAN">VAN</option>
-                                <option value="PickUp">PickUp</option>
+                            <select name="id_vehicle_type" class="form-select">
+                                <option selected="selected" value="1">Sedan</option>
+                                <option value="2">Station Wagon</option>
+                                <option value="3">HatchBack</option>
+                                <option value="4">SUV</option>
+                                <option value="5">Deportivo</option>
+                                <option value="6">Vehiculo Comercial</option>
+                                <option value="7">VAN</option>
+                                <option value="8">PickUp</option>
                             </select>
                         </div>
                     </div>

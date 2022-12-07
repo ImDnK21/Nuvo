@@ -41,17 +41,7 @@
                   <td><?= $workorder->RUT_CLIENT?></td>
                   <td><?= $workorder->RUT_MECHANIC?></td>
                   <td><?= $workorder->OBSERVATIONS?></td>
-                  <td>
-                    <?php
-                        if ($workorder->STATUS == 'En Preparacion') {
-                          echo '<span class="badge badge-warning" style="background-color:red;"> En Preparacion</span>';
-                        } elseif ($workorder->STATUS == 'En Reparacion') {
-                          echo '<span class="badge badge-primary" >Vehiculo en reparacion</span>';
-                        } elseif ($workorder->STATUS == 'Finalizado') {
-                          echo '<span class="badge badge-success" style="background-color: green;">Vehiculo finalizado</span>';
-                        }
-                      ?>
-                  </td>
+                  <td><?= $workorder->NAME?></td>
                   <td><?= $workorder->CREATED_AT?></td>
                   <td>
                     <div class="icons">
@@ -105,7 +95,7 @@
                                   <p class='col-6'><b>Nombre Cliente:
                                     </b><?=$workorder->FIRSTNAME . ' ' . $workorder->LASTNAME ?></p>
                                   <p class='col-6'><b>Domicilio:</b> <?=$workorder->ADDRESS?></p>
-                                  <p class='col-6'><b>Comuna de residencia:</b> <?=$workorder->COMMUNE ?></p>
+                                  <p class='col-6'><b>Comuna de residencia:</b> <?=$workorder->ID_COMMUNE ?></p>
                                   <p class='col-6'><b>Correo de contaco: </b> <?= $workorder->EMAIL?> </p>
                                   <p class='col-6'><b>Telefono de contacto: </b> <?= $workorder->PHONE?> </p>
                                 </div>
@@ -123,7 +113,7 @@
                                       value="<?=$workorder->COLOR?>"></p>
                                   <p class='col-6'><b>N° de chasis:</b> <?=$workorder->CHASSIS_NUMBER?></p>
                                   <p class='col-6'><b>Kilometraje:</b> <?=$workorder->MILEAGE?> Km</p>
-                                  <p class='col-6'><b>Tipo de vehiculo:</b> <?=$workorder->VEHICLE_TYPE?></p>
+                                  <p class='col-6'><b>Tipo de vehiculo:</b> <?=$workorder->ID_TYPE_VEHICLE?></p>
                                 </div>
                               </div>
                               <!-- <div class='footer-order'>

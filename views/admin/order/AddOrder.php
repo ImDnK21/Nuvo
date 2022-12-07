@@ -56,10 +56,10 @@
                     <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label class="form-label"><b>Estado de orden de trabajo:</b></label>
-                            <select name="status" class="form-select">
-                                <option value="En Preparacion">En Preparacion</option>
-                                <option value="En Reparacion">En Reparacion</option>
-                                <option value="Finalizado">Finalizado</option>
+                            <select name="id_status" class="form-select">
+                                <option value="1">En Preparacion</option>
+                                <option value="2">En Reparacion</option>
+                                <option value="3">Finalizado</option>
                             </select>
                         </div>
                     </div>

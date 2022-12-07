@@ -51,7 +51,7 @@
                   <!-- <td><?= $vehicle->COLOR ?></td> -->
                   <td><?= $vehicle->CHASSIS_NUMBER ?></td>
                   <td><?= $vehicle->MILEAGE ?></td>
-                  <td><?= $vehicle->VEHICLE_TYPE?></td>
+                  <td><?= $vehicle->NAME?></td>
                   <!-- <td><?= $vehicle->CREATED_AT ?></td> -->
                   <td>
                     <div class="icons">

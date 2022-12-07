@@ -16,7 +16,7 @@
           <label>ID orden de trabajo</label>
         </div>
         <div class="user-box">
-          <input type="text" name="rut" required="">
+          <input type="text" name="rut" required="" maxlength="10">
           <label>Rut</label>
         </div>
         <div class="row">
@@ -47,7 +47,7 @@
           </div>
           <div class="col-6">
             <div class="user-box">
-              <input type="password" name="password_confirmation" required="">
+              <input type="password" name="confirm-password" required="">
               <label>Confirmar Contraseña</label>
             </div>
           </div>

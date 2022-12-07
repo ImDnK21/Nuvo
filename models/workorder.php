@@ -7,7 +7,7 @@ class WorkOrder
   private $rut_client;
   private $rut_mechanic;
   private $observations;
-  private $status;
+  private $id_status;
 
   public function __construct()
   {
@@ -41,8 +41,8 @@ class WorkOrder
 
  
 
-  public function getStatus(){
-    return $this->status;
+  public function getIdStatus(){
+    return $this->id_status;
   }
 
   public function setId($id)
@@ -72,13 +72,13 @@ class WorkOrder
 
   
 
-  public function setStatus($status){
-    $this->status = $status;
+  public function setIdStatus($id_status){
+    $this->status = $id_status;
   }
 
   public function validarOT()
   {
-    $query = "SELECT * FROM workorder WHERE ID = $this->id";
+    $query = "SELECT * FROM workorder WHERE ID = $this->id" AND "RUT_CLIENT = $this->rut_client";
     //RUT_CLIENT = $this->rut_client
     // die($query);
     
@@ -96,8 +96,8 @@ class WorkOrder
   public function getAll()
   {
   //   $query = "SELECT * FROM WORKORDER";
-    $query = "SELECT * FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
-    INNER JOIN user u on u.RUT = w.RUT_CLIENT";
+    $query = "SELECT w.*,sw.NAME,u.*,v.* FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+    INNER JOIN user u on u.RUT = w.RUT_CLIENT INNER JOIN STATUS_WO sw on sw.ID_STATUS = w.ID_STATUS";
     $workorders = $this->db->query($query);
     return $workorders;
   }
@@ -168,8 +168,8 @@ public function getByPatent($patent_vehicle) {
 
   public function save()
   {
-    $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS, STATUS) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}', '{$this->status}')";
-    // die($query);
+    $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS, ID_STATUS) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}', '{$this->id_status}')";
+    die($query);
     $save = $this->db->query($query);
     $result = false;
     if ($save) {

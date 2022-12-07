@@ -37,7 +37,7 @@
                   <td><?= $mechanic->FIRSTNAME . ' ' . $mechanic->LASTNAME?></td>
                   <td><?= $mechanic->PHONE?></td>
                   <td><?= $mechanic->ADDRESS?></td>
-                  <td><?= $mechanic->COMMUNE?></td>
+                  <td><?= $mechanic->NOMBRE?></td>
                   <td><?= $mechanic->EMAIL ?></td>
                   <!-- <td><?= $mechanic->CREATED_AT ?></td> -->
                   <td>

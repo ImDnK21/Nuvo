@@ -38,7 +38,7 @@
                   <td><?= $client->PHONE ?></td>
                   <td><?= $client->EMAIL ?></td>
                   <td><?= $client->ADDRESS ?></td>
-                  <td><?= $client->COMMUNE ?></td>
+                  <td><?= $client->NOMBRE ?></td>
                   <!-- <td><?= $client->CREATED_AT ?></td> -->
                   <td>
                     <div class="icons">

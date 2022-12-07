@@ -7,7 +7,7 @@ class Account {
   private $lastname;
   private $phone;
   private $address;
-  private $commune;
+  private $id_commune;
   private $email;
   private $password;
   private $created_at;
@@ -41,8 +41,8 @@ class Account {
     return $this->address;
   }
 
-  public function getCommune() {
-    return $this->commune;
+  public function getIdCommune() {
+    return $this->id_commune;
   }
 
   public function getEmail() {
@@ -84,8 +84,8 @@ class Account {
     $this->address = $this->db->escape_string($address);
   }
 
-  public function setCommune($commune) {
-    $this->commune = $this->db->escape_string($commune);
+  public function setIdCommune($id_commune) {
+    $this->id_commune = $this->db->escape_string($id_commune);
   }
 
   public function setEmail($email) {
@@ -104,26 +104,27 @@ class Account {
   }
 
   public function getByRut($rut) {
-    $query = "SELECT * FROM user WHERE rut = '$rut'";
+    $query = "SELECT * FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID  WHERE rut = '$rut'";
     $result = $this->db->query($query);
     return $result->fetch_object();
   }
 
 
   public function getAllMechanics() {
-    $query = "SELECT * FROM `user` WHERE ROLE = 'mechanic'";
+    $query = "SELECT u.*,c.NOMBRE FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID WHERE role = 'mechanic'";
     $mechanics = $this->db->query($query);
     return $mechanics;
   }
 
   public function getAllClients() {
-    $query = "SELECT * FROM user WHERE role = 'client'";
+    $query = "SELECT u.*,c.NOMBRE FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID WHERE role = 'client'";
     $clients = $this->db->query($query);
     return $clients;
   }
 
+  //save without commune
   public function save() {
-    $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getCommune()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+    $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, ID_COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
     $save = $this->db->query($query);
     // die($query);
     $result = false;
@@ -133,6 +134,19 @@ class Account {
     return $result;
   }
   
+
+  //SAVE WITH COMMUNE
+  /*
+    $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+    $save = $this->db->query($query);
+    // die($query);
+    $result = false;
+    if ($save) {
+      $result = true;
+    }
+    return $result;
+  }*/
+  
   public function getProfile() {
     $query = "SELECT * FROM user WHERE RUT = '$this->rut'";
     $result = $this->db->query($query);
@@ -140,7 +154,8 @@ class Account {
   }
 
   public function update(){
-    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}', ADDRESS = '{$this->getAddress()}', COMMUNE = '{$this->getCommune()}', EMAIL = '{$this->getEmail()}', PASSWORD = '{$this->getPassword()}' WHERE RUT = '{$this->getRut()}'";
+    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}', ADDRESS = '{$this->getAddress()}', ID_COMMUNE = '{$this->getIdCommune()}', EMAIL = '{$this->getEmail()}', PASSWORD = '{$this->getPassword()}' WHERE RUT = '{$this->getRut()}'";
+    // die($query);
     $update = $this->db->query($query);
     $result = false;
     if ($update) {

@@ -28,7 +28,7 @@ public static function getRole($role) {
   $value = '';
   switch ($role) {
     case 'admin': $value = 'Administrador'; break;
-    case 'user': $value = 'Usuario'; break;
+    case 'client': $value = 'client'; break;
   }
   return $value;
 }
