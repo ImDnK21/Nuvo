@@ -37,7 +37,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="observations"><b>Observaciones</b></label>
                             <textarea name="observations" class="form-control"
-                                placeholder="Ingrese las observaciones detectadas aqui "></textarea>
+                                placeholder="Ingrese las observaciones detectadas aqui" style="height: 150px;"></textarea>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">

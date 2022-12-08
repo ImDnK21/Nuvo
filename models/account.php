@@ -123,18 +123,40 @@ class Account {
   }
 
   //save without commune
-  public function save() {
+  public function save()
+  {
     $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, ID_COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
-    $save = $this->db->query($query);
     // die($query);
+    // $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME,EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+    $save = $this->db->query($query);
     $result = false;
     if ($save) {
       $result = true;
     }
-    return $result;
+      return $result;
   }
-  
 
+  public function register(){
+    $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, ID_COMMUNE,EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
+    // die($query);
+    // $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME,EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+    $save = $this->db->query($query);
+    $result = false;
+    if ($save) {
+      $result = true;
+    }
+      return $result;
+  }
+
+    // $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, ID_COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
+    // $save = $this->db->query($query);
+    // $result = false;
+    // if ($save) {
+    //   $result = true;
+    // }
+    //   return $result;
+    // }
+  
   //SAVE WITH COMMUNE
   /*
     $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getEmail()}', '{$this->getPassword()}')";
@@ -154,7 +176,7 @@ class Account {
   }
 
   public function update(){
-    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}', ADDRESS = '{$this->getAddress()}', ID_COMMUNE = '{$this->getIdCommune()}', EMAIL = '{$this->getEmail()}', PASSWORD = '{$this->getPassword()}' WHERE RUT = '{$this->getRut()}'";
+    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}', ADDRESS = '{$this->getAddress()}', ID_COMMUNE = '{$this->getIdCommune()}', EMAIL = '{$this->getEmail()}' WHERE RUT = '{$this->getRut()}'";
     // die($query);
     $update = $this->db->query($query);
     $result = false;

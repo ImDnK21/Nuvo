@@ -83,14 +83,13 @@ class AdminController {
             $id_commune = isset($_POST['id_commune']) ? trim($_POST['id_commune']) : false;
             $email = isset($_POST['email']) ? trim($_POST['email']) : false;
             
-
-
             if ($rut && $firstname && $lastname && $phone && $address && $id_commune && $email) {
                 $client = new Account();
                 $client->setRut($_POST['rut']);
                 $client->setRole('client');
                 $client->setFirstname($_POST['firstname']);
                 $client->setLastname($_POST['lastname']);
+                // die($client->getFirstname());
                 $client->setPassword('123');
                 $client->setPhone($_POST['phone']);
                 $client->setAddress($_POST['address']);
@@ -99,13 +98,17 @@ class AdminController {
 
 
                 if ($client->save()) {
-                    $_SESSION['saveClient'] = 'Se agregó correctamente el cliente';
+                    $_SESSION['save_message'] = 'Se agregó correctamente el cliente';
+                    $_SESSION['save_message_type'] = 'Cliente creado correctamente';
                 } else {
                     // die(var_dump($_GET['id']));
-                    echo $_SESSION['saveClient'] = 'Error al agregar el cliente';
+                    echo $_SESSION['save_message'] = 'Error al agregar el cliente';
+                    echo $_SESSION['save_message_type'] = 'Warning';
                 }
             } else {
-                $_SESSION['saveClient'] = 'Debes rellenar todos los campos';
+                $_SESSION['save_message'] = 'Debes rellenar todos los campos';
+                $_SESSION['save_message_type'] = 'Warning';
+
             }
         }
         header('Location:' . APP_URL . 'admin/ViewListClient');
@@ -246,9 +249,12 @@ class AdminController {
                 if ($mechanic->save()) {
                     $_SESSION['saveMechanic'] = 'Se agregó correctamente el mecanico';
                 } else {
+                    var_dump($mechanic);
+                    echo 'Error al agregar el mecanico';
                     $_SESSION['saveMechanic'] = 'Error al agregar el mecanico';
                 }
             } else {
+                    echo 'Error al agregar el mecanico';
                 $_SESSION['saveMechanic'] = 'Debes rellenar todos los campos';
             }
         }
@@ -501,7 +507,7 @@ class AdminController {
         $services = $workorder->getAllServices();
         // $wo = $workorder->getOne();
         // $services = $workorder->getServices();
-        $workorder->setId('6');
+        // $workorder->setId('6');
         // $dataWO = $workorder->getDataToWO();
 
 
@@ -540,15 +546,14 @@ class AdminController {
             $observations = isset($_POST['observations']) ? trim($_POST['observations']) : false;
             // $service = isset($_POST['service']) ? trim($_POST['service']) : false;
             $id_status = isset($_POST['id_status']) ? trim($_POST['id_status']) : false;
+            // $id_status = isset($_POST['id_status']) ? trim($_POST['id_status']) : false;
             $services  = isset($_POST['services']) ? $_POST['services'] : [];
-            // var_dump($services);
+
 
             if ($patent_vehicle  && $rut_mechanic && $observations && $services && $id_status) {
                 $vehicle = new Vehicle();
                 $vehicle = $vehicle->getByPatent($patent_vehicle);
                 $rut_client = $vehicle->OWNER;
-
-               
 
                 $workorder = new WorkOrder();
                 $workorder->setPatentVehicle($patent_vehicle);
@@ -557,8 +562,8 @@ class AdminController {
                 $workorder->setObservations($observations);
                 // $workorder->setService($service);
                 $workorder->setIdStatus($id_status);
+                // echo $workorder->getIdStatus();
 
-                
                 if ($workorder->save()) {
                     // var_dump('esta es la order de trabajo', $workorder);
                     foreach ($services as $service){

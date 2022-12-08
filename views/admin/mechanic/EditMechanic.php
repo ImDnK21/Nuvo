@@ -88,7 +88,7 @@
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><b> Correo electrónico:</b></label>
-              <input type="text" name="email" class="form-control" value="<?= $mechanic->EMAIL ?>">
+              <input type="email" name="email" class="form-control" value="<?= $mechanic->EMAIL ?>">
             </div>
           </div>
           <div class="col-12 col-md-4">

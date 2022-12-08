@@ -28,7 +28,7 @@ class AccountController
       $confirmPassword = isset($_POST['confirm-password']) ? trim($_POST['confirm-password']) : false;
       
 
-      if ($id && $rut && $firstname && $lastname && $email && $password && $confirmPassword) {
+      if ($id && $rut && $firstname && $lastname  && $email && $password && $confirmPassword) {
         if ($password === $confirmPassword) {
           
           $ot = new WorkOrder();
@@ -39,14 +39,15 @@ class AccountController
 
           if ($validacion) {
             $account = new Account();
-            $account->getRut($rut);
             $account->setRole('client');
+            $account->setRut($rut);
             $account->setFirstname($firstname);
             $account->setLastname($lastname);
+            $account->setIdCommune('1');
             $account->setEmail($email);
             $account->setPassword($password);
   
-            if ($account->save()) {
+            if ($account->register()) {
               // die($account);
               $_SESSION['signup_message'] = 'Usuario creado correctamente';
               $_SESSION['signup_message_type'] = 'success';

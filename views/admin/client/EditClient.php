@@ -42,7 +42,7 @@
             <div class="mb-3">
               <label class="form-label" ><b> Comuna: </b></label>
               <select name="id_commune" class="form-select" >
-                <option value="<?php echo $client->NOMBRE;?>" hidden><?php echo $client->NOMBRE;?></option>
+                <option value="<?php echo $client->ID_COMMUNE;?>" hidden><?php echo $client->NOMBRE;?></option>
                 <option value="1">La Florida</option>
                 <option value="2">Cerrillos</option>
                 <option value="3">Cerro Navia</option>
@@ -89,7 +89,7 @@
           <div class="col-12 col-md-8">
             <div class="mb-3">
               <label class="form-label"><b> Correo electrónico:</b></label>
-              <input type="text" name="email" class="form-control" value="<?= $client->EMAIL ?>">
+              <input type="email" name="email" class="form-control" value="<?= $client->EMAIL ?>">
             </div>
           </div>
           <div class="col-12 col-md-4">

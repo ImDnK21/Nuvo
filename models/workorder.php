@@ -73,7 +73,7 @@ class WorkOrder
   
 
   public function setIdStatus($id_status){
-    $this->status = $id_status;
+    $this->id_status = $id_status;
   }
 
   public function validarOT()
@@ -96,8 +96,14 @@ class WorkOrder
   public function getAll()
   {
   //   $query = "SELECT * FROM WORKORDER";
-    $query = "SELECT w.*,sw.NAME,u.*,v.* FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
-    INNER JOIN user u on u.RUT = w.RUT_CLIENT INNER JOIN STATUS_WO sw on sw.ID_STATUS = w.ID_STATUS";
+    $query = "SELECT w.*,sw.*,u.*,v.*,ft.*,tt.*,vt.*,c.* FROM WORKORDER w 
+    INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+    INNER JOIN user u on u.RUT = w.RUT_CLIENT 
+    INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
+    INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
+    INNER JOIN STATUS_WO sw on sw.ID_STATUS = w.ID_STATUS 
+    INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION 
+    INNER JOIN COMMUNE c on c.ID = u.ID_COMMUNE";
     $workorders = $this->db->query($query);
     return $workorders;
   }
@@ -169,7 +175,6 @@ public function getByPatent($patent_vehicle) {
   public function save()
   {
     $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS, ID_STATUS) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}', '{$this->id_status}')";
-    die($query);
     $save = $this->db->query($query);
     $result = false;
     if ($save) {

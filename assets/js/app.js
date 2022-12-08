@@ -346,3 +346,5 @@ if (rut) {
             }, false)
         })
 })()
+
+//validate email

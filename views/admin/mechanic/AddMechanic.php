@@ -66,7 +66,7 @@
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569XXXXXXXX) </b><span style="color: red;">*</span> </label>
+              <label class="form-label"><b> Telefono de contacto: (+569XXXXXXXX) </b></label>
               <input type="text" name="phone" class="form-control" maxlength="12" placeholder="Ej: +569XXXXXXXX" required>
             </div>
           </div>
@@ -125,7 +125,7 @@
           <div class="col-12 col-md-12">
             <div class="mb-3">
               <label class="form-label"><b> Correo electrónico:</b></label>
-              <input type="text" name="email" class="form-control" required>
+              <input type="email" name="email" class="form-control" required>
             </div>
           </div>
 

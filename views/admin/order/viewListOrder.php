@@ -41,7 +41,7 @@
                   <td><?= $workorder->RUT_CLIENT?></td>
                   <td><?= $workorder->RUT_MECHANIC?></td>
                   <td><?= $workorder->OBSERVATIONS?></td>
-                  <td><?= $workorder->NAME?></td>
+                  <td><?= $workorder->NAME_STATUS?></td>
                   <td><?= $workorder->CREATED_AT?></td>
                   <td>
                     <div class="icons">
@@ -95,7 +95,7 @@
                                   <p class='col-6'><b>Nombre Cliente:
                                     </b><?=$workorder->FIRSTNAME . ' ' . $workorder->LASTNAME ?></p>
                                   <p class='col-6'><b>Domicilio:</b> <?=$workorder->ADDRESS?></p>
-                                  <p class='col-6'><b>Comuna de residencia:</b> <?=$workorder->ID_COMMUNE ?></p>
+                                  <p class='col-6'><b>Comuna de residencia:</b> <?=$workorder->NOMBRE ?></p>
                                   <p class='col-6'><b>Correo de contaco: </b> <?= $workorder->EMAIL?> </p>
                                   <p class='col-6'><b>Telefono de contacto: </b> <?= $workorder->PHONE?> </p>
                                 </div>
@@ -107,42 +107,41 @@
                                   <p class='col-6'><b>Marca:</b> <?=$workorder->BRAND?></p>
                                   <p class='col-6'><b>Modelo:</b> <?=$workorder->MODEL?></p>
                                   <p class='col-6'><b>Año:</b> <?=$workorder->YEAR?></p>
-                                  <p class='col-6'><b>Combustible:</b> <?=$workorder->FUEL_TYPE?></p>
-                                  <p class='col-6'><b>Transmision:</b> <?=$workorder->TRANSMISSION?></p>
+                                  <p class='col-6'><b>Combustible:</b> <?=$workorder->FUEL_NAME?></p>
+                                  <p class='col-6'><b>Transmision:</b> <?=$workorder->NAME_TRANSMISSION?></p>
                                   <p class='col-6'><b>Color: </b><input type="color" name="color" class="color w-25"
                                       value="<?=$workorder->COLOR?>"></p>
                                   <p class='col-6'><b>N° de chasis:</b> <?=$workorder->CHASSIS_NUMBER?></p>
                                   <p class='col-6'><b>Kilometraje:</b> <?=$workorder->MILEAGE?> Km</p>
-                                  <p class='col-6'><b>Tipo de vehiculo:</b> <?=$workorder->ID_TYPE_VEHICLE?></p>
+                                  <p class='col-6'><b>Tipo de vehiculo:</b> <?=$workorder->NAME?></p>
                                 </div>
                               </div>
-                              <!-- <div class='footer-order'>
+                               <div class='footer-order'>
                                   <p class='col-3'>
-                                    <b>Fecha de Recepción:</b>
-                                    30/08/2017
+                                    <b>Fecha de Recepción:</b><br>
+                                    <?= $workorder->CREATED_AT ?>
                                   </p>
                                   <p class='col-3'>
-                                    <b>Fecha de Entrega:</b>
-                                    05/09/2017
+                                    <b>Fecha de Entrega:</b><br>
+
                                   </p>
                                   <p class='col-6' style='text-align: justify'>
-                                    <small>Pasados 15 días de la fecha acordada (fecha de ingreso) tendrá un cargo
-                                      diario de ($1,00). Pasados 45
-                                      días de la fecha acordada será considerada como abandono de equipo y la casa
-                                      tendrá derecho a darle el
-                                      destino que considere pertinente, según lo establecido por el código civil de
-                                      C.N.</small>
+                                    <b>Observaciones:</b><br>
+                                    <?= $workorder->OBSERVATIONS ?>
                                   </p>
-                                </div> -->
+                                </div> 
                               <div class="footer">
                                 <ol>
                                   <?php $total = 0 ;foreach ($services as $service) { ?>
                                   <?php if ($service['ID_WO'] == $workorder->ID) { ?>
                                   <li><?= $service['NAME'] . $service['PRICE'] ?> </li>
                                   <?php $total += intval($service['PRICE']) ?>
-                                  <!--  -->
+                                  
                                   <?php } ?>
-                                  <?php } echo $total; ?>
+                                  <?php } echo $total;
+                                  ?>
+
+                                  
                                 </ol>
                               </div>
                             </div>
