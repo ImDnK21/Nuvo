@@ -3,6 +3,11 @@
         <div class="card-header">
             <span class="fw-bold">Mis Datos personales</span>
         </div>
+        <?php
+        // var_dump($_SESSION['logged']) ;
+        // var_dump($perfil);
+
+        ?>
         <!-- <form action="<?= APP_URL . 'admin/SaveClient' ?>" method="post" enctype="multipart/form-data"> -->
             <div class="card-body">
                 <div class="row">
@@ -43,9 +48,11 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
+                            
                             <label class="form-label"><b> Comuna: </b></label>
                             <input type="text" name="commune" class="form-control"
-                                value="<?= $_SESSION['logged']->COMMUNE?>">
+
+                                value="<?= $_SESSION['logged']->NOMBRE?>">
                         </div>
                     </div>
                     <div class="col-12 col-md-12">

@@ -1,34 +1,56 @@
 <div class="container py-3">
+  <?php if (isset($_SESSION['saveRutClient']) && ($_SESSION['saveRutClient']) == 'El rut o correo ingresado ya se encuentran registrados') : ?>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>El rut o el correo ingresados ya se encuentran registrados</strong>
+    <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+  </div>
+  <?php unset($_SESSION['saveRutClient']); ?>
+  <?php endif; ?>
+  <?php if (isset($_SESSION['saveRutClient']) && isset($_SESSION['save_message_type'])) : ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['save_message_type'] ?>>
+    <?= $_SESSION['save_message'] ?>
+    <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+  </div>
+  <?php unset($_SESSION['save_message']);
+          unset($_SESSION['save_message_type']);
+        endif; ?>
+
   <div class="card">
     <div class="card-header">
       <span class="fw-bold">Agregar Cliente</span>
     </div>
     <div class="card-body">
-      <form class="nededs-validation" action="<?= APP_URL . 'admin/SaveClient' ?>" method="post" enctype="multipart/form-data">
+      <form class="nededs-validation" action="<?= APP_URL . 'admin/SaveClient' ?>" method="post"
+        enctype="multipart/form-data">
         <div class="row">
-          
+
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"  ><span style="color: red;">*</span><b> Rut: </b><span style="color: red;">*</span></label>
-              <input type="text" name="rut"  class="form-control" id="id" placeholder="Ej: 12345678-9" maxlength="10" required>
+              <label class="form-label"><span style="color: red;">*</span><b> Rut: </b><span
+                  style="color: red;">*</span></label>
+              <input type="text" name="rut" class="form-control" id="id" placeholder="Ej: 12345678-9" maxlength="10"
+                required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Nombres: </b><span style="color: red;">*</span></label>
+              <label class="form-label"><span style="color: red;">*</span><b> Nombres: </b><span
+                  style="color: red;">*</span></label>
               <input type="text" name="firstname" class="form-control" required>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Apellidos: </b><span style="color: red;">*</span></label>
+              <label class="form-label"><span style="color: red;">*</span><b> Apellidos: </b><span
+                  style="color: red;">*</span></label>
               <input type="text" name="lastname" class="form-control" required>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
               <label class="form-label"><b> Telefono de contacto: (+569XXXXXXXX) </b> </label>
-              <input type="text" name="phone" class="form-control" maxlength="12" placeholder="Ej: +569XXXXXXXX" required>
+              <input type="text" name="phone" class="form-control" maxlength="12" placeholder="Ej: +569XXXXXXXX"
+                required>
             </div>
           </div>
           <div class="col-12 col-md-8">
@@ -87,10 +109,9 @@
           <div class="col-12 col-md-12">
             <div class="mb-3">
               <label for="validationSuccess" class="form-label "><b> Correo electrónico:</b></label>
-              <input type="email" name="email"  class="form-control"  required>
+              <input type="email" name="email" class="form-control" required>
             </div>
           </div>
-
           <div class="col-12">
             <div class="float-start">
               <span class="required"><span style="color: red;"> * </span>: campo obligatorio</span>
@@ -98,9 +119,6 @@
             <button type="submit" class="btn btn-primary float-end">Agregar Cliente</button>
           </div>
         </div>
-
-
-
       </form>
     </div>
   </div>

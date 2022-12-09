@@ -6,9 +6,6 @@
         <div class="card-body">
             <form action="<?= APP_URL . 'admin/SaveOrder' ?>" method="post">
                 <div class="row">
-
-
-
                     <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label class="form-label required"><b></label>Patente del vehiculo</b></label>

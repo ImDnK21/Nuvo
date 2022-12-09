@@ -107,9 +107,16 @@ class AccountController
   {
     Utils::isAuth();
 
+
+
     $user = new Account();
     $user->setRut($_SESSION['logged']->RUT);
-    $account = $user->getProfile();
+    $_SESSION['logged'] = $user->getProfile();
+    // $_SESSION['logged'] = $user->getProfile();
+
+    // $account = new Account();
+    // $account->setRut($_SESSION['logged']->RUT);
+    // $_SESSION['logged'] = $account->getProfile();
 
     require_once('views/account/profile.php');
     Utils::title('Perfil');
@@ -122,13 +129,15 @@ class AccountController
         $firstname = isset($_POST['firstname']) ? ucwords(trim($_POST['firstname'])) : false;
         $lastname = isset($_POST['lastname']) ? ucwords(trim($_POST['lastname'])) : false;
         $email = isset($_POST['email']) ? trim($_POST['email']) : false;
+        $phone = isset($_POST['phone']) ? trim($_POST['phone']) : false;
 
-        if ($rut && $firstname && $lastname && $email) {
+        if ($rut && $firstname && $lastname && $email && $phone) {
           $account = new Account();
           $account->setRut($rut);
           $account->setFirstname($firstname);
           $account->setLastname($lastname);
           $account->setEmail($email);
+          $account->setPhone($phone);
 
           if ($account->update()) {
             $_SESSION['profile_message'] = 'Perfil actualizado correctamente';

@@ -103,9 +103,16 @@ class WorkOrder
     INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
     INNER JOIN STATUS_WO sw on sw.ID_STATUS = w.ID_STATUS 
     INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION 
-    INNER JOIN COMMUNE c on c.ID = u.ID_COMMUNE";
+    INNER JOIN COMMUNE c on c.ID_COMMUNE = u.ID_COMMUNE";
     $workorders = $this->db->query($query);
     return $workorders;
+  }
+
+  public function getAllWorkOrders(){
+    $query = "SELECT * FROM WORKORDER";
+    $allWorkOrders = $this->db->query($query);
+    return $allWorkOrders;
+    
   }
 
   public function getByRut($rut_client){
@@ -154,7 +161,8 @@ class WorkOrder
     // echo 'ultimo id '. strval($lastId->fetch_object());
     $numberId = $lastId->fetch_array();
     // var_dump('test', $test);
-    // var_dump('Last id', intval($test[0]));
+    // // var_dump('Last id', intval($test[0]));
+    var_dump('Last id', intval($numberId[0]));
     return intval($numberId[0]);
 
   }
@@ -175,6 +183,7 @@ public function getByPatent($patent_vehicle) {
   public function save()
   {
     $query = "INSERT INTO WORKORDER (PATENT_VEHICLE, RUT_CLIENT, RUT_MECHANIC, OBSERVATIONS, ID_STATUS) VALUES ('{$this->patent_vehicle}', '{$this->rut_client}', '{$this->rut_mechanic}', '{$this->observations}', '{$this->id_status}')";
+    // die($query);
     $save = $this->db->query($query);
     $result = false;
     if ($save) {

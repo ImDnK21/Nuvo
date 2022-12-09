@@ -27,7 +27,8 @@ class ClientController{
 
         $account = new Account();
         $account->setRut($_SESSION['logged']->RUT);
-        $account = $account->getProfile();
+        $_SESSION['logged'] = $account->getProfile();
+        // $perfil = $account->getProfile();
         
         require_once('views/layout/sidebarClient.php');
         require_once('views/client/vehicle/personalInformation.php');

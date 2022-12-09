@@ -98,12 +98,12 @@ class AdminController {
 
 
                 if ($client->save()) {
-                    $_SESSION['save_message'] = 'Se agregó correctamente el cliente';
-                    $_SESSION['save_message_type'] = 'Cliente creado correctamente';
+                    
+                    $_SESSION['save_message'] = 'Se agregó correctamente el registro';
+                    $_SESSION['save_message_type'] = 'registro creado correctamente';
                 } else {
-                    // die(var_dump($_GET['id']));
-                    echo $_SESSION['save_message'] = 'Error al agregar el cliente';
-                    echo $_SESSION['save_message_type'] = 'Warning';
+                    $_SESSION['save_message'] = 'Error al agregar el registro';
+                    $_SESSION['save_message_type'] = 'Warning';
                 }
             } else {
                 $_SESSION['save_message'] = 'Debes rellenar todos los campos';
@@ -111,7 +111,7 @@ class AdminController {
 
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListClient');
+        header('Location:' . APP_URL . 'admin/addClient');
     }
 
     /**
@@ -140,15 +140,21 @@ class AdminController {
                 $client->setIdCommune($_POST['id_commune']);
 
                 if ($client->update()) {
-                    $_SESSION['saveClient'] = 'Se actualizó correctamente el cliente';
+                    echo $_SESSION['editClient'] = 'Se actualizó correctamente el registro';
+                    $_SESSION['editClient_message_type'] = 'Success';
+
                 } else {
-                    $_SESSION['saveClient'] = 'Error al editar el cliente';
+                    $_SESSION['editClient'] = 'Error al editar el registro';
+                    $_SESSION['editClient_message_type'] = 'Warning';
+
                 }
             } else {
-                $_SESSION['saveClient'] = 'Debes rellenar todos los campos';
+                $_SESSION['editClient'] = 'Debes rellenar todos los campos';
+                $_SESSION['editClient_message_type'] = 'Warning';
+
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListClient');
+        header('Location:' . APP_URL . 'admin/EditClient'.'?'.'rut='.$_POST['rut']);
     }
     
 
@@ -164,9 +170,9 @@ class AdminController {
             $client = new Account();
             $client->setRut($rut);
             if ($client->delete()) {
-                $_SESSION['saveClient'] = 'Se eliminó correctamente el cliente';
+                $_SESSION['saveClient'] = 'Se eliminó correctamente el registro';
             } else {
-                $_SESSION['saveClient'] = 'Error al eliminar el cliente';
+                $_SESSION['saveClient'] = 'Error al eliminar el registro';
             }
         }
         header('Location:' . APP_URL . 'admin/ViewListClient');
@@ -247,18 +253,21 @@ class AdminController {
                 $mechanic->setEmail($_POST['email']);
 
                 if ($mechanic->save()) {
-                    $_SESSION['saveMechanic'] = 'Se agregó correctamente el mecanico';
+                    $_SESSION['save_message'] = 'Se agregó correctamente el registro';
+                    $_SESSION['save_message_type'] = 'registro creado correctamente';
                 } else {
-                    var_dump($mechanic);
-                    echo 'Error al agregar el mecanico';
-                    $_SESSION['saveMechanic'] = 'Error al agregar el mecanico';
+                    
+                    $_SESSION['saveMechanic'] = 'Error al agregar el registro';
+                    $_SESSION['saveMechanic_message_type'] = 'Warning ';
+
                 }
             } else {
-                    echo 'Error al agregar el mecanico';
                 $_SESSION['saveMechanic'] = 'Debes rellenar todos los campos';
+                $_SESSION['saveMechanic_message_type'] = 'Rellenar Campos';
+
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListMechanic');
+        header('Location:' . APP_URL . 'admin/addMechanic');
     }
 
     /**
@@ -287,9 +296,9 @@ class AdminController {
                 $mechanic->setEmail($_POST['email']);
 
                 if ($mechanic->update()) {
-                    $_SESSION['saveMechanic'] = 'Se actualizó correctamente el mecanico';
+                    $_SESSION['saveMechanic'] = 'Se actualizó correctamente el registro';
                 } else {
-                    $_SESSION['saveMechanic'] = 'Error al editar el mecanico';
+                    $_SESSION['saveMechanic'] = 'Error al editar el registro';
                 }
             } else {
                 $_SESSION['saveMechanic'] = 'Debes rellenar todos los campos';
@@ -309,9 +318,9 @@ class AdminController {
             $mechanic = new Account();
             $mechanic->setRut($rut);
             if ($mechanic->delete()) {
-                $_SESSION['saveMechanic'] = 'Se eliminó correctamente el mecanico';
+                $_SESSION['saveMechanic'] = 'Se eliminó correctamente el registro';
             } else {
-                $_SESSION['saveMechanic'] = 'Error al eliminar el mecanico';
+                $_SESSION['saveMechanic'] = 'Error al eliminar el registro';
             }
         }
         header('Location:' . APP_URL . 'admin/ViewListMechanic');

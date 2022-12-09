@@ -347,4 +347,12 @@ if (rut) {
         })
 })()
 
+//alert with setTimeout
+
+$('.alert').fadeIn();
+setTimeout(function() {
+    $(".alert").fadeOut();
+}, 2000)
+
+
 //validate email

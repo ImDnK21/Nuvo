@@ -1,6 +1,14 @@
 
 
 <div class="container py-3">
+  <?php if (isset($_SESSION['editClient']) && isset($_SESSION['editClient_message_type'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['editClient_message_type'] ?> >
+      <?= $_SESSION['editClient'] ?>
+      <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+    </div>
+    <?php unset($_SESSION['editClient']);
+          unset($_SESSION['editClient_message_type']);
+        endif; ?>
   <div class="card">
     <div class="card-header">
       <span class="fw-bold">Editar Cliente</span>
@@ -28,7 +36,7 @@
           </div>
           <div class="col-12 col-md-4">
             <div class="mb-3">
-              <label class="form-label"><span style="color: red;">*</span><b> Telefono de contacto: (+569XXXXXXXX) </b><span style="color: red;">*</span> </label>
+              <label class="form-label"><b> Telefono de contacto: (+569XXXXXXXX) </b></label>
               <input type="text" name="phone" class="form-control" maxlength="12" value="<?= $client->PHONE ?>">
             </div>
           </div>

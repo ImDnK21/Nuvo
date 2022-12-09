@@ -104,20 +104,20 @@ class Account {
   }
 
   public function getByRut($rut) {
-    $query = "SELECT * FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID  WHERE rut = '$rut'";
+    $query = "SELECT * FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID_COMMUNE  WHERE rut = '$rut'";
     $result = $this->db->query($query);
     return $result->fetch_object();
   }
 
 
   public function getAllMechanics() {
-    $query = "SELECT u.*,c.NOMBRE FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID WHERE role = 'mechanic'";
+    $query = "SELECT u.*,c.NOMBRE FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID_COMMUNE WHERE role = 'mechanic'";
     $mechanics = $this->db->query($query);
     return $mechanics;
   }
 
   public function getAllClients() {
-    $query = "SELECT u.*,c.NOMBRE FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID WHERE role = 'client'";
+    $query = "SELECT u.*,c.NOMBRE FROM user u INNER JOIN COMMUNE c on u.ID_COMMUNE = c.ID_COMMUNE WHERE role = 'client'";
     $clients = $this->db->query($query);
     return $clients;
   }
@@ -125,15 +125,23 @@ class Account {
   //save without commune
   public function save()
   {
-    $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, ID_COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
-    // die($query);
-    // $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME,EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+   $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, ID_COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
+   $duplicate = "SELECT * FROM USER WHERE RUT = '{$this->getRut()}'";
+   if (mysqli_num_rows($this->db->query($duplicate)) > 0){
+    $_SESSION['saveRutClient'] = 'El rut o correo ingresado ya se encuentran registrados';
+    // $_SESSION['saveRutMechanic'] = 'El rut o correo ingresado ya se encuentran registrados';
+  }else{
+    $_SESSION['saveRutClient'] = 'El rut o el correo no se encuentra registrado';
+    // $_SESSION['saveRutMechanic'] = 'El rut o correo ingresado ya se encuentran registrados';
+
     $save = $this->db->query($query);
     $result = false;
     if ($save) {
       $result = true;
     }
       return $result;
+  }
+    
   }
 
   public function register(){
@@ -170,13 +178,13 @@ class Account {
   }*/
   
   public function getProfile() {
-    $query = "SELECT * FROM user WHERE RUT = '$this->rut'";
+    $query = "SELECT * FROM user u INNER JOIN COMMUNE c on c.ID_COMMUNE = u.ID_COMMUNE WHERE RUT = '$this->rut'";
     $result = $this->db->query($query);
     return $result->fetch_object();
   }
 
   public function update(){
-    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}', ADDRESS = '{$this->getAddress()}', ID_COMMUNE = '{$this->getIdCommune()}', EMAIL = '{$this->getEmail()}' WHERE RUT = '{$this->getRut()}'";
+    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}', EMAIL = '{$this->getEmail()}' WHERE RUT = '{$this->getRut()}'";
     // die($query);
     $update = $this->db->query($query);
     $result = false;

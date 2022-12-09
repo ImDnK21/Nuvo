@@ -4,6 +4,10 @@
       <div class="card" style="margin-top:60px ;">
         <div class="card-header">Datos Personales</div>
         <div class="card-body">
+          <?php
+        // var_dump($_SESSION['logged']) ;
+
+        ?>
           <?php if (isset($_SESSION['profile_message']) && isset($_SESSION['profile_message_type'])) : ?>
           <div class="alert alert-<?= $_SESSION['profile_message_type'] ?> alert-dismissible fade show">
             <?= $_SESSION['profile_message'] ?>
@@ -15,19 +19,23 @@
           <form action="<?= APP_URL . 'account/update' ?>" method="POST">
             <div class="mb-3">
               <label for="rut" class="form-label">Rut:</label>
-              <input type="text" name="rut" class="form-control" value="<?= $account->RUT ?>" readonly>
+              <input type="text" name="rut" class="form-control" value="<?= $_SESSION['logged']->RUT?>" readonly>
             </div>
             <div class="mb-3">
               <label for="firstname" class="form-label">Nombre:</label>
-              <input type="text" name="firstname" class="form-control" value="<?= $account->FIRSTNAME ?>">
+              <input type="text" name="firstname" class="form-control" value="<?= $_SESSION['logged']->FIRSTNAME?>">
             </div>
             <div class="mb-3">
               <label for="lastname" class="form-label">Apellido</label>
-              <input type="text" name="lastname" class="form-control" value="<?= $account->LASTNAME ?>">
+              <input type="text" name="lastname" class="form-control" value="<?= $_SESSION['logged']->LASTNAME?>">
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Correo electronico</label>
-              <input type="text"  name="email" class="form-control" value="<?= $account->EMAIL ?>">
+              <input type="text"  name="email" class="form-control" value="<?= $_SESSION['logged']->EMAIL?>">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Telefono de contacto</label>
+              <input type="text"  name="phone" class="form-control" value="<?= $_SESSION['logged']->PHONE?>">
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
