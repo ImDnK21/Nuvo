@@ -126,7 +126,7 @@ class Account {
   public function save()
   {
    $query = "INSERT INTO USER (ROLE,RUT, FIRSTNAME, LASTNAME, PHONE, ADDRESS, ID_COMMUNE, EMAIL, PASSWORD) VALUES ('{$this->getRole()}','{$this->getRut()}', '{$this->getFirstname()}', '{$this->getLastname()}', '{$this->getPhone()}', '{$this->getAddress()}', '{$this->getIdCommune()}','{$this->getEmail()}', '{$this->getPassword()}')";
-   $duplicate = "SELECT * FROM USER WHERE RUT = '{$this->getRut()}'";
+   $duplicate = "SELECT * FROM USER WHERE RUT = '{$this->getRut()}' OR EMAIL = '{$this->getEmail()}'";
    if (mysqli_num_rows($this->db->query($duplicate)) > 0){
     $_SESSION['saveRutClient'] = 'El rut o correo ingresado ya se encuentran registrados';
     // $_SESSION['saveRutMechanic'] = 'El rut o correo ingresado ya se encuentran registrados';
