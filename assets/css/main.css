@@ -12808,5 +12808,9 @@ select {
     border-top: none;
 }
 
+.company col-6 {
+    color: red;
+}
+
 
 /* VIEW WORK ORDER*/
