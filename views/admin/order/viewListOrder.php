@@ -129,18 +129,7 @@
                                   </div>
                                 </div>
                                 <div class="vehicle">
-                                  <table>
-                                    <thead>
-                                      <tr>
-                                        <th>Hola</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>hola</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
+                                  
                                 </div>
                                 <div class="footer">
                                   <ol>
