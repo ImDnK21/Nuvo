@@ -89,11 +89,28 @@ class ClientController{
 
     public function ViewVehicleOwner()
     {
+
         $vehicle = new Vehicle();
-        $vehicles = $vehicle->getAll();
+        // $vehicle = $vehicle->getByPatent($vehicle->PATENT);
+        
+
+
+        // $vehicle = new Vehicle();
+        // $vehicles = $vehicle->getAll();
+
         
         require_once('views/layout/sidebar.php');
         require_once('views/admin/vehicle/ViewList.php');
+    }
+
+    public function DatosVehiculo (){
+        Utils::isAuth();
+        $vehicle = new Vehicle();
+        $vehicle->setPatent($_SESSION['logged']->PATENT);
+        $_SESSION['logged'] = $vehicle->getAll();
+        require_once('views/layout/sidebarClient.php');
+        require_once('views/client/vehicle/DatosVehiculo.php');
+
     }
 
     public function ClientWorkOrder(){

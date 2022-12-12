@@ -209,7 +209,7 @@ class Account {
     $email = $this->email;
     $password = $this->password;
     
-    $query = "SELECT * FROM USER WHERE EMAIL = '{$email}' LIMIT 1";
+    $query = "SELECT * FROM user WHERE EMAIL = '{$email}' LIMIT 1";
     $login = $this->db->query($query);
     if ($login && $login->num_rows == 1) {
       $account = $login->fetch_object();

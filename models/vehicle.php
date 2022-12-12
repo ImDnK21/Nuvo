@@ -120,9 +120,14 @@ class Vehicle {
    * @return A query object.
    */
     public function getAll(){
-        $query = "SELECT v.*,vt.NAME,u.FIRSTNAME,u.LASTNAME FROM VEHICLE v JOIN USER u ON v.OWNER = u.RUT INNER JOIN VEHICLE_TYPE vt ON vt.ID_TYPE = v.ID_TYPE_VEHICLE";
+        $query = "SELECT v.*, vt.*,ft.*,tt.*,u.* FROM VEHICLE v 
+        INNER JOIN USER u on u.RUT = v.OWNER
+        INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
+        INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
+        INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION";
         $vehicles = $this->db->query($query);
-        return $vehicles;
+        // $vehicle = $_SESSION['vehicle'];
+        return $vehicles->f;
     }
 
     /**
@@ -144,7 +149,8 @@ class Vehicle {
         
     */
     public function getByOwner($owner) {
-        $query = "SELECT * FROM VEHICLE WHERE owner = '$owner'";
+        $query = "SELECT v.*, vt.*,ft.*,tt.* FROM VEHICLE v INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE INNER JOIN
+        TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION WHERE owner = '$owner'";
         $vehicle = $this->db->query($query);
         return $vehicle->fetch_object();
     }

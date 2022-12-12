@@ -5,7 +5,6 @@
         </div>
         <?php
         // var_dump($_SESSION['logged']) ;
-        // var_dump($perfil);
 
         ?>
         <!-- <form action="<?= APP_URL . 'admin/SaveClient' ?>" method="post" enctype="multipart/form-data"> -->

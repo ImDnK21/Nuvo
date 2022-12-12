@@ -5,7 +5,9 @@
             <span class="fw-bold">Informacion de mi vehiculo</span>
         </div>
         <div class="card-body">
-
+        <?php
+            // var_dump($vehicle);
+        ?>
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="mb-3">
@@ -35,14 +37,14 @@
                 <div class="col-12 col-md-4">
                     <div class="mb-3">
                         <label for="fuel_type" class="form-label required"><b>Tipo de Combustible</b></label>
-                        <input type="text" name="fuel_type" class="form-control" value="<?= $vehicle->FUEL_TYPE ?>" readonly>
+                        <input type="text" name="fuel_type" class="form-control" value="<?= $vehicle->FUEL_NAME ?>" readonly>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="mb-3">
                         <label for="transmission" class="form-label required"><b>Transmision</b></label>
                         <input type="text" name="transmission" class="form-control"
-                            value="<?= $vehicle->TRANSMISSION ?>" readonly>
+                            value="<?= $vehicle->NAME_TRANSMISSION ?>" readonly>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
@@ -70,7 +72,7 @@
                     <div class="mb-3">
                         <label for="vehicle_type" class="form-label required"><b>Tipo de Vehiculo</b></label>
                         <input type="text" name="vehicle_type" class="form-control"
-                            value="<?= $vehicle->VEHICLE_TYPE ?>" readonly>
+                            value="<?= $vehicle->NAME ?>" readonly>
                     </div>
                 </div>
                 
