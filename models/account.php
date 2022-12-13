@@ -194,6 +194,16 @@ class Account {
     return $result;
   }
 
+  public function updateClient(){
+    $query = "UPDATE USER SET FIRSTNAME = '{$this->getFirstname()}', LASTNAME = '{$this->getLastname()}', PHONE = '{$this->getPhone()}',ADDRESS = '{$this->getAddress()}', ID_COMMUNE = '{$this->getIdCommune()}', EMAIL = '{$this->getEmail()}' WHERE RUT = '{$this->getRut()}'";
+    $update = $this->db->query($query);
+    $result = false;
+    if ($update) {
+      return true;
+    }
+    return $result;
+  }
+
   public function delete() {
     $query = "DELETE FROM user WHERE RUT = '{$this->getRut()}'";
     $delete = $this->db->query($query);

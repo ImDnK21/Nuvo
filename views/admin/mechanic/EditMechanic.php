@@ -1,6 +1,14 @@
 
 
 <div class="container py-3">
+<?php if (isset($_SESSION['editMechanic']) && isset($_SESSION['editMechanic_message_type'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['editMechanic_message_type'] ?> >
+      <?= $_SESSION['editMechanic'] ?>
+      <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+    </div>
+    <?php unset($_SESSION['editMechanic']);
+          unset($_SESSION['editMechanic_message_type']);
+        endif; ?>
   <div class="card">
     <div class="card-header">
       <span class="fw-bold">Editar Mecanico</span>
@@ -46,7 +54,7 @@
                 <option value="1">La Florida</option>
                 <option value="2">Cerrillos</option>
                 <option value="3">Cerro Navia</option>
-                <option value="4">Conchalí</option>
+                <!-- <option value="4">Conchalí</option> -->
                 <option value="5">El Bosque</option>
                 <option value="6">Estación Central</option>
                 <option value="7">Huechuraba</option>
@@ -61,9 +69,9 @@
                 <option value="16">Lo Prado</option>
                 <option value="17">Macul</option>
                 <option value="18">Maipú</option>
-                <option value="19">Ñuñoa</option>
+                <!-- <option value="19">Ñuñoa</option> -->
                 <option value="20">Pedro Aguirre Cerda</option>
-                <option value="21">Peñalolén</option>
+                <!-- <option value="21">Peñalolén</option> -->
                 <option value="22">Providencia</option>
                 <option value="23">Pudahuel</option>
                 <option value="24">Quilicura</option>
@@ -76,12 +84,12 @@
                 <option value="31">Vitacura</option>
                 <option value="32">Puente Alto</option>
                 <option value="33">Pirque</option>
-                <option value="34">San José de Maipo</option>
+                <!-- <option value="34">San José de Maipo</option> -->
                 <option value="35">Colina</option>
                 <option value="36">Lampa</option>
                 <option value="37">San Bernardo</option>
                 <option value="38">Buin</option>
-                <option value="39">Peñaflor</option>
+                <!-- <option value="39">Peñaflor</option> -->
               </select>
             </div>
           </div>

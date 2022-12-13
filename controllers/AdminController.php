@@ -139,7 +139,7 @@ class AdminController {
                 $client->setAddress($_POST['address']);
                 $client->setIdCommune($_POST['id_commune']);
 
-                if ($client->update()) {
+                if ($client->updateClient()) {
                     echo $_SESSION['editClient'] = 'Se actualizó correctamente el registro';
                     $_SESSION['editClient_message_type'] = 'Success';
 
@@ -295,16 +295,22 @@ class AdminController {
                 $mechanic->setIdCommune($_POST['id_commune']);
                 $mechanic->setEmail($_POST['email']);
 
-                if ($mechanic->update()) {
-                    $_SESSION['saveMechanic'] = 'Se actualizó correctamente el registro';
+                if ($mechanic->updateClient()) {
+                    echo $_SESSION['editMechanic'] = 'Se actualizó correctamente el registro';
+                    $_SESSION['editMechanic_message_type'] = 'Success';
+
                 } else {
-                    $_SESSION['saveMechanic'] = 'Error al editar el registro';
+                    $_SESSION['editMechanic'] = 'Error al editar el registro';
+                    $_SESSION['editMechanic_message_type'] = 'Warning';
+
                 }
             } else {
                 $_SESSION['saveMechanic'] = 'Debes rellenar todos los campos';
+                $_SESSION['editMechanic_message_type'] = 'Warning';
+
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListMechanic');
+        header('Location:' . APP_URL . 'admin/EditMechanic'.'?'.'rut='.$_POST['rut']);
     }
 
     /**
