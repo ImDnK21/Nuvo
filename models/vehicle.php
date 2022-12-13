@@ -127,7 +127,17 @@ class Vehicle {
         INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION";
         $vehicles = $this->db->query($query);
         // $vehicle = $_SESSION['vehicle'];
-        return $vehicles->f;
+        return $vehicles->fetch_object();
+    }
+
+    public function GetAllVehicles(){
+        $query = "SELECT v.*, vt.*,ft.*,tt.*,u.* FROM VEHICLE v 
+        INNER JOIN USER u on u.RUT = v.OWNER
+        INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
+        INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
+        INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION";
+        $vehicles = $this->db->query($query);
+        return $vehicles;
     }
 
     /**

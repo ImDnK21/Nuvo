@@ -12812,5 +12812,10 @@ select {
     color: red;
 }
 
+.img-vehicle.center {
+    /* background-color: red; */
+    text-align: center;
+}
+
 
 /* VIEW WORK ORDER*/

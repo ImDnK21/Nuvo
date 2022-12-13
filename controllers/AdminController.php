@@ -335,7 +335,7 @@ class AdminController {
     {
         Utils::isAdmin();
         $vehicle = new Vehicle();
-        $vehicles = $vehicle->getAll();
+        $vehicles = $vehicle->GetAllVehicles();
         // $vehicles = $vehicle->getByOwner($_GET['owner']);
         
         require_once('views/layout/sidebar.php');
@@ -536,7 +536,7 @@ class AdminController {
 
         $clients = $client->getAllClients();
         $mechanics = $client->getAllMechanics();
-        $vehicles = $vehicle->getAll();
+        $vehicles = $vehicle->GetAllVehicles();
         $services = $service->getAll();
         // echo $services;
         // var_dump($services[0]->ID);

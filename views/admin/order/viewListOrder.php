@@ -119,68 +119,97 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="vehicle">
-                                  <div class="col-12">
-                                    <h4 class="title-vehicle" style="margin-bottom: -20px;">Observaciones y
+                                <div class='header'>
+                                  <div class='company col-6' style='text-align:left; margin-bottom: -20px;'>
+                                    <h4 class="title-vehicle" style="">Observaciones y
                                       requerimientos del cliente</h4>
-                                    <p class='col-12' style='text-align: justify'>
-                                      <?= str_replace("-","<br>-" , $workorder->OBSERVATIONS);?>
-                                    </p>
+                                    <p class='col-12' style='text-align: justify'><b>
+                                        <?= str_replace("-","<br>-" , $workorder->OBSERVATIONS);?>
+                                    </p></b>
+                                  </div>
+                                  <div class='company col-6 '>
+                                    <h4 class="title-vehicle" style="">Servicios Solicitados</h4>
+                                    <ol class="service-list" style="text-align: left; ">
+                                      <?php $total = 0 ;foreach ($services as $service) { ?>
+                                      <?php if ($service['ID_WO'] == $workorder->ID) { ?>
+                                      <li><b><?= $service['NAME'] . ' $' . $service['PRICE'] ?> </li></b>
+                                      <?php $total += intval($service['PRICE']) ?>
+
+                                      <?php } ?>
+                                      <?php }
+                                      ?>
+                                    </ol>
+                                    <div class="totalCost" style="text-align: right;">
+
+                                      <b>Valor Total (Sin IVA): </b>
+                                      <?php 
+                                      echo $total ?><br>
+                                      <b>Valor Total (Con IVA): </b>
+                                      <?php echo $total * 1.19 ?>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="vehicle">
-                                  
-                                </div>
-                                <div class="footer">
-                                  <ol>
-                                    <?php $total = 0 ;foreach ($services as $service) { ?>
-                                    <?php if ($service['ID_WO'] == $workorder->ID) { ?>
-                                    <li><?= $service['NAME'] . $service['PRICE'] ?> </li>
-                                    <?php $total += intval($service['PRICE']) ?>
+                                <div class='header'>
+                                  <div class='company col-6'>
+                                    <div class="form-check">
+                                      <label><input type="checkbox" id="cbox1" value="first_checkbox"> Vehiculo inventariado</label><br>
 
-                                    <?php } ?>
-                                    <?php } echo $total;
-                                  ?>
-                                  </ol>
+                                      <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Daños</label>
+                                      <label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer
+                                        checkbox</label><br>
+
+                                      <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este
+                                        es mi segundo checkbox</label>
+                                      </label>
+
+                                    </div>
+
+                                  </div>
+                                  <div class='company-tax col-6'>
+                                    <div class="img-vehicle center">
+                                      <img src="<?= APP_URL . 'VehicleReport.png' ?>" alt="" width="400" height="200">
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">OK</button>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a href="<?=APP_URL . 'ViewWorkOrder' ?>"></a>
+                            Imprimir PDF</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary">OK</button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- Modal View Work order-->
-                <div class="modal fade" id="2viewWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header" style="color: red;">
-                        <h5 class=" modal-title fs-6 fw-bold ">Vista Previa de Orden de trabajo</h5>
-                        <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
-                      </div>
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-                <!-- Modal Delete Work order -->
-                <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header" style="color: red;">
-                        <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta Orden de trabajo?
+                  <!-- Modal View Work order-->
+                  <div class="modal fade" id="2viewWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header" style="color: red;">
+                          <h5 class=" modal-title fs-6 fw-bold ">Vista Previa de Orden de trabajo</h5>
+                          <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                        </div>
                         </h5>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal Delete Work order -->
+                  <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID?>" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header" style="color: red ;">
+                    <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar este Vehiculo?</h5>
                         <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
                       </div>
                       <div class="modal-body text-center">
-                        <b>ID orden de trabajo : <?= $workorder->ID ?></b>
+                        <b>Patente: <?= $workorder->ID ?></b>
                         <br>
-                        <b>Vehiculo Patente : <?= $workorder->PATENT_VEHICLE ?></b>
+                        <b>Marca: <?= $workorder->PATENT_VEHICLE ?></b>
                         <br>
+                        
                         Una vez eliminado, no podrás recuperarlo.
                       </div>
                       <div class="modal-footer">
@@ -191,7 +220,30 @@
                     </div>
                   </div>
                 </div>
-                <?php endwhile; ?>
+                  <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header" style="color: red;">
+                          <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta Orden de trabajo?
+                          </h5>
+                          <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                          <b>ID orden de trabajo : <?= $workorder->ID ?></b>
+                          <br>
+                          <b>Vehiculo Patente : <?= $workorder->PATENT_VEHICLE ?></b>
+                          <br>
+                          Una vez eliminado, no podrás recuperarlo.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                          <a href="<?= APP_URL . 'admin/deleteWorkOrder?id=' . $workorder->ID ?>"
+                            class="btn btn-danger">Eliminar</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <?php endwhile; ?>
               </tbody>
             </table>
           </div>
