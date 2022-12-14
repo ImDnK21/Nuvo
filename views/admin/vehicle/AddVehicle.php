@@ -1,4 +1,19 @@
 <div class="container py-3">
+<?php if (isset($_SESSION['savePatentVehicle']) && ($_SESSION['savePatentVehicle']) == 'La patente ingresada ya se encuentra registrada') : ?>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>La patente ingresada ya se encuentra registrada</strong>
+    <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+  </div>
+  <?php unset($_SESSION['saveVehicle']); ?>
+  <?php endif; ?>
+<?php if (isset($_SESSION['saveVehicle']) && isset($_SESSION['saveVehicle_message_type'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['saveVehicle_message_type'] ?> >
+      <?= $_SESSION['saveVehicle'] ?>
+      <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+    </div>
+    <?php unset($_SESSION['saveVehicle']);
+          unset($_SESSION['saveVehicle_message_type']);
+        endif; ?>
     <div class="card">
         <div class="card-header">
             <span class="fw-bold">Agregar Vehiculo</span>

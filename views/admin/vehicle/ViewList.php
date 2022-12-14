@@ -1,4 +1,12 @@
 <div class="container py-3">
+<?php if (isset($_SESSION['deleteVehicle']) && isset($_SESSION['deleteVehicle_message_type'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['deleteVehicle_message_type'] ?> >
+      <?= $_SESSION['deleteVehicle'] ?>
+      <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+    </div>
+    <?php unset($_SESSION['deleteVehicle']);
+          unset($_SESSION['deleteVehicle_message_type']);
+        endif; ?>
   <div class="row">
     <div class="col-12 -9">
       <div class="mb-3">

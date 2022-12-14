@@ -66,7 +66,7 @@
                 <option selected="selected" value="1">La Florida</option>
                 <option value="2">Cerrillos</option>
                 <option value="3">Cerro Navia</option>
-                <!-- <option value="4">Conchalí</option> -->
+                <option value="4">Conchalí</option>
                 <option value="5">El Bosque</option>
                 <option value="6">Estación Central</option>
                 <option value="7">Huechuraba</option>
@@ -96,7 +96,7 @@
                 <option value="31">Vitacura</option>
                 <option value="32">Puente Alto</option>
                 <option value="33">Pirque</option>
-                <!-- <option value="34">San José de Maipo</option> -->
+                <option value="34">San José de Maipo</option>
                 <option value="35">Colina</option>
                 <option value="36">Lampa</option>
                 <option value="37">San Bernardo</option>

@@ -7,7 +7,6 @@
   </a> <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
       class="fas fa-bars"></i></button>
   <ul class="navbar-nav me-auto">
-    
 
     <?php if (isset($_SESSION['admin'])) { ?>
     <li class="nav-item">
@@ -18,10 +17,18 @@
       <a href="<?= APP_URL . 'client/view' ?>" class="nav-link">Inicio</a>
     </li>
     <?php } ?>
+    <?php if (isset($_SESSION['admin'])) { ?>
     <li class="nav-item">
       <a href="<?= APP_URL . 'admin/dashboard#contact' ?>" class="nav-link">Contáctanos</a>
     </li>
-
+    <?php } else { ?>
+    <li class="nav-item">
+      <a href="<?= APP_URL . 'client/view' ?>" class="nav-link" id="isDisabled" style="pointer-events:none;" >Contáctanos</a>
+    </li>
+    <?php } ?>
+    <!-- <li class="nav-item">
+      <a href="<?= APP_URL . 'admin/dashboard#contact' ?>" class="nav-link">Contáctanos</a>
+    </li> -->
   </ul>
   <ul class="navbar-nav ms-auto">
  

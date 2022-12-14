@@ -1,5 +1,13 @@
 
 <div class="container py-3">
+<?php if (isset($_SESSION['editVehicle']) && isset($_SESSION['editVehicle_message_type'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['editVehicle_message_type'] ?> >
+      <?= $_SESSION['editVehicle'] ?>
+      <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
+    </div>
+    <?php unset($_SESSION['editVehicle']);
+          unset($_SESSION['editVehicle_message_type']);
+        endif; ?>
     <div class="card">
         <div class="card-header">
             <span class="fw-bold">Agregar Vehiculo</span>

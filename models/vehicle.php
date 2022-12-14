@@ -172,7 +172,14 @@ class Vehicle {
    */
     public function save(){
         $sql = "INSERT INTO VEHICLE (PATENT, OWNER, BRAND, MODEL, YEAR, ID_FUEL_TYPE, ID_TRANSMISSION, COLOR, CHASSIS_NUMBER, MILEAGE, ID_TYPE_VEHICLE ) VALUES ('{$this->getPatent()}', '{$this->getOwner()}','{$this->getBrand()}', '{$this->getModel()}', '{$this->getYear()}', '{$this->getIdFuel_Type()}', '{$this->getIdTransmission()}', '{$this->getColor()}', '{$this->getChassisNumber()}', '{$this->getMileage()}', '{$this->getIdVehicleType()}');";
-        // die($sql);
+        $duplicate = "SELECT * FROM VEHICLE WHERE PATENT = '{$this->getPatent()}'";
+        if (mysqli_num_rows($this->db->query($duplicate)) > 0) {
+            $_SESSION['savePatentVehicle'] = 'La patente ingresada ya se encuentra registrada';
+            // $_SESSION['saveRutMechanic'] = 'El rut o correo ingresado ya se encuentran registrados';
+        }else{
+            $_SESSION['savePatentVehicle'] = 'La patente no se encuentra registrado';
+            // $_SESSION['saveRutMechanic'] = 'El rut o correo ingresado ya se encuentran registrados';
+        
         $save = $this->db->query($sql);
         $result = false;
         if ($save) {
@@ -180,6 +187,7 @@ class Vehicle {
         }
         return $result;
     }
+}
 
     /**
    * It updates a Vehicle's information in the database.

@@ -35,7 +35,9 @@
                         <div class="mb-3">
                             <label class="form-label" for="observations"><b>Observaciones</b></label>
                             <textarea name="observations" class="form-control"
-                                placeholder="Ingrese las observaciones detectadas aqui" style="height: 150px;"></textarea>
+                                placeholder="Ingrese observaciones de la orden de trabajo &#10 Ej: - El Vehiculo tiene un golpe en la puerta delantera derecha.
+                                &#10 Ingrese los requerimientos del cliente. &#10 Ej: - El cliente solicita cambio de aceite." 
+                                style="height: 150px;"></textarea>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">

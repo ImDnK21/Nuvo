@@ -253,8 +253,8 @@ class AdminController {
                 $mechanic->setEmail($_POST['email']);
 
                 if ($mechanic->save()) {
-                    $_SESSION['save_message'] = 'Se agregó correctamente el registro';
-                    $_SESSION['save_message_type'] = 'registro creado correctamente';
+                    $_SESSION['saveMechanic'] = 'Se agregó correctamente el registro';
+                    $_SESSION['saveMechanic_message_type'] = 'registro creado correctamente';
                 } else {
                     
                     $_SESSION['saveMechanic'] = 'Error al agregar el registro';
@@ -296,7 +296,7 @@ class AdminController {
                 $mechanic->setEmail($_POST['email']);
 
                 if ($mechanic->updateClient()) {
-                    echo $_SESSION['editMechanic'] = 'Se actualizó correctamente el registro';
+                    $_SESSION['editMechanic'] = 'Se actualizó correctamente el registro';
                     $_SESSION['editMechanic_message_type'] = 'Success';
 
                 } else {
@@ -417,15 +417,21 @@ class AdminController {
                 
                 if ($vehicle->save()) {
                     $_SESSION['saveVehicle'] = 'Se agregó correctamente el vehiculo';
+                    $_SESSION['saveVehicle_message_type'] = 'Se agregó correctamente el vehiculo';
+
                 
                 } else {
                     $_SESSION['saveVehicle'] = 'Error al agregar el vehiculo';
+                    $_SESSION['saveVehicle_message_type'] = 'warning';
+
                 }
             } else {
                 $_SESSION['saveVehicle'] = 'Debes rellenar todos los campos';
+                $_SESSION['saveVehicle_message_type'] = 'warning';
+
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListVehicle');
+        header('Location:' . APP_URL . 'admin/AddVehicle');
     }
 
     public function UpdateVehicle()
@@ -459,15 +465,21 @@ class AdminController {
                 $vehicle->setIdVehicle_type($_POST['id_vehicle_type']);
 
                 if ($vehicle->update()) {
-                    $_SESSION['saveVehicle'] = 'Se actualizó correctamente el vehiculo';
+                    $_SESSION['editVehicle'] = 'Se actualizó correctamente el vehiculo';
+                    $_SESSION['editVehicle_message_type'] = 'Succes';
+
                 } else {
-                    $_SESSION['saveVehicle'] = 'Error al actualizar el vehiculo';
+                    $_SESSION['editVehicle'] = 'Error al actualizar el vehiculo';
+                    $_SESSION['editVehicle_message_type'] = 'warning';
+
                 }
             } else {
-                $_SESSION['saveVehicle'] = 'Debes rellenar todos los campos';
+                $_SESSION['editVehicle'] = 'Debes rellenar todos los campos';
+                $_SESSION['editVehicle_message_type'] = 'Se agregó correctamente el vehiculo';
+
             }
         }
-        header('Location:' . APP_URL . 'admin/ViewListVehicle');
+        header('Location:' . APP_URL . 'admin/EditVehicle'.'?'.'patent='.$_POST['patent']);
     }
 
     /**
@@ -481,9 +493,11 @@ class AdminController {
             $vehicle = new Vehicle();
             $vehicle->setPatent($patent);
             if ($vehicle->delete()) {
-                $_SESSION['saveVehicle'] = 'Se eliminó correctamente el vehiculo';
+                $_SESSION['deleteVehicle'] = 'Se eliminó correctamente el registro';
+                $_SESSION['deleteVehicle_message_type'] = 'Succes';
             } else {
-                $_SESSION['saveVehicle'] = 'Error al eliminar el vehiculo';
+                $_SESSION['deleteVehicle'] = 'Error al eliminar el registro';
+                $_SESSION['deleteVehicle_message_type'] = 'warning';
             }
         }
         header('Location:' . APP_URL . 'admin/ViewListVehicle');

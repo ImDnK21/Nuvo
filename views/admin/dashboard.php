@@ -32,9 +32,9 @@ foreach ($consulta6 as $datosIns){
 <div class="sb-nav-fixed">
 
 
-  <div class="header-h1">
+  <div class="header-h1" style="padding-bottom: 10px;">
     <h1 class="mt-4 text-center"
-      style=" border-style: groove; border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #444444; color:aliceblue">
+      style=" border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #222222; color:white;">
       Dashboard</h1>
   </div>
   <div class="container-fluid px-4">
@@ -92,7 +92,7 @@ foreach ($consulta6 as $datosIns){
             <i class="fas fa-chart-bar me-1"></i> Informacion estadistica de los indicadores del taller
             mecanico
           </div>
-          <div id="caja" class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+          <div id="caja" class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
         </div>
         <!-- <button type="button" class="btn btn-success" onclick="RefreshGrafico()"> Actualizar tabla </button> -->
       </div>
@@ -101,14 +101,14 @@ foreach ($consulta6 as $datosIns){
           <div class="card-header">
             <i class="fas fa-chart-area me-1"></i> Categoria de insumos mas utilizados en el año
           </div>
-          <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+          <div class="card-body"><canvas id="myAreaChart" width="100%" height="50"></canvas></div>
         </div>
       </div>
 
     </div>
     <div class="header-carousel">
       <h1 class="header-carousel-main text-center"
-        style=" border-style: groove; border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #444444; color:aliceblue">
+        style=" border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #222222; color:white">
         Productos Destacados</h3>
     </div>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -140,11 +140,12 @@ foreach ($consulta6 as $datosIns){
     </div>
 
     <!-- Site footer -->
-    <footer class="site-footer">
+    
+    <footer class="site-footer" style="color: black;">
       <div id="contact" class="container" style="max-width: none;;">
         <h1 class="Contact-us text-center"
-          style=" border-style: groove; border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #444444; color:aliceblue">
-          CONTACTANOS</h1>
+          style=" border-radius: 30px; font-family: 'Roboto Slab', serif; background-color: #222222; color:white">
+          Contáctanos</h1>
         <div class="row">
           <div class="col-12 col-lg-6">
             <!-- <iframe src="https://maps.google.com/maps?q=Inacap%20Santiago%20Sur&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="500" loading="lazy"></iframe> -->
@@ -153,49 +154,51 @@ foreach ($consulta6 as $datosIns){
               width="100%" height="250" loading="lazy"></iframe>
           </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
-            <ul class="footer-links">
-              <i class="fa fa-facebook"></i>
-              <i class="fa fa-twitter"></i>
-              <i class="fa fa-instagram"></i>
-              <i class="fa fa-linkedin"></i>
 
-            </ul>
+          <div class="col-12 col-lg-6 py-3">
+            <p class="mb-0"><span class="fw-bold">Nuestra tienda</span> está ubicada en:</p>
+            <p>Porto Seguro #4955, Quinta Normal, Región Metropolitana</p>
+            <p class="fw-bold mb-0">Horario:</p>
+            <p>Lunes a viernes de 10:00 a 18:00 horas.</p>
+            <div class="col-12">
+              <h5 class="fw-bold">Servicio al cliente</h5>
+              <div class="d-flex align-items-center mb-2">
+                <i class="fas fa-phone-alt icon me-2"></i>
+                +569 12345678
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <i class="fas fa-envelope icon me-2"></i>
+                contacto@nuvo-automotive.cl
+              </div>
+            </div>
+            <div class="d-flex align-middle align-items-center justify-content-start">
+              <div class="badge badge-custom rounded-pill me-2" style="background-color: #222222; color: white;">
+                <a href="https://www.facebook.com">
+                  <i class="fa-brands fa-facebook icon me-2"></i>
+                </a>
+                <a href="https://www.instagram.com">
+                  <i class="fa-brands fa-instagram icon me-2"></i>
+                </a>
+                <a href="https://www.twitter.com">
+                  <i class="fa-brands fa-twitter icon"></i>
+                </a>
+              </div>
+            </div>
           </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href=<?= APP_URL . 'admin/terms' ?>>Terminos y condiciones</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
             <p class="copyright-text" style="color: black;">Copyright &copy; 2022 All Rights Reserved by
               <b><a href="#">Danko Sanchez</a></b>
             </p>
           </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          <!-- <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href=<?= APP_URL . 'admin/terms' ?>>Terminos y condiciones</a></li>
+              
             </ul>
-          </div>
+          </div> -->
         </div>
+        <hr>
       </div>
+      
     </footer>
-
-
-    

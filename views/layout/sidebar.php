@@ -19,7 +19,6 @@
                         <b><a class="nav-link" href="<?= APP_URL . 'admin/ViewListMechanic' ?>">Mecánico</a></b>
                         <b><a class="nav-link" href="<?= APP_URL . 'admin/ViewListVehicle' ?>">Vehículos</a></b>
                         <b><a class="nav-link" href="<?= APP_URL . 'admin/ViewListWorkOrder' ?>">Ordenes de trabajo</a></b>
-
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseSupply" aria-expanded="false" aria-controls="collapseTaller">
@@ -30,7 +29,7 @@
                 <div class="collapse" id="collapseSupply" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                     <b><a class="nav-link" href="<?= APP_URL . 'admin/ViewListCategories' ?>">Categorias</a></b>
-                        <b><a class="nav-link" href="<?= APP_URL . 'admin/ViewListSupplies' ?>">Insumos</a></b>
+                        <b><a class="nav-link" href="<?= APP_URL . 'admin/ViewListSupplies' ?>">Insumos y herramientas</a></b>
                         
                       
 
@@ -61,7 +60,8 @@
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Conectado como:</div>
-            <?= $_SESSION['logged']->LASTNAME?>
+            <?= $_SESSION['logged']->FIRSTNAME?>
+            <br><?= $_SESSION['logged']->LASTNAME?>
             <h6 class="correo"><b><?= $_SESSION['logged']->EMAIL ?></b></h6>
             <style>
                 .correo{
