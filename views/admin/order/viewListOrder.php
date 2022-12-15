@@ -57,6 +57,8 @@
                         data-bs-target="#deleteWorkOrder<?=$workorder->ID?>">
                         <i class="fa fa-trash"></i>
                       </a>
+                      <a type="button" class="btn btn-info" href="<?=APP_URL . 'admin/mostrarOrden?id=' . $workorder->ID ?>">
+                        <i class="fa-solid fa-print"></i></a>
                     </div>
                   </td>
                 </tr>
@@ -72,6 +74,7 @@
                         <div class="container-fluid py-3">
                           <div class="row justify-content-center">
                             <div class="col-12 ">
+                              
                               <div class='invoice'>
                                 <div class='header' style="padding-bottom:10px';">
                                   <div class='company col-4'>
@@ -176,16 +179,16 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a href="<?=APP_URL . 'ViewWorkOrder' ?>"></a>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                             Imprimir PDF</button>
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary">OK</button>
+                          <button type="button" class="btn btn-primary" > OK</button>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- Modal View Work order-->
-                  <div class="modal fade" id="2viewWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
+                  <!-- <div class="modal fade" id="2viewWorkOrder<?=$workorder->ID ?>" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-header" style="color: red;">
@@ -195,7 +198,7 @@
                         </h5>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Modal Delete Work order -->
                   <div class="modal fade" id="deleteWorkOrder<?=$workorder->ID?>" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">

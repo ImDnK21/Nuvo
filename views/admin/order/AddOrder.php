@@ -12,7 +12,7 @@
                             <label class="form-label required"><b></label>Patente del vehiculo</b></label>
                             <select name="patent_vehicle" class="form-select">
                                 <?php while ($vehicle = $vehicles->fetch_object()) : ?>
-                                <option value="<?= $vehicle->PATENT ?>"><?= $vehicle->PATENT ?>
+                                <option value="<?= $vehicle->PATENT ?>"> <?= $vehicle->PATENT ?>  <?= $vehicle->FIRSTNAME?>  <?= $vehicle->LASTNAME?>
                                 </option>
                                 <?php endwhile; ?>
                             </select>

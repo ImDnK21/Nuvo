@@ -54,9 +54,9 @@
                 <option value="1">La Florida</option>
                 <option value="2">Cerrillos</option>
                 <option value="3">Cerro Navia</option>
-                <option value="4">Conchalí</option>
+                <option value="4">Conchali</option>
                 <option value="5">El Bosque</option>
-                <option value="6">Estación Central</option>
+                <option value="6">Estacion Central</option>
                 <option value="7">Huechuraba</option>
                 <option value="8">Independencia</option>
                 <option value="9">La Cisterna</option>
@@ -68,7 +68,7 @@
                 <option value="15">Lo Espejo</option>
                 <option value="16">Lo Prado</option>
                 <option value="17">Macul</option>
-                <option value="18">Maipú</option>
+                <option value="18">Maipu</option>
                 <!-- <option value="19">Ñuñoa</option> -->
                 <option value="20">Pedro Aguirre Cerda</option>
                 <!-- <option value="21">Peñalolén</option> -->
@@ -78,13 +78,13 @@
                 <option value="25">Quinta Normal</option>
                 <option value="26">Recoleta</option>
                 <option value="27">Renca</option>
-                <option value="28">San Joaquín</option>
+                <option value="28">San Joaquin</option>
                 <option value="29">San Miguel</option>
-                <option value="30">San Ramón</option>
+                <option value="30">San Ramon</option>
                 <option value="31">Vitacura</option>
                 <option value="32">Puente Alto</option>
                 <option value="33">Pirque</option>
-                <option value="34">San José de Maipo</option>
+                <option value="34">San Jose de Maipo</option>
                 <option value="35">Colina</option>
                 <option value="36">Lampa</option>
                 <option value="37">San Bernardo</option>

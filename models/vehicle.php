@@ -125,17 +125,17 @@ class Vehicle {
         INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
         INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
         INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION";
-        $vehicles = $this->db->query($query);
+        $vehicle = $this->db->query($query);
         // $vehicle = $_SESSION['vehicle'];
-        return $vehicles->fetch_object();
+        return $vehicle;
     }
 
-    public function GetAllVehicles(){
+    public function GetAllVehicles($owner){
         $query = "SELECT v.*, vt.*,ft.*,tt.*,u.* FROM VEHICLE v 
         INNER JOIN USER u on u.RUT = v.OWNER
         INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
         INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
-        INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION";
+        INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION where v.OWNER = '$owner'";
         $vehicles = $this->db->query($query);
         return $vehicles;
     }
@@ -154,6 +154,13 @@ class Vehicle {
         return $vehicle->fetch_object();
     }
 
+    public function getAllVehiclesByOwner($owner){
+        $query = "SELECT * FROM vehicle v INNER JOIN fuel_type ft on ft.ID_FUEL = v.ID_FUEL_TYPE
+        INNER JOIN transmission_type tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION
+        INNER JOIN vehicle_type vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE WHERE v.OWNER = '$owner'";
+        $vehicles = $this->db->query($query);
+        return $vehicles->fetch_object();
+    }
 
     /* 
         

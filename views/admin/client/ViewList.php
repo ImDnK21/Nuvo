@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="mb-3">
+        
         <h2 class="fw-bold mb-3">Lista de clientes</h2>
         <a href="<?= APP_URL . 'admin/AddClient' ?>" class="btn btn-primary mb-3">Agregar cliente</a>
         <div class="clontainer">

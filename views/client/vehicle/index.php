@@ -5,10 +5,13 @@
             <span class="fw-bold">Informacion de mi vehiculo</span>
         </div>
         <div class="card-body">
-        <?php
-            // var_dump($vehicle);
-        ?>
-            <div class="row">
+        <?php        ?>
+
+            <?php while ($vehicle = $vehicles->fetch_object()): ?>
+                <?php 
+                    // var_dump($vehicle);    
+                ?>
+                <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="mb-3">
                         <label for="patent" class="form-label required"><b>Patente</b></label>
@@ -75,9 +78,16 @@
                             value="<?= $vehicle->NAME ?>" readonly>
                     </div>
                 </div>
+                <div style="padding: 30px 0px 30px 0px;" >
+                    <hr style="height: 10px;  width: 50%;  background-color: black; margin: auto; border-radius: 20px;">
+                </div>
                 
 
             </div>
+
+                
+            <?php endwhile; ?>
+            
 
         </div>
     </div>

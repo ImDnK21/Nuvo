@@ -108,10 +108,19 @@ class WorkOrder
     return $workorders;
   }
 
-  public function getAllWorkOrders(){
-    $query = "SELECT * FROM WORKORDER";
-    $allWorkOrders = $this->db->query($query);
-    return $allWorkOrders;
+  public function getAllWorkOrdersById($id){
+    $query = "SELECT w.*,sw.*,u.*,v.*,ft.*,tt.*,vt.*,c.* FROM WORKORDER w 
+    INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+    INNER JOIN user u on u.RUT = w.RUT_CLIENT 
+    INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
+    INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
+    INNER JOIN STATUS_WO sw on sw.ID_STATUS = w.ID_STATUS 
+    INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION 
+    INNER JOIN COMMUNE c on c.ID_COMMUNE = u.ID_COMMUNE WHERE w.ID = '$this->id'";
+    // $id = $this->$id->fetch_object();
+    // var_dump($id);
+    $allWorkOrdersById = $this->db->query($query);
+    return $allWorkOrdersById;
     
   }
 

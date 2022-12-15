@@ -3,7 +3,9 @@ Options +FollowSymLinks
 RewriteEngine on
 
 # Errores
-ErrorDocument 404 https://localhost/nuvo-automotive/home/error
+# ErrorDocument 404 localhost/nuvo/error/index
+ErrorDocument 404 https://localhost/nuvo/error/index
+
 
 # Esconder extensiones
 RewriteCond %{SCRIPT_FILENAME} !-d

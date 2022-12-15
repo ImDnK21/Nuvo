@@ -10,7 +10,8 @@ class ClientController{
         utils::isAuth();
 
         $vehicle = new Vehicle();
-        $vehicle = $vehicle->getByOwner($_SESSION['logged']->RUT);
+        $vehicle->setPatent($_SESSION['logged']->RUT);
+        $vehicles = $vehicle->GetAllVehicles($_SESSION['logged']->RUT);
 
         require_once('views/layout/sidebarClient.php');
 
@@ -93,8 +94,6 @@ class ClientController{
         $vehicle = new Vehicle();
         // $vehicle = $vehicle->getByPatent($vehicle->PATENT);
         
-
-
         // $vehicle = new Vehicle();
         // $vehicles = $vehicle->getAll();
 
@@ -103,15 +102,20 @@ class ClientController{
         require_once('views/admin/vehicle/ViewList.php');
     }
 
-    public function DatosVehiculo (){
-        Utils::isAuth();
-        $vehicle = new Vehicle();
-        $vehicle->setPatent($_SESSION['logged']->PATENT);
-        $_SESSION['logged'] = $vehicle->getAll();
-        require_once('views/layout/sidebarClient.php');
-        require_once('views/client/vehicle/DatosVehiculo.php');
+    // public function DatosVehiculo (){
+    //     Utils::isAuth();
+    //     $vehicle = new Vehicle();
+    //             // $vehicles = $vehicle->getByOwner($_GET['owner']);
 
-    }
+    //     $vehicles->$vehicle->getAllVehiclesByOwner($_GET['owner']);
+    //     $_SESSION['logged'] = $vehicles->getAllVehiclesByOwner($_GET['owner']);
+
+    //     // $vehicle->setPatent($_SESSION['logged']->PATENT);
+    //     // $_SESSION['logged'] = $vehicle->getAll();
+    //     require_once('views/layout/sidebarClient.php');
+    //     require_once('views/client/vehicle/DatosVehiculo.php');
+
+    // }
 
     public function ClientWorkOrder(){
         Utils::isAuth();

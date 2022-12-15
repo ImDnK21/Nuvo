@@ -341,7 +341,7 @@ class AdminController {
     {
         Utils::isAdmin();
         $vehicle = new Vehicle();
-        $vehicles = $vehicle->GetAllVehicles();
+        $vehicles = $vehicle->getAll();
         // $vehicles = $vehicle->getByOwner($_GET['owner']);
         
         require_once('views/layout/sidebar.php');
@@ -542,11 +542,22 @@ class AdminController {
 
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewListOrder.php');
-        // require_once('views/admin/order/viewWorkOrder.php');
     }
 
+     public function MostrarOrden(){
+        {
+            Utils::isAdmin();
+            $workorder = new WorkOrder();
+            $workorders = $workorder->getOne();
+            $services = $workorder->getAllServices();
+           
+                require_once('views/layout/sidebar.php');
+                require_once('views/admin/order/mostrarOrden.php');
+            
+        
+        }
+    }
     
-
     public function AddWorkOrder() {
         Utils::isAdmin();
         
@@ -556,7 +567,7 @@ class AdminController {
 
         $clients = $client->getAllClients();
         $mechanics = $client->getAllMechanics();
-        $vehicles = $vehicle->GetAllVehicles();
+        $vehicles = $vehicle->GetAll();
         $services = $service->getAll();
         // echo $services;
         // var_dump($services[0]->ID);

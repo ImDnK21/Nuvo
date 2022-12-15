@@ -4,7 +4,7 @@
     <strong>La patente ingresada ya se encuentra registrada</strong>
     <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>
   </div>
-  <?php unset($_SESSION['saveVehicle']); ?>
+  <?php unset($_SESSION['savePatentVehicle']); ?>
   <?php endif; ?>
 <?php if (isset($_SESSION['saveVehicle']) && isset($_SESSION['saveVehicle_message_type'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['saveVehicle_message_type'] ?> >
