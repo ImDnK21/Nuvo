@@ -108,7 +108,7 @@ class WorkOrder
     return $workorders;
   }
 
-  public function getAllWorkOrdersById($id){
+  public function getAllWorkOrderById(){
     $query = "SELECT w.*,sw.*,u.*,v.*,ft.*,tt.*,vt.*,c.* FROM WORKORDER w 
     INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
     INNER JOIN user u on u.RUT = w.RUT_CLIENT 
@@ -120,12 +120,19 @@ class WorkOrder
     // $id = $this->$id->fetch_object();
     // var_dump($id);
     $allWorkOrdersById = $this->db->query($query);
-    return $allWorkOrdersById;
+    return $allWorkOrdersById->fetch_object();
     
   }
 
   public function getByRut($rut_client){
-    $query = "SELECT * FROM WORKORDER WHERE RUT_CLIENT = '$rut_client'";
+    $query = "SELECT * FROM WORKORDER w 
+    INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
+    INNER JOIN user u on u.RUT = w.RUT_CLIENT 
+    INNER JOIN FUEL_TYPE ft on ft.ID_FUEL = v.ID_FUEL_TYPE 
+    INNER JOIN VEHICLE_TYPE vt on vt.ID_TYPE = v.ID_TYPE_VEHICLE 
+    INNER JOIN STATUS_WO sw on sw.ID_STATUS = w.ID_STATUS 
+    INNER JOIN TRANSMISSION_TYPE tt on tt.ID_TRANSMISSION = v.ID_TRANSMISSION 
+    INNER JOIN COMMUNE c on c.ID_COMMUNE = u.ID_COMMUNE WHERE w.RUT_CLIENT = '$rut_client'";
     $workorders = $this->db->query($query);
     // return $workorder->fetch_object();
     return $workorders;
@@ -139,8 +146,7 @@ class WorkOrder
 }
 
   public function getOne() {
-    $query = "SELECT * FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE 
-    INNER JOIN user u on u.RUT = w.RUT_CLIENT WHERE w.ID = '$this->id'";
+    $query = "SELECT * FROM WORKORDER w INNER JOIN vehicle v on v.PATENT = w.PATENT_VEHICLE INNER JOIN user u on u.RUT = w.RUT_CLIENT WHERE w.ID = '$this->id'";
     $workorder = $this->db->query($query);
     // die($query);
     return $workorder->fetch_object();

@@ -1,5 +1,5 @@
 <?php
-$conectar = new mysqli('localhost', 'root', 'root', 'nuvo-automotive2');
+$conectar = new mysqli('localhost', 'root', '', 'nuvo-automotive2');
 $consulta = $conectar->query("SELECT COUNT(*) AS Ordenes_de_Trabajo FROM workorder where ID_STATUS LIKE '3'");
 $consulta2 = $conectar->query("SELECT COUNT(*) AS Cantidad_de_Vehiculos FROM vehicle");
 $consulta3 = $conectar->query("SELECT COUNT(*) AS Cantidad_Clientes FROM user WHERE ROLE='client'");

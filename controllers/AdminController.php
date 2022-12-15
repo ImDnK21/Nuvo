@@ -534,11 +534,6 @@ class AdminController {
         $workorder = new WorkOrder();
         $workorders = $workorder->getAll();
         $services = $workorder->getAllServices();
-        // $wo = $workorder->getOne();
-        // $services = $workorder->getServices();
-        // $workorder->setId('6');
-        // $dataWO = $workorder->getDataToWO();
-
 
         require_once('views/layout/sidebar.php');
         require_once('views/admin/order/viewListOrder.php');
@@ -548,11 +543,12 @@ class AdminController {
         {
             Utils::isAdmin();
             $workorder = new WorkOrder();
-            $workorders = $workorder->getOne();
+            $workorder->setId($_GET['id']);
+            $wo = $workorder->getAllWorkOrderById();
             $services = $workorder->getAllServices();
            
-                require_once('views/layout/sidebar.php');
-                require_once('views/admin/order/mostrarOrden.php');
+            require_once('views/layout/sidebar.php');
+            require_once('views/admin/order/mostrarOrden.php');
             
         
         }

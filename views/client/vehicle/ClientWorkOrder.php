@@ -18,7 +18,7 @@
             <p style="padding-top:10px;"><b>Fecha y Hora de recepcion: </b></p>
             <p><?= $workorder->CREATED_AT ?></p><br>
             <p><b>Fecha y Hora de entrega: </b></p><br>
-            <hr/ style="width: 180px; margin: auto;">
+            <hr style="width: 180px; margin: auto;">
 
           </div>
         </div>

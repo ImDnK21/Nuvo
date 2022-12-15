@@ -122,6 +122,8 @@ class ClientController{
         $workorder = new WorkOrder();
         $client = new Account();
         $workorders = $workorder->getByRut($_SESSION['logged']->RUT);
+        $services = $workorder->getAllServices();
+
         //if does not exist work order show error
         if ($workorders == NULL) {
             require_once('views/layout/sidebarClient.php');
@@ -130,7 +132,6 @@ class ClientController{
             require_once('views/layout/sidebarClient.php');
             require_once('views/client/vehicle/ClientWorkOrder.php');
         }
-   
     }
 
 

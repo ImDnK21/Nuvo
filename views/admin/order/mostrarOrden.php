@@ -1,13 +1,6 @@
 <div class="container-fluid py-3">
     <div class="row justify-content-center">
-       
-
         <div class="col-12 ">
- 
-            <?php
-            var_dump($workorder); 
-            // var_dump($numberId);
-            ?>
             <div class='invoice'>
                 <div class='header' style="padding-bottom:10px';">
                     <div class='company col-4'>
@@ -18,11 +11,11 @@
                     </div>
                     <div class="company col-4" style="margin:auto;">
                         <h3><b>Orden de trabajo:</b></h3>
-                        <h1 class="order">N°<?= $workorder->ID ?></h1>
+                        <h1 class="order">N°<?= $wo->ID ?></h1>
                     </div>
                     <div class='company-tax col-4 text-center'>
                         <p style="padding-top:10px;"><b>Fecha y Hora de recepcion: </b></p>
-                        <p><?= $workorder->CREATED_AT ?></p><br>
+                        <p><?= $wo->CREATED_AT ?></p><br>
                         <p><b>Fecha y Hora de entrega: </b></p><br>
                         <hr/ style="width: 180px; margin: auto;">
 
@@ -31,27 +24,27 @@
                 <!-- seccion vehicle and client-->
                 <div class='header'>
                     <div class='company col-6' style='text-align:left;'>
-                        <p class='col-10'><b>Rut Cliente: </b><?=$workorder->RUT_CLIENT?></p>
+                        <p class='col-10'><b>Rut Cliente: </b><?=$wo->RUT_CLIENT?></p>
                         <p class='col-10'><b>Nombre Cliente:
-                            </b><?=$workorder->FIRSTNAME . ' ' . $workorder->LASTNAME ?></p>
-                        <p class='col-10'><b>Domicilio:</b> <?=$workorder->ADDRESS?></p>
-                        <p class='col-10'><b>Comuna de residencia:</b> <?=$workorder->NOMBRE ?></p>
-                        <p class='col-10'><b>Correo de contaco: </b> <?= $workorder->EMAIL?> </p>
-                        <p class='col-10'><b>Telefono de contacto: </b> <?= $workorder->PHONE?> </p>
+                            </b><?=$wo->FIRSTNAME . ' ' . $wo->LASTNAME ?></p>
+                        <p class='col-10'><b>Domicilio:</b> <?=$wo->ADDRESS?></p>
+                        <p class='col-10'><b>Comuna de residencia:</b> <?=$wo->NOMBRE ?></p>
+                        <p class='col-10'><b>Correo de contaco: </b> <?= $wo->EMAIL?> </p>
+                        <p class='col-10'><b>Telefono de contacto: </b> <?= $wo->PHONE?> </p>
                     </div>
                     <div class='company-tax col-6 '>
                         <div class="row">
-                            <p class='col-6'><b>Patent:</b> <?=$workorder->PATENT?></p>
-                            <p class='col-6'><b>Marca:</b> <?=$workorder->BRAND?></p>
-                            <p class='col-6'><b>Modelo:</b> <?=$workorder->MODEL?></p>
-                            <p class='col-6'><b>Año:</b> <?=$workorder->YEAR?></p>
-                            <p class='col-6'><b>Combustible:</b> <?=$workorder->FUEL_NAME?></p>
-                            <p class='col-6'><b>Transmision:</b> <?=$workorder->NAME_TRANSMISSION?></p>
+                            <p class='col-6'><b>Patent:</b> <?=$wo->PATENT?></p>
+                            <p class='col-6'><b>Marca:</b> <?=$wo->BRAND?></p>
+                            <p class='col-6'><b>Modelo:</b> <?=$wo->MODEL?></p>
+                            <p class='col-6'><b>Año:</b> <?=$wo->YEAR?></p>
+                            <p class='col-6'><b>Combustible:</b> <?=$wo->FUEL_NAME?></p>
+                            <p class='col-6'><b>Transmision:</b> <?=$wo->NAME_TRANSMISSION?></p>
                             <p class='col-6'><b>Color: </b><input type="color" name="color" class="color"
-                                    style="width: inherit;" value="<?=$workorder->COLOR?>"></p>
-                            <p class='col-6'><b>N° de chasis:</b> <?=$workorder->CHASSIS_NUMBER?></p>
-                            <p class='col-6'><b>Kilometraje:</b> <?=$workorder->MILEAGE?>Km</p>
-                            <p class='col-6'><b>Tipo de vehiculo:</b> <?=$workorder->NAME?></p>
+                                    style="width: inherit;" value="<?=$wo->COLOR?>"></p>
+                            <p class='col-6'><b>N° de chasis:</b> <?=$wo->CHASSIS_NUMBER?></p>
+                            <p class='col-6'><b>Kilometraje:</b> <?=$wo->MILEAGE?>Km</p>
+                            <p class='col-6'><b>Tipo de vehiculo:</b> <?=$wo->NAME?></p>
                         </div>
                     </div>
                 </div>
@@ -60,14 +53,14 @@
                         <h4 class="title-vehicle" style="">Observaciones y
                             requerimientos del cliente</h4>
                         <p class='col-12' style='text-align: justify'><b>
-                                <?= str_replace("-","<br>-" , $workorder->OBSERVATIONS);?>
+                                <?= str_replace("-","<br>-" , $wo->OBSERVATIONS);?>
                         </p></b>
                     </div>
                     <div class='company col-6 '>
                         <h4 class="title-vehicle" style="">Servicios Solicitados</h4>
                         <ol class="service-list" style="text-align: left; ">
                             <?php $total = 0 ;foreach ($services as $service) { ?>
-                            <?php if ($service['ID_WO'] == $workorder->ID) { ?>
+                            <?php if ($service['ID_WO'] == $wo->ID) { ?>
                             <li><b><?= $service['NAME'] . ' $' . $service['PRICE'] ?> </li></b>
                             <?php $total += intval($service['PRICE']) ?>
 
