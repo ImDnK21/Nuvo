@@ -6,7 +6,7 @@
         <div class="card-body">
             <form action="<?= APP_URL . 'admin/saveSupply' ?>" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label for="id_category" class="form-label required">Nombre Categoria</label>
                             <select name="id_category" class="form-select">
@@ -16,21 +16,21 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label for="name" class="form-label required"> <span style="color: red;"> * </span>
                                 Nombre Insumo</label>
                             <input type="text" name="name" value="<?= Utils::old('name') ?>" class="form-control">
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-12">
                         <div class="mb-3">
-                            <label for="description" class="form-label required"> <span style="color: red;"> * </span>
-                                Descripcion</label>
-                            <input type="text" name="description" value="<?= Utils::old('description') ?>" class="form-control">
+                            <label class="form-label" for="description"><b>Observaciones</b></label>
+                            <textarea name="description" class="form-control"
+                                placeholder="Ingrese las descripciones del producto" 
+                                style="height: 150px;"></textarea>
                         </div>
                     </div>
-                    
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
                             <label for="stock" class="form-label required">Stock</label>

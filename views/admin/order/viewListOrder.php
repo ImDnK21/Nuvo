@@ -51,11 +51,12 @@
                         <a type="button" class="btn btn-primary btn-square btn-xs" data-bs-toggle="modal" data-bs-target="#viewWorkOrder<?= $workorder->ID ?>">
                           <i class="fa fa-eye"></i>
                         </a>
+                        <a type="button" class="btn btn-info" href="<?= APP_URL . 'admin/mostrarOrden?id=' . $workorder->ID ?>">
+                          <i class="fa-solid fa-print"></i>
+                        </a>
                         <button type="button" class="btn btn-danger btn-square btn-xs" data-bs-toggle="modal" data-bs-target="#deleteWorkOrder<?= $workorder->ID ?>">
                           <i class="fa fa-trash"></i>
                         </button>
-                        <a type="button" class="btn btn-info" href="<?= APP_URL . 'admin/mostrarOrden?id=' . $workorder->ID ?>">
-                          <i class="fa-solid fa-print"></i></a>
                       </div>
                     </td>
                   </tr>
@@ -98,8 +99,7 @@
                                       <p class='col-10'><b>Rut Cliente: </b><?= $workorder->RUT_CLIENT ?></p>
                                       <p class='col-10'><b>Nombre Cliente:
                                         </b><?= $workorder->FIRSTNAME . ' ' . $workorder->LASTNAME ?></p>
-                                      <p class='col-10'><b>Domicilio:</b> <?= $workorder->ADDRESS ?></p>
-                                      <p class='col-10'><b>Comuna de residencia:</b> <?= $workorder->NOMBRE ?></p>
+                                      <p class='col-10'><b>Domicilio:</b> <?= $workorder->ADDRESS . ' , ' . $workorder->NOMBRE ?></p>
                                       <p class='col-10'><b>Correo de contaco: </b> <?= $workorder->EMAIL ?> </p>
                                       <p class='col-10'><b>Telefono de contacto: </b> <?= $workorder->PHONE ?> </p>
                                     </div>
@@ -149,55 +149,33 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class='header'>
-                                    <div class='company col-6'>
-                                      <div class="form-check">
-                                        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Vehiculo inventariado</label><br>
-
-                                        <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Daños</label>
-                                        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer
-                                          checkbox</label><br>
-
-                                        <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este
-                                          es mi segundo checkbox</label>
-                                        </label>
-
-                                      </div>
-
-                                    </div>
-                                    <div class='company-tax col-6'>
-                                      <div class="img-vehicle center">
-                                        <img src="<?= APP_URL . 'VehicleReport.png' ?>" alt="" width="400" height="200">
-                                      </div>
-                                    </div>
-                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                              Imprimir PDF</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary"> OK</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="modal fade" id="deleteWorkOrder<?= $workorder->ID ?>" tabindex="-1" role="dialog">
-                      <div class="modal-dialog modal-xl">
+                      <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header" style="color: red ;">
-                            <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar este Vehiculo?</h5>
+                            <h5 class=" modal-title fs-6 fw-bold">¿Estás seguro que deseas eliminar esta orden de trabajo?</h5>
                             <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
                           </div>
                           <div class="modal-body text-center">
-                            <b>Patente: <?= $workorder->ID ?></b>
+                            <b>Nº de orden: <?= $workorder->ID ?></b>
                             <br>
-                            <b>Marca: <?= $workorder->PATENT_VEHICLE ?></b>
+                            <b>Patente: <?= $workorder->PATENT_VEHICLE ?></b>
                             <br>
-                            Una vez eliminado, no podrás recuperarlo.
+                            <b>Propietario: <?=$workorder->FIRSTNAME . ' ' . $workorder->LASTNAME?></b>
+                            <br>
+                            <br>
+                            <p>Una vez eliminada la orden de trabajo, no podrás recuperarla.</p>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

@@ -53,10 +53,63 @@
  			</div>
  		</div>
 
+ 		<div class="row justify-content-start">
+ 			<?php while ($supply = $supplies->fetch_object()) : ?>
+ 			<div class="col-md-6 col-lg-4 col-xl-3">
+ 				<div class="disk-border">
+ 					<div class="disk-container">
+ 						<?php if(!empty($supply->IMG)): ?>
+ 						<img src="<?= APP_URL . 'uploads/' . $supply->IMG ?>" class=" " style="width: 300px; height: 300px;">
+ 						<?php else: ?>
+ 						<img src="<?= APP_URL . 'assets\img\grasa-multiproposito.jpg' ?>" alt="Placeholder"
+ 							class="w-100 disk-image">
+ 						<?php endif; ?>
+ 						<div class="text-center p-3">
+ 							<p class="disk-name fw-bold mb-0">Nombre: <?= $supply->NAME ?></p>
+ 							<p class="disk-name fw-bold mb-0">Categoria: <?= $supply->NAME_CATEGORY ?></p>
+ 							<p class="disk-name fw-bold mb-0">Stock: <?= $supply->STOCK ?></p>
+
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<?php endwhile; ?>
+ 		</div>
+
+
+ 		<div class="row">
+ 			<div class="col-md-6 col-lg-4 col-xl-3">
+ 				<?php while ($supply = $supplies->fetch_object()) : ?>
+
+ 				<div class="part-1">
+ 					<ul>
+ 						<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+ 						<li><a href="#"><i class="fas fa-heart"></i></a></li>
+ 						<li><a href="#"><i class="fas fa-plus"></i></a></li>
+ 						<li><a href="#"><i class="fas fa-expand"></i></a></li>
+ 					</ul>
+ 				</div>
+ 				<div class="part-2">
+ 					<h3 class="product-title"></h3>
+ 					<h4 class="proucto-stock"></h4>
+ 				</div>
+ 				<?php endwhile; ?>
+
+ 			</div>
+ 		</div>
+
  		<div class="row">
  			<!-- Single Product -->
+ 			<?php while ($supply = $supplies->fetch_object()) : ?>
+
  			<div class="col-md-6 col-lg-4 col-xl-3">
  				<div id="product-1" class="single-product">
+ 					<?php if(!empty($supply->IMG)): ?>
+ 					<img src="<?= APP_URL . 'uploads/' . $supply->IMG ?>" class="w-100 ">
+ 					<?php else: ?>
+ 					<img src="<?= APP_URL . 'assets\img\grasa-multiproposito.jpg' ?>" alt="Placeholder"
+ 						class="w-100 disk-image">
+ 					<?php endif; ?>
  					<div class="part-1">
  						<ul>
  							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
@@ -71,189 +124,7 @@
  					</div>
  				</div>
  			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-2" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Guantes Cabritilla</h3>
- 						<h4 class="product-stock">Stock: 12 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-3" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Jabon Mecanico Yato 2LTS</h3>
- 						<h4 class="product-stock">Stock: 8 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-4" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Fusibles Tipo Estandar</h3>
- 						<h4 class="product-stock">Stock: 12 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-5" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Agua Dermineralizada 5LTS</h3>
- 						<h4 class="product-stock">Stock: 10 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-6" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Grasa Multiproposito Roja Versacrown 250gr</h3>
- 						<h4 class="product-stock">Stock: 4 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-7" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Liquido de frenos DOT3 500ML</h3>
- 						<h4 class="product-stock">Stock: 14 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<!-- Single Product -->
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-8" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Silicona RTV BLACK 593 80ML</h3>
- 						<h4 class="product-stock">Stock: 6 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-9" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Silicona RTV RED 596 300ML</h3>
- 						<h4 class="product-stock">Stock: 7 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-10" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Contrapesos para llantas de aleacion</h3>
- 						<h4 class="product-stock">Stock: 4 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
- 			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-11" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Carro de Herramientas</h3>
- 						<h4 class="product-stock">Stock: 2 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
-			<div class="col-md-6 col-lg-4 col-xl-3">
- 				<div id="product-12" class="single-product">
- 					<div class="part-1">
- 						<ul>
- 							<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-heart"></i></a></li>
- 							<li><a href="#"><i class="fas fa-plus"></i></a></li>
- 							<li><a href="#"><i class="fas fa-expand"></i></a></li>
- 						</ul>
- 					</div>
- 					<div class="part-2">
- 						<h3 class="product-title">Juego de Llaves Yato Punta Corona</h3>
- 						<h4 class="product-stock">Stock: 3 Unidades</h4>
- 					</div>
- 				</div>
- 			</div>
+ 			<?php endwhile; ?>
  		</div>
  	</div>
  </section>

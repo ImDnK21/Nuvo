@@ -6,7 +6,7 @@
   </div>
   <?php unset($_SESSION['saveRutClient']); ?>
   <?php endif; ?>
-  <?php if (isset($_SESSION['saveMechanic']) && isset($_SESSION['saveMechanic_message_type'])) : ?>
+  <?php if (isset($_SESSION['saveRutClient']) && isset($_SESSION['saveMechanic_message_type'])) : ?>
   <div class="alert alert-success alert-dismissible fade show" role="alert" <?= $_SESSION['saveMechanic_message_type'] ?>>
     <?= $_SESSION['saveMechanic'] ?>
     <button type="button" data-bs-dismiss="alert" aria-label="Cerrar" class="btn-close"></button>

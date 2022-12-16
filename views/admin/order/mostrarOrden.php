@@ -27,8 +27,7 @@
                         <p class='col-10'><b>Rut Cliente: </b><?=$wo->RUT_CLIENT?></p>
                         <p class='col-10'><b>Nombre Cliente:
                             </b><?=$wo->FIRSTNAME . ' ' . $wo->LASTNAME ?></p>
-                        <p class='col-10'><b>Domicilio:</b> <?=$wo->ADDRESS?></p>
-                        <p class='col-10'><b>Comuna de residencia:</b> <?=$wo->NOMBRE ?></p>
+                        <p class='col-10'><b>Domicilio:</b> <?= $wo->ADDRESS . ' - ' . $wo->NOMBRE?></p>
                         <p class='col-10'><b>Correo de contaco: </b> <?= $wo->EMAIL?> </p>
                         <p class='col-10'><b>Telefono de contacto: </b> <?= $wo->PHONE?> </p>
                     </div>
@@ -50,14 +49,14 @@
                 </div>
                 <div class='header'>
                     <div class='company col-6' style='text-align:left; margin-bottom: -20px;'>
-                        <h4 class="title-vehicle" style="">Observaciones y
+                        <h4 class="title-vehicle">Observaciones y
                             requerimientos del cliente</h4>
                         <p class='col-12' style='text-align: justify'><b>
                                 <?= str_replace("-","<br>-" , $wo->OBSERVATIONS);?>
                         </p></b>
                     </div>
                     <div class='company col-6 '>
-                        <h4 class="title-vehicle" style="">Servicios Solicitados</h4>
+                        <h4 class="title-vehicle">Servicios Solicitados</h4>
                         <ol class="service-list" style="text-align: left; ">
                             <?php $total = 0 ;foreach ($services as $service) { ?>
                             <?php if ($service['ID_WO'] == $wo->ID) { ?>
@@ -66,13 +65,13 @@
 
                             <?php } ?>
                             <?php }
-                                      ?>
+                            ?>
                         </ol>
                         <div class="totalCost" style="text-align: right;">
 
                             <b>Valor Total (Sin IVA): </b>
                             <?php 
-                                      echo $total ?><br>
+                                echo $total ?><br>
                             <b>Valor Total (Con IVA): </b>
                             <?php echo $total * 1.19 ?>
                         </div>
@@ -81,29 +80,74 @@
                 <div class='header'>
                     <div class='company col-6'>
                         <div class="form-check">
-                            <label><input type="checkbox" id="cbox1" value="first_checkbox"> Vehiculo
-                                inventariado</label><br>
+                            <div class="row">
+                                <div class="col-md-6" style="text-align: left;">
+                                    <label><input type="checkbox" id="cbox1" value="first_checkbox"> Vehiculo
+                                        inventariado
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label>
+                                        <input type="checkbox" id="cbox1" value="first_checkbox">
+                                        Vehiculo con daños
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label><input type="checkbox" id="cbox1" value="first_checkbox"> Set de seguridad
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label>
+                                        <input type="checkbox" id="cbox1" value="first_checkbox">
+                                        Pisos de goma
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label><input type="checkbox" id="cbox1" value="first_checkbox"> Rueda de repuesto
+                                    </label>
+                                    <br>
+                                </div>
+                                <div class="col-md-6" style="text-align: left;">
+                                    <label><input type="checkbox" id="cbox1" value="first_checkbox"> Extintor
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label>
+                                        <input type="checkbox" id="cbox1" value="first_checkbox">
+                                        Plumillas
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label><input type="checkbox" id="cbox1" value="first_checkbox"> Gata
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label>
+                                        <input type="checkbox" id="cbox1" value="first_checkbox">
+                                        Documentos
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <label><input type="checkbox" id="cbox1" value="first_checkbox"> TAG
+                                    </label>
+                                    <br>
 
-                            <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Daños</label>
-                            <label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer
-                                checkbox</label><br>
-
-                            <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este
-                                es mi segundo checkbox</label>
-                            </label>
-
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                     <div class='company-tax col-6'>
                         <div class="img-vehicle center">
-                            <img src="<?= APP_URL . 'VehicleReport.png' ?>" alt="" width="400" height="200">
+                            <img src="<?= APP_URL . 'VehicleReport.png' ?>" alt="" width="500" height="300">
                         </div>
                     </div>
                 </div>
+                <div class="btn-print" style="margin-top: 10px; text-align: center;">
+                    <button class="btn btn-primary">Imprimir Orden</button>
+                </div>
             </div>
+
         </div>
- 
 
     </div>
 </div>
