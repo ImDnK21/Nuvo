@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-12 col-md-12">
                         <div class="mb-3">
-                            <label class="form-label" for="description"><b>Observaciones</b></label>
+                            <label class="form-label" for="description"><b>Descripcion</b></label>
                             <textarea name="description" class="form-control"
                                 placeholder="Ingrese las descripciones del producto" 
                                 style="height: 150px;"></textarea>

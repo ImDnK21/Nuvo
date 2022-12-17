@@ -12,14 +12,59 @@
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?> -->
 
+<?php
+    $db = mysqli_connect('localhost','root','root','nuvo-automotive2');
+
+    if(isset($_POST["import"])){
+        $fileName = $_FILES["file"]["tmp_name"];
+
+        if($_FILE["file"]["size"] > 0){
+            $file = fopen($fileName, "r");
+            while(($column = fgetcsv($file, 10000, ",")) !== FALSE){
+                $query = "INSERT into SUPPLY (NAME, DESCRIPTION, PRICE, STOCK)
+                values ('".$column[2]."','".$column[3]."','".$column[4]."')";
+                $result = mysqli_query($db, $query);
+
+                if(!empty($result)){
+                    echo "CSV Data Imported into the Database";
+                }else{
+                    echo "Problem in Importing CSV Data";
+                }
+            }
+        }
+    }
+?>
+
+
+
 <div class="container py-3">
     <div class="row">
+    <h2 class="fw-bold mb-3">Lista de Insumos</h2>
+
         <div class="col-12">
             <div class="mb-3">
-                <h2 class="fw-bold mb-3">Lista de Insumos</h2>
                 <a href="<?= APP_URL . 'admin/AddSupply' ?>" class="btn btn-primary mb-3">Agregar Insumo</a>
-                <a href="<?= APP_URL . 'admin/ViewCatalog' ?>" class="btn btn-primary mb-3">Ver Catalogo</a>
+                <a href="<?= APP_URL . 'admin/ViewCatalog' ?>" class="btn btn-secondary mb-3">Ver Catalogo</a>
+                <div class="col-6">
+                    <b><label for="formFile" class="form-label">Importar desde CSV</label></b>
+                    <input class="form-control mb-3" type="file" id="formFile" name="file" accept=".csv">
+                </div>
+            </div>
 
+        </div>
+
+        <div class="col-12">
+            <div class="mb-3">
+                
+                <!-- <b><label for="formFile" class="form-label">Importar desde CSV</label></b> -->
+                <!-- <input class="form-control mb-3" type="file" id="formFile" name="file" accept=".csv"> -->
+
+                <div class="col-6">
+                    <div class="mb-3">
+                        
+                    </div>
+                </div>
+                
                 <div class="clontainer">
                     <div class="col-xs-3">
                         <div class="input-group">
@@ -44,7 +89,7 @@
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
                                     <th>Stock</th>
-                                    <th>Fecha Creacion</th>
+                                    <!-- <th>Fecha Creacion</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,7 +101,7 @@
                                     <td><?= $supply->NAME?></td>
                                     <td><?= $supply->DESCRIPTION ?></td>
                                     <td><?= $supply->STOCK ?></td>
-                                    <td><?= $supply->CREATED_AT ?></td>
+                                    <!-- <td><?= $supply->CREATED_AT ?></td> -->
                                     <td>
                                         <div class="icons">
                                             <a href="<?= APP_URL . 'admin/EditSupply?id=' . $supply->ID_SUPPLY ?>"
@@ -72,8 +117,8 @@
                                     </td>
                                 </tr>
                                 <div class="modal fade"
-                                    id="deleteSupply<?= str_replace(array(".", "-"), "", $supply->ID_SUPPLY) ?>" tabindex="-1"
-                                    aria-hidden="true">
+                                    id="deleteSupply<?= str_replace(array(".", "-"), "", $supply->ID_SUPPLY) ?>"
+                                    tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header" style="color: red;">

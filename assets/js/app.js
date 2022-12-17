@@ -1,5 +1,6 @@
 const select = document.multiselect('#select')
 const servicios = document.getElementById('servicios')
+const inputImport = document.getElementById('inputImport')
 
 window.addEventListener('DOMContentLoaded', event => {
     const sidebarToggle = document.body.querySelector('#sidebarToggle');

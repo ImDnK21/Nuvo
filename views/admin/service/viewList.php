@@ -35,7 +35,7 @@
                   <td><?= $service->ID ?></td>
                   <td><?= $service->NAME?></td>
                   <td><?= $service->DESCRIPTION?></td>
-                  <td><?= $service->PRICE?></td>
+                  <td>$<?= $service->PRICE?></td>
                   <!-- <td><?= $category->CREATED_AT?></td> -->
 
 
