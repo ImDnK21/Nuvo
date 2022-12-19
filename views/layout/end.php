@@ -12,6 +12,11 @@
     <script src="<?= APP_URL . 'assets/js/multiselect.js' ?>"></script>
     <script src="<?= APP_URL . 'assets/js/app.js' ?>"></script>
 
+
+    <script src=""></script>
+
+    <!--CDN html2pdf -->
+
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script>
       $(document).ready(function() {

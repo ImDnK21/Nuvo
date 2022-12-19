@@ -117,6 +117,12 @@ class ClientController{
 
     // }
 
+    public function ViewContactForm(){
+        Utils::isAuth();
+        require_once('views/layout/sidebarClient.php');
+        require_once('views/client/vehicle/formContact.php');
+    }
+
     public function ClientWorkOrder(){
         Utils::isAuth();
         $workorder = new WorkOrder();

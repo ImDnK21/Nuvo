@@ -1,4 +1,31 @@
-<div class="container-fluid py-3">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container-fluid.py-3{
+
+    }
+    @media print{
+      @page{
+
+      
+      size: 210mm 297mm;
+      margin: 5mm 5mm 5mm 5mm;
+      orphans: 0;
+      widows: 0;
+    }
+  }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
+<div class="container-fluid py-3 " >
     <div class="row justify-content-center">
         <div class="col-12 ">
             <div class='invoice'>
@@ -138,12 +165,12 @@
                     </div>
                     <div class='company-tax col-6'>
                         <div class="img-vehicle center">
-                            <img src="<?= APP_URL . 'VehicleReport.png' ?>" alt="" width="500" height="300">
+                            <img src="<?= APP_URL . 'VehicleReport.png' ?>" alt="" width="250" height="250">
                         </div>
                     </div>
                 </div>
                 <div class="btn-print" style="margin-top: 10px; text-align: center;">
-                    <button class="btn btn-primary">Imprimir Orden</button>
+                    <button class="btn btn-primary" onclick="window.print()">Imprimir Orden</button>
                 </div>
             </div>
 

@@ -53,7 +53,6 @@ Class Category{
 
     public function save(){
         $query = "INSERT INTO CATEGORY VALUES (NULL, '{$this->getNameCategory()}')";
-        
         $save = $this->db->query($query);
         $result = false;
         if ($save) {

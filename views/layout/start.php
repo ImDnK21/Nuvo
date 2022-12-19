@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
   <!-- CSS only -->
-
+<link rel="stylesheet" href="printpdf.css">
   <!-- CSS JQUERY -->
   <link rel="stylesheet" href="../node_modules/chosen_v1.8.7/chosen.min.css">
   <!-- CSS JQUERY -->
@@ -19,6 +19,7 @@
 
   <!-- SCRIPT JQUERY -->
 
+  
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/384a6fe07a.js"></script>
@@ -26,7 +27,7 @@
  <!-- HOME css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <!-- HOME CSS-->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- HOME JS-->
   <link rel="stylesheet" href="https://assets.codepen.io/16327/gsap-latest-beta.min.js'">
   <link rel="stylesheet" href="https://assets.codepen.io/16327/Observer.min.js">

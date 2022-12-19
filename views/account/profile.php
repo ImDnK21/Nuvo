@@ -37,6 +37,10 @@
               <label for="phone" class="form-label">Telefono de contacto</label>
               <input type="text"  name="phone" class="form-control" value="<?= $_SESSION['logged']->PHONE?>">
             </div>
+            <!-- <div class="mb-3">
+              <label for="phone" class="form-label">Telefono de contacto</label>
+              <input type="text"  name="phone" class="form-control" value="<?= $_SESSION['logged']->PASSWORD?>">
+            </div> -->
             <button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
         </div>

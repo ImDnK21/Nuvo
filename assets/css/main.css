@@ -12808,13 +12808,32 @@ select {
     border-top: none;
 }
 
-.company col-6 {
-    color: red;
+.company.col-6 {
+    margin: auto;
 }
 
 .img-vehicle.center {
     /* background-color: red; */
     text-align: center;
+}
+
+.dataClient {
+    text-align: left;
+    font-size: 15px;
+}
+
+.h4-client-data {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #D6E4E5;
+    border-radius: 20px;
+}
+
+.nOrder {
+    text-align: center;
+    font-size: 15px;
+    /* border-style: solid; */
 }
 
 

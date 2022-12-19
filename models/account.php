@@ -134,6 +134,7 @@ class Account {
     $_SESSION['saveRutClient'] = 'El rut o el correo no se encuentra registrado';
     // $_SESSION['saveRutMechanic'] = 'El rut o correo ingresado ya se encuentran registrados';
 
+    die($query);
     $save = $this->db->query($query);
     $result = false;
     if ($save) {
